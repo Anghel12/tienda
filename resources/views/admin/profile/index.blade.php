@@ -52,7 +52,7 @@
 
                         </div>
                         <div class="text-end">
-                          <h6 class="mb-2 text-800">Status:</h6>
+                          <h6 class="mb-2 text-800">Role:</h6>
                           @if (Auth::user()->hasRole('Admin'))
                             <span class="badge bg-primary">Administrador</span>
                         @else
@@ -65,6 +65,16 @@
                         <div class="text-end">
                           <h6 class="mb-2 text-800">Total Posts</h6>
                           <h4 class="fs-1 text-1000 mb-0">{{ $user->posts->count() }} </h4>
+                        </div>
+                        <div class="text-end">
+                          <h6 class="mb-2 text-800">activity:</h6>
+
+                          @if ($user->active_status) 
+                          <span class="badge bg-success">En linea</span>
+                         @else 
+                         <span class="badge bg-danger">fuera de linea</span>
+                         @endif
+                          
                         </div>
                       </div>
                     </div>

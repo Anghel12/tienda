@@ -62,6 +62,12 @@
                                 <!-- Aquí se encuentra el botón "Mirar" -->
                                 <a class="btn btn-primary btn-sm" href="{{ route('admin.users.show', $user) }}">Mirar</a>
                             </td>
+
+                            @if ($user->active_status) 
+                            <span class="badge bg-success">En linea</span>
+                           @else 
+                           <span class="badge bg-danger">fuera de linea</span>
+                           @endif
                            {{--  <td with="10px">
                                 <form action="{{ route('admin.users.edit', $user) }}" method="POST">
                                     @csrf

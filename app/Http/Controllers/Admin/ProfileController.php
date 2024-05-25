@@ -37,7 +37,12 @@ class ProfileController extends Controller
             // Obtener las monedas del usuario con el balance
             $user_coins = $user->coins()->withPivot('balance')->orderBy('created_at', 'desc')->get();
             // Tomar solo el último balance
-            $latest_balance = $user_coins->last()->pivot->balance;
+            $latest_balance = 0;
+            // Verificar si hay monedas del usuario
+            if ($user_coins->isNotEmpty()) {
+                // Tomar solo el último balance
+                $latest_balance = $user_coins->last()->pivot->balance;
+            }
         }
     
         // Obtener todos los perfiles

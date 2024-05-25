@@ -38,23 +38,43 @@
             </div><!-- parent pages-->
 
 
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
+            <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.terms.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="bookmark"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">FAQ</span></span></div>
               </a>
-            </div><!-- parent pages-->
+            </div>
 
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
+            <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.about_us_homes.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="book-open"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">AboutUs</span></span></div>
               </a>
-            </div><!-- parent pages-->
+            </div>
 
           </li>
 
 
+          <li class="nav-item">
+            <!-- label-->
+            <p class="navbar-vertical-label">Referidos</p>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.referrals.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="share-2"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">users ref</span></span></div>
+              </a>
+            </div>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.shareds.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Code</span></span></div>
+              </a>
+            </div>
+          </li>
+
+    
 
           {{-- Andim --}}
 
@@ -63,49 +83,67 @@
             <!-- label-->
             <p class="navbar-vertical-label">Admin</p>
 
-        
+
             <hr class="navbar-vertical-line" /><!-- parent pages-->
             <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.coins.index', ) }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="settings"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">{{ $coin->name }} Conf</span></span></div>
+              <a class="nav-link label-1" href="{{ route('admin.users.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Users</span></span></div>
               </a>
             </div><!-- parent pages-->
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
-            <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.funt_wallet.package_coins.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="disc"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Crear Package{{ $coin->name }}</span></span></div>
-              </a>
-            </div><!-- parent pages-->
-
-
 
           </li>
 
+                    {{-- Config Admin --}}
           <li class="nav-item">
-            <!-- label-->
-            <p class="navbar-vertical-label">Referidos</p>
-
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
-            <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.referrals.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="share-2"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">users ref</span></span></div>
+            <!-- parent pages-->
+            <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1 collapsed" href="index.html#nv-admin" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-admin">
+                <div class="d-flex align-items-center">
+                  <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text">Config Admin</span>
+                </div>
               </a>
-            </div><!-- parent pages-->
+              <div class="parent-wrapper label-1">
+                <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse" id="nv-admin">
+                  <li class="collapsed-nav-item-title d-none">Admin</li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.coins.index') }}" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-text">Config Coins</span>
+                        </div>
+                    </a>
+                </li>
+                
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.funt_wallet.package_coins.index') }}" data-bs-toggle="" aria-expanded="false">
+                      <div class="d-flex align-items-center"><span class="nav-link-text">Package Coins</span></div>
+                    </a><!-- more inner pages-->
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.roles.index') }}" data-bs-toggle="" aria-expanded="false">
+                      <div class="d-flex align-items-center"><span class="nav-link-text">Roles</span><span class="badge ms-2 badge badge-phoenix badge-phoenix-info ">New</span></div>
+                    </a><!-- more inner pages-->
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.Blogs.index') }}" data-bs-toggle="" aria-expanded="false">
+                      <div class="d-flex align-items-center"><span class="nav-link-text">Blogs</span></div>
+                    </a><!-- more inner pages-->
+                  </li>
 
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
-            <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.shareds.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Code</span></span></div>
-              </a>
-            </div><!-- parent pages-->
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.Images.index') }}" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-text">Images</span></div>
+                  </a><!-- more inner pages-->
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.Maps.index') }}" data-bs-toggle="" aria-expanded="false">
+                  <div class="d-flex align-items-center"><span class="nav-link-text">Maps</span></div>
+                </a><!-- more inner pages-->
+              </li>
+                </ul>
+              </div>
+            </div>
           </li>
 
-          {{-- Admin --}}
 
           {{-- dashboard --}}
           <li class="nav-item">
             <!-- parent pages-->
-            <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="index.html#nv-home" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="nv-home">
+            <div class="nav-item-wrapper">
+              <a class="nav-link dropdown-indicator label-1 collapsed" href="index.html#nv-home" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-home">
                 <div class="d-flex align-items-center">
                   <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text">Home</span>
                 </div>
@@ -141,7 +179,8 @@
             <!-- label-->
             <p class="navbar-vertical-label">Apps</p>
             <hr class="navbar-vertical-line" /><!-- parent pages-->
-            <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="index.html#nv-e-commerce" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-e-commerce">
+            <div class="nav-item-wrapper">
+              <a class="nav-link dropdown-indicator label-1" href="index.html#nv-e-commerce" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-e-commerce">
                 <div class="d-flex align-items-center">
                   <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon"><span data-feather="shopping-cart"></span></span><span class="nav-link-text">E commerce</span>
                 </div>
