@@ -18,9 +18,9 @@
         <p class="h5"> Nombre:</p>
 
         <h5> Listado de Roles</h5>
-        {!! Form::model($Blogs, ['route' => ['admin.Blogs.update', $Blogs ], 'autocomplete' => 'off', 'method' => 'PUT' ]) !!}
+        {!! Form::model($blogs, ['route' => ['admin.blogs.update', $blogs ], 'autocomplete' => 'off', 'method' => 'PUT' ]) !!}
        
-        @include('admin.Blogs.partials.form')
+        @include('admin.blogs.partials.form')
 
         {!! Form::submit('Crear rol', ['class' => 'btn btn-primary' ]) !!}
 

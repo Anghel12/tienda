@@ -14,7 +14,7 @@ class ReferralController extends Controller
 {   
     public function referral()
     {
-        // Obtener el usuario actual
+        // Obtener el usuario actual 
         $user = auth()->user();
     
         // Si el usuario ya tiene una referencia, usar la existente

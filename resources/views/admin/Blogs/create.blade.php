@@ -13,9 +13,9 @@
         <p class="h5"> Nombre:</p>
 
         <h5> Listado de Roles</h5>
-        {!! Form::open(['route' => 'admin.Blogs.store'] ) !!}
+        {!! Form::open(['route' => 'admin.blogs.store'] ) !!}
         
-        @include('admin.Blogs.partials.form')
+        @include('admin.blogs.partials.form')
 
         {!! Form::submit('Crear rol', ['class' => 'btn btn-primary' ]) !!}
 

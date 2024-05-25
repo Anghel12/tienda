@@ -345,14 +345,6 @@ return [
                     'can'        => 'admin.error405.index',
                 ],
                 [
-                    'text'        => 'Blog',
-                    'url'         => '#',
-                    'route'         => 'admin.Blogs.index',
-                    'icon'        => 'fas fa-chart-line',
-                    'icon_color' => 'pink',
-                    'can'        => 'admin.error405.index',
-                ],
-                [
                     'text'        => 'Proyectos',
                     'url'         => '#',
                     'route'         => 'admin.sales.index',
@@ -895,13 +887,6 @@ return [
         ],
 
         ['header' => 'Blogs'],
-        [
-            'text'        => 'Blogs',
-            'route'         => 'admin.Blogs.index',
-            'icon'        => 'fas fa-pencil-alt fa-fw',
-            'icon_color' => 'green',
-            'label_color' => 'success',
-        ],
 
         [
             'text'        => 'Reseñas',
@@ -1033,21 +1018,6 @@ return [
 
 
         ['header' => 'Ayudas'],
-        [
-            'text'        => 'Imagenes',
-            'route'         => 'admin.Images.index',
-            'icon'        => 'far fa-image',
-            'icon_color' => 'pink',
-            'label_color' => 'success',
-        ],
-       
-        [
-            'text'        => 'Maps',
-            'route'         => 'admin.Maps.index',
-            'icon'        => 'fas fa-map-marker-alt fa-fw',
-            'icon_color' => 'green',
-            'label_color' => 'success',
-        ],
          
         
         [

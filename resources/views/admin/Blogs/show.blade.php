@@ -4,7 +4,7 @@
 
 @section('content_header')
 
-<a class="btn btn-success btn-sm float-right" href=" {{route('admin.Blogs.create')}}" > Nuevo Role</a>
+<a class="btn btn-success btn-sm float-right" href=" {{route('admin.blogs.create')}}" > Nuevo Role</a>
     <h1>ver tu Blog</h1>
 @stop
 
@@ -33,7 +33,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($blogs as $blog)
+   
                         <tr>
                             <td> {{$blog->id }} </td>
                             <td>{{$blog->title }} </td>
@@ -41,16 +41,16 @@
                             <td>{{$blog->updated_at->diffForHumans() }} </td>
                             <td>{{$blog->created_at->diffForHumans() }} </td>
                             <td with="10px">
-                                <a class="btn btn-primary btn-sm" href="{{ route('admin.Blogs.edit', $blog) }}"> EDITAR</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.blogs.edit', $blog) }}"> EDITAR</a>
                  
-                                <form action="{{ route('admin.Blogs.destroy', $blog) }}" method="POST">
+                                <form action="{{ route('admin.blogs.destroy', $blog) }}" method="POST">
                                     @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm" type="submit"> ELIMINAR</button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+    
                 </tbody>
             </table>
         </div>

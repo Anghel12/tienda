@@ -76,6 +76,17 @@
                          @endif
                           
                         </div>
+
+                      </div>
+
+                      <div class="border-top border-dashed border-300 pt-4">
+         
+                        <div class="row flex-between-center">
+                          <div class="col-auto">
+                            <h5 class="text-1000 mb-0">Link de Referido:</h5>
+                          </div>
+                          <div class="col-auto"><a>{{ $referralLink }}</a></div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -115,12 +126,14 @@
                           </div>
                           <div class="col-auto"><a class="lh-1" href="{{ Auth::user()->email }}">{{ Auth::user()->email }}</a></div>
                         </div>
+                       
                         <div class="row flex-between-center">
                           <div class="col-auto">
                             <h5 class="text-1000 mb-0">Phone</h5>
                           </div>
                           <div class="col-auto"><a href="tel:+1234567890">+1234567890</a></div>
                         </div>
+
                       </div>
                     </div>
                   </div>

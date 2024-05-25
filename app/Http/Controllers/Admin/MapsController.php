@@ -15,7 +15,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        return view('admin.Maps.index');
+        return view('admin.maps.index');
     }
 
     /**

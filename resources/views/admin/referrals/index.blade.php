@@ -8,21 +8,16 @@
         <div class="container-small">
           <nav class="mb-2" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
-              <li class="breadcrumb-item"><a href="profile.html#!">Page 1</a></li>
-              <li class="breadcrumb-item"><a href="profile.html#!">Page 2</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Default</li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.profile.index') }}">Page 1</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('admin.profile.index') }}">admin</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Referidos</li>
             </ol>
           </nav>
           <div class="row align-items-center justify-content-between g-3 mb-4">
             <div class="col-auto">
-              <h2 class="mb-0">Profile</h2>
+              <h2 class="mb-0">Referidos</h2>
             </div>
-            <div class="col-auto">
-              <div class="row g-2 g-sm-3">
-                <div class="col-auto"><button class="btn btn-phoenix-danger"><span class="fas fa-trash-alt me-2"></span>Delete customer</button></div>
-                <div class="col-auto"><button class="btn btn-phoenix-secondary"><span class="fas fa-key me-2"></span>Reset password</button></div>
-              </div>
-            </div>
+
           </div>
           <div class="row g-3 mb-6">
             <div class="col-12 col-lg-8">
@@ -34,7 +29,12 @@
                       <div class="col-12 col-sm-auto flex-1">
                         <h3>{{ Auth::user()->name }}</h3>
                         <p class="text-800">Joined 3 months ago</p>
-                        <div><a class="me-2" href="profile.html#!"><span class="fab fa-linkedin-in text-400 hover-primary"></span></a><a class="me-2" href="profile.html#!"><span class="fab fa-facebook text-400 hover-primary"></span></a><a href="profile.html#!"><span class="fab fa-twitter text-400 hover-primary"></span></a></div>
+                        {{-- links de redes --}}
+                        <div><a class="me-2" href="{{ route('admin.profile.index') }}">
+                          <span class="fab fa-linkedin-in text-400 hover-primary"></span></a><a class="me-2" href="profile.html#!">
+                            <span class="fab fa-facebook text-400 hover-primary"></span></a><a href="profile.html#!">
+                              <span class="fab fa-twitter text-400 hover-primary"></span>
+                            </a></div>
                       </div>
                     </div>
                   </div>
@@ -59,10 +59,11 @@
               <div class="card h-100">
                 <div class="card-body">
 
-
+                  <h2 class="p-2 -m-2 text-center">Link de Referidos:</h2>
                       <div class="row list" id="icon-list">
-                        <div class="col-lg-12 "><span class="icon-list-item d-none">far fa-address-book</span>
-                          <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 far fa-address-book"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="far fa-address-book" /></div>
+                    
+                        <div class="col-lg-12 "><span class="icon-list-item d-none">{{ $referralLink }}</span>
+                          <div class="border border-300 rounded-2 p-3 mb-4 text-center bg-white dark__bg-1000 shadow-sm"><span class="text-900 fs-3 fas fa-share"></span><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="{{ $referralLink }}" /></div>
                         </div>
           
              

@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\FavoriteController;
 use App\Http\Controllers\admin\FollowController;
 use App\Http\Controllers\admin\FooterController;
 use App\Http\Controllers\Admin\IconController;
-use App\Http\Controllers\admin\ImagesController;
+use App\Http\Controllers\Admin\ImagesController;
 use App\Http\Controllers\Admin\ImpersonateController;
 use App\Http\Controllers\Admin\MensajesController;
 use App\Http\Controllers\admin\NavbarConfigController;
@@ -184,7 +184,7 @@ Route::get('/icons', [IconController::class, 'index'])->name('admin.icons.index'
 Route::resource('messages', MensajesController::class)->names('admin.messages');
 
 /* Imagnes  */
-Route::resource('Imagenes', ImagesController::class)->names('admin.Images');
+Route::resource('imagenes', ImagesController::class)->names('admin.images');
 
 /* Mensajes */
 Route::get('mensajes', [MensajesController::class, 'listarMensajes'])->name('admin.mensajes.listar');
@@ -247,8 +247,8 @@ Route::resource('Loans', LoansController::class)->names('admin.Loans');
 Route::resource('LoanDetails', LoanDetailsController::class)->names('admin.LoanDetails');
 
 /* Blogs para comunicar a los usuarios    */
-Route::resource('Blogs', BlogsController::class)->names('admin.Blogs');
-Route::resource('BlogMeta', BlogMetaController::class)->names('admin.BlogMeta');
+Route::resource('blogs', BlogsController::class)->names('admin.blogs');
+Route::resource('blogMeta', BlogMetaController::class)->names('admin.BlogMeta');
 
 
 /* HomeContact vista formulario    */
@@ -256,6 +256,6 @@ Route::resource('HomeContact', HomeContactController::class)->names('admin.HomeC
 Route::resource('HomeContactDetails', HomeContactDetailsController::class)->names('admin.HomeContactDetails');
 
 /* HomeContact vista formulario    */
-Route::resource('Maps', MapsController::class)->names('admin.Maps');
+Route::resource('maps', MapsController::class)->names('admin.maps');
 Route::resource('Places', PlacesController::class)->names('admin.Places');
 

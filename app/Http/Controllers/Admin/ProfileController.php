@@ -26,9 +26,16 @@ class ProfileController extends Controller
     }
     public function index()
     {
-        // Obtener el usuario autenticado
-        $user = auth()->user();
+           // Obtener el usuario actual 
+           $user = auth()->user();
     
+           // Si el usuario ya tiene una referencia, usar la existente
+           $referralCode = $user->referral_code;
+   
+           // Obtener el enlace de referencia del usuario actual
+           $referralLink = url('/register?ref=' . $referralCode);
+       
+
         // Verificar si el usuario está autenticado
         if ($user) {
             // Obtener solo los primeros 4 posts del usuario autenticado
@@ -48,7 +55,7 @@ class ProfileController extends Controller
         // Obtener todos los perfiles
         $profiles = Profile::orderBy('created_at', 'desc')->take(8)->get();
     
-        return view('admin.profile.index', compact('profiles', 'user', 'latest_balance'));
+        return view('admin.profile.index', compact('profiles', 'user', 'latest_balance', 'referralLink'));
     }
     
 

@@ -120,16 +120,16 @@
                       <div class="d-flex align-items-center"><span class="nav-link-text">Roles</span><span class="badge ms-2 badge badge-phoenix badge-phoenix-info ">New</span></div>
                     </a><!-- more inner pages-->
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.Blogs.index') }}" data-bs-toggle="" aria-expanded="false">
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.blogs.index') }}" data-bs-toggle="" aria-expanded="false">
                       <div class="d-flex align-items-center"><span class="nav-link-text">Blogs</span></div>
                     </a><!-- more inner pages-->
                   </li>
 
-                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.Images.index') }}" data-bs-toggle="" aria-expanded="false">
+                  <li class="nav-item"><a class="nav-link" href="{{ route('admin.images.index') }}" data-bs-toggle="" aria-expanded="false">
                     <div class="d-flex align-items-center"><span class="nav-link-text">Images</span></div>
                   </a><!-- more inner pages-->
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('admin.Maps.index') }}" data-bs-toggle="" aria-expanded="false">
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.maps.index') }}" data-bs-toggle="" aria-expanded="false">
                   <div class="d-flex align-items-center"><span class="nav-link-text">Maps</span></div>
                 </a><!-- more inner pages-->
               </li>
@@ -361,7 +361,7 @@
                 </ul>
               </div>
             </div><!-- parent pages-->
-            <div class="nav-item-wrapper"><a class="nav-link label-1" href="apps/chat.html" role="button" data-bs-toggle="" aria-expanded="false">
+            <div class="nav-item-wrapper"><a class="nav-link label-1" href="{{ url('chatify') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="message-square"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Chat</span></span></div>
               </a></div><!-- parent pages-->
             <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="index.html#nv-email" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-email">
