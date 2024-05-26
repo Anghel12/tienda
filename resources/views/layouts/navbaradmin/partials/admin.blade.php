@@ -19,28 +19,48 @@
             <p class="navbar-vertical-label">User</p>
             <hr class="navbar-vertical-line" /><!-- parent pages-->
             <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.profile.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+              <a class="nav-link label-1" href="{{ route('admin.profile.show', Auth::user()->id ) }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="users"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Profile</span></span></div>
               </a>
             </div><!-- parent pages-->
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
+            <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.buyCoins.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="disc"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Buy {{ $coin->name }} </span></span></div>
               </a>
-            </div><!-- parent pages-->
+            </div>
 
-            <hr class="navbar-vertical-line" /><!-- parent pages-->
+            <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
-              <a class="nav-link label-1" href="{{ route('admin.profile.show', auth()->user()->id ) }}" role="button" data-bs-toggle="" aria-expanded="false">
+              <a class="nav-link label-1" href="{{ route('admin.wallet.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="credit-card"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">My Wallet</span></span></div>
+              </a>
+            </div>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.verifies.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="star"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Verificado</span></span></div>
+              </a>
+            </div>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.profile.edit', Auth::user()->id ) }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="settings"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Confing</span></span></div>
               </a>
             </div><!-- parent pages-->
 
-
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.terms.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="bookmark"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Terms</span></span></div>
+              </a>
+            </div>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.home_helps.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="bookmark"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">FAQ</span></span></div>
               </a>
             </div>
@@ -98,7 +118,7 @@
             <!-- parent pages-->
             <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1 collapsed" href="index.html#nv-admin" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="nv-admin">
                 <div class="d-flex align-items-center">
-                  <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span class="nav-link-text">Config Admin</span>
+                  <div class="dropdown-indicator-icon"><span class="fas fa-caret-right"></span></div><span class="nav-link-icon"><span data-feather="tool"></span></span><span class="nav-link-text">Config Admin</span>
                 </div>
               </a>
               <div class="parent-wrapper label-1">

@@ -342,7 +342,7 @@
               </div>
               <div class="overflow-auto scrollbar" style="height: 10rem;">
                 <ul class="nav d-flex flex-column mb-2 pb-1">
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.index') }}"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.show', Auth::user()->id ) }}"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
                  
                   @if(auth()->user()->hasRole('Admin'))
                   <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.dashboard.e_commerces.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>

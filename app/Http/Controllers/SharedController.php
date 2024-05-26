@@ -23,7 +23,7 @@ class SharedController extends Controller
     public function index()
     {
         $shareds = Shared::all();
-       return view('admin.Shareds.index', compact('shareds'));
+       return view('admin.shareds.index', compact('shareds'));
     }
 
     /**
@@ -33,7 +33,7 @@ class SharedController extends Controller
      */
     public function create()
     {
-        return view('admin.Shareds.create');
+        return view('admin.shareds.create');
     }
     /**
      * Store a newly created resource in storage.

@@ -64,7 +64,7 @@ class ProfileController extends Controller
 
     public function show($id)
     {
-        $profiles = Profile::orderBy('created_at', 'desc')->take(8)->get();
+        $profile = Profile::orderBy('created_at', 'desc')->take(8)->get();
         $user = User::findOrFail($id);
 
         if ($user) {
@@ -82,7 +82,7 @@ class ProfileController extends Controller
          // Obtener el enlace de referencia del usuario actual
          $referralLink = url('/register?ref=' . $referralCode);
 
-        return view('admin.profile.show', compact('profiles', 'user', 'referralLink', 'referralall'));
+        return view('admin.profile.show', compact('profile', 'user', 'referralLink', 'referralall'));
     
     }
 
@@ -114,9 +114,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $id)
     {
-        //
+        return view('admin.profile.edit');
     }
 
     /**

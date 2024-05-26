@@ -13,7 +13,7 @@
       <ul class="list-group">
         <li class="nav-item list-group-item border-0 p-0">
           <a class="dropdown-item py-2 ps-3 border-radius-md"
-            href="{{ route('admin.profile.index') }}">
+            href="{{ route('admin.profile.show', Auth::user()->id ) }}">
             <div class="d-flex">
               <div class="icon h-10 me-3 d-flex mt-1">
                 <svg class="text-secondary" width="16px" height="16px" viewBox="0 0 40 40" version="1.1"
@@ -55,7 +55,7 @@
         </li>
         <li class="nav-item list-group-item border-0 p-0">
           <a class="dropdown-item py-2 ps-3 border-radius-md"
-            href="{{ route('admin.histories.index') }} ">
+            href="{{ route('admin.profile.edit', Auth::user()->id ) }}">
             <div class="d-flex">
               <div class="icon h-10 me-3 d-flex mt-1">
                 <svg class="text-secondary" width="16px" height="16px" viewBox="0 0 40 44" version="1.1"
@@ -89,7 +89,7 @@
         </li>
         <li class="nav-item list-group-item border-0 p-0">
           <a class="dropdown-item py-2 ps-3 border-radius-md"
-            href=" {{ route('admin.PaymentMethods.index') }}">
+            href=" {{ route('admin.buyCoins.index') }}">
             <div class="d-flex">
               <div class="icon h-10 me-3 d-flex mt-1">
                 <svg class="text-secondary" width="16px" height="16px" viewBox="0 0 42 42" version="1.1"
@@ -118,7 +118,7 @@
               <div>
                 <h6
                   class="dropdown-header text-dark font-weight-bolder d-flex justify-content-cente align-items-center p-0">
-                  Address</h6>
+                  Buy {{ $coin->name }} coins</h6>
                 <span class="text-sm"></span>
               </div>
             </div>

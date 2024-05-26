@@ -70,7 +70,7 @@ use App\Http\Controllers\Admin\Home\AboutController;
 use App\Http\Controllers\Admin\Home\MembershipController;
 use App\Http\Controllers\Admin\Home\PackageController;
 use App\Http\Controllers\Admin\Home\ServiceController;
-
+use App\Http\Controllers\Admin\User\VerifyController;
 
 /* coins */
 Route::resource('coins', CoinConfigController::class)->names('admin.coins');
@@ -87,6 +87,7 @@ Route::resource('packages', PackageController::class)->names('admin.home.package
 Route::resource('about', AboutController::class)->names('admin.home.abouts');
 Route::resource('memberships', MembershipController::class)->names('admin.home.memberships');
 
+Route::resource('verifies', VerifyController::class)->names('admin.verifies');
 Route::resource('subscription', MembershipController::class)->names('admin.home.subscription');
 
 /* Dashboard */
