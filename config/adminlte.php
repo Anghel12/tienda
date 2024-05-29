@@ -610,14 +610,6 @@ return [
                 ],
              
                 [
-                    'text'        => 'Icons',
-                    'route'         => 'admin.icons.index',
-                    'icon'        => 'fas fa-icons',
-                    'icon_color' => 'gray',
-                    'label_color' => 'success',
-                    'can'        => 'admin.icons.index',
-                ],
-                [
                     'text'        => 'Database',
                     'route'         => 'admin.database.index',
                     'icon'        => 'fas fa-database',
@@ -735,32 +727,6 @@ return [
         
         ],
 
-        [
-            'text'    => 'Messages',
-            'icon'    => 'fas fa-fw fa-envelope',
-            'icon_color' => 'info',
-            'can'        => 'admin.adminTituloMessages.index',
-            'submenu' => [
-                [
-                    'text' => 'Enviar',
-                    'route'         => 'admin.messages.index',
-                    'icon'    => 'fas fa-fw fa-share',
-                    'icon_color' => 'dark',
-                    'can'        => 'admin.messages.index',
-                ],
-
-                [
-                    'text' => 'crear mensaje',                
-                    'route'         => 'admin.messages.create',
-                    'icon'    => 'fas fa-fw fa-share',
-                    'icon_color' => 'dark', 
-                    'can'        => 'admin.messages.create',
-                ],
-            ],
-        ],
-
-        
-    
 
         [
             'text'    => 'Inventario',
@@ -938,22 +904,6 @@ return [
                     'label_color' => 'success',
                 ],
 
-                [
-                    'text'        => 'Cartera',
-                    'route'         => 'admin.wallet.index',
-                    'icon'        => 'fas fa-fw fa-user',
-                    'icon_color' => 'green',
-                    'label'       => 4,
-                    'label_color' => 'success',
-                ],
-                [
-                    'text'        => 'Referidos',
-                    'route'         => 'admin.referrals.index',
-                    'icon'        => 'fas fa-user-friends',
-                    'icon_color' => 'secondary',
-                    'label'       => 1,
-                    'label_color' => 'success',
-                ],
         
                 [ 
                     'text'        => 'transactions',

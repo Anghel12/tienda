@@ -2,6 +2,12 @@
     @livewire('admin.users-index') --}}
 
     <x-guest-layout>
+
+
+
+
+
+      
         <div class="content">
             <nav class="mb-2" aria-label="breadcrumb">
               <ol class="breadcrumb mb-0">
@@ -29,25 +35,26 @@
                     <thead>
                       <tr>
                         <th class="white-space-nowrap fs--1 align-middle ps-0">
-                          <div class="form-check mb-0 fs-0"><input class="form-check-input" id="checkbox-bulk-members-select" type="checkbox" data-bulk-select='{"body":"members-table-body"}' /></div>
+                          <div class="form-check mb-0 fs-0">
+                            <input class="form-check-input" id="checkbox-bulk-members-select" type="checkbox" data-bulk-select='{"body":"members-table-body"}' /></div>
                         </th>
+                        <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:200px;">ID</th>
                         <th class="sort align-middle" scope="col" data-sort="customer" style="width:15%; min-width:200px;">Name</th>
    
                         <th class="sort align-middle pe-3" scope="col" data-sort="mobile_number" style="width:20%; min-width:200px;">Asignados</th>
 
-                    {{--     <th class="sort align-middle text-end pe-0" scope="col" data-sort="joined" style="width:19%;  min-width:200px;">JOINED</th> --}}
                     <th class="sort align-middle text-end pe-0" scope="col" data-sort="joined" style="width:19%;  min-width:200px;">Cracion</th>
                     <th class="sort align-middle text-end pe-0" scope="col" data-sort="joined" style="width:19%;  min-width:200px;">Actions</th>
                       </tr>
                     </thead>
                     <tbody class="list" id="members-table-body">
-                @foreach ($roles as $role)
+                     @foreach ($roles as $role)
              
                       <tr class="hover-actions-trigger btn-reveal-trigger position-static">
                         <td class="fs--1 align-middle ps-0 py-3">
                           <div class="form-check mb-0 fs-0"><input class="form-check-input" type="checkbox" data-bulk-select-row='{"customer":{"avatar":"/team/32.webp","name":"Carry Anna"},"email":"annac34@gmail.com","mobile":"+912346578","city":"Budapest","lastActive":"34 min ago","joined":"Dec 12, 12:56 PM"}' /></div>
                         </td>
-
+                        <td> {{$role->id }} </td>
                         <td class="customer align-middle white-space-nowrap">
                             @if ( $role->name == 'Admin')
                             <span class="badge bg-primary">Administrador</span>
@@ -63,6 +70,22 @@
 
 
                         <td class="joined align-middle white-space-nowrap text-700 text-end">{{$role->created_at->diffForHumans() }}</td>
+
+                        <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
+                          <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="{{ route('admin.roles.show', $role->id ) }}">View</a><a class="dropdown-item" href="{{ route('admin.roles.edit', $role->id  ) }}">EDIT</a>
+                              <div class="dropdown-divider"></div>
+                              <form action="{{ route('admin.roles.destroy', $role->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                         
+                                <button type="submit" class="dropdown-item text-danger">Remove</button>
+                            </form> -
+                            
+                              </a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
     
@@ -79,22 +102,12 @@
                 </div>
               </div>
             </div>
-            <footer class="footer position-absolute">
-              <div class="row g-0 justify-content-between align-items-center h-100">
-                <div class="col-12 col-sm-auto text-center">
-                  <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com">Themewagon</a></p>
-                </div>
-                <div class="col-12 col-sm-auto text-center">
-                  <p class="mb-0 text-600">v1.13.0</p>
-                </div>
-              </div>
-            </footer>
+
           </div>
             </x-guest-layout>
 
 
-<x-guest-layout>
-    <div class="card">
+{{--     <div class="card">
         <div class="card-body">
             
             <table id="myTable" class="table table-striped">
@@ -132,5 +145,4 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</x-guest-layout>
+    </div> --}}

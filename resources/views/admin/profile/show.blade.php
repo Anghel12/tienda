@@ -28,7 +28,7 @@
                 <div class="card-body">
                   <div class="border-bottom border-dashed border-300 pb-4">
                     <div class="row align-items-center g-3 g-sm-5 text-center text-sm-start">
-                      <div class="col-12 col-sm-auto"><input class="d-none" id="avatarFile" type="file" /><label class="cursor-pointer avatar avatar-5xl" for="avatarFile"><img class="rounded-circle" src="{{ Auth::user()->profile_photo_url }}" alt="" /></label></div>
+                      <div class="col-12 col-sm-auto"><input class="d-none" id="avatarFile" type="file" /><label class="cursor-pointer avatar avatar-5xl" for="avatarFile"><img class="rounded-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" /></label></div>
                       <div class="col-12 col-sm-auto flex-1">
                         <h3>{{ Auth::user()->name }}</h3>
                         <p class="text-800">{{ Auth::user()->created_at }}</p>

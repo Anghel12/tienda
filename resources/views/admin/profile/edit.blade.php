@@ -7,13 +7,13 @@
                 <div class="card-header hover-actions-trigger position-relative mb-6" style="min-height: 130px; ">
                   <div class="bg-holder rounded-top" style="background-image: linear-gradient(0deg, #000000 -3%, rgba(0, 0, 0, 0) 83%), url(../../assets/img/generic/59.png)"><input class="d-none" id="upload-settings-cover-image" type="file" /><label class="cover-image-file-input" for="upload-settings-cover-image"></label>
                     <div class="hover-actions end-0 bottom-0 pe-1 pb-2 text-white"><span class="fa-solid fa-camera me-2"></span></div>
-                  </div><input class="d-none" id="upload-settings-porfile-picture" type="file" /><label class="avatar avatar-4xl status-online feed-avatar-profile cursor-pointer" for="upload-settings-porfile-picture"><img class="rounded-circle img-thumbnail bg-white shadow-sm" src="https://prium.github.io/phoenix/v1.13.0/assets/img/team/20.webp" width="200" alt="" /></label>
+                  </div><input class="d-none" id="upload-settings-porfile-picture" type="file" /><label class="avatar avatar-4xl status-online feed-avatar-profile cursor-pointer" for="upload-settings-porfile-picture"><img class="rounded-circle img-thumbnail bg-white shadow-sm" src="{{ Auth::user()->profile_photo_url }}" width="200" alt="{{ Auth::user()->name }}" /></label>
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-12">
                       <div class="d-flex flex-wrap mb-2 align-items-center">
-                        <h3 class="me-2">Ansolo Lazinatov</h3><span class="fw-normal fs-0">u/hansolo</span>
+                        <h3 class="me-2">{{ Auth::user()->name }}</h3><span class="fw-normal fs-0">u/{{ Auth::user()->name }}</span>
                       </div>
                       <div class="d-flex d-xl-block d-xxl-flex align-items-center">
                         <div class="d-flex mb-xl-2 mb-xxl-0"><span class="fa-solid fa-user-group fs--2 me-2 me-lg-1 me-xl-2"></span>

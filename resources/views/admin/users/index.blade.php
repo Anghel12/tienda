@@ -80,7 +80,21 @@
                          @endif
                         </td>
 
-                        <td class="joined align-middle white-space-nowrap text-700 text-end">Dec 12, 12:56 PM</td>
+                        <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
+                          <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
+                            <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="{{ route('admin.users.show', $user->id ) }}">View</a><a class="dropdown-item" href="{{ route('admin.users.edit', $user->id  ) }}">EDIT</a>
+                              <div class="dropdown-divider"></div>
+                    {{--           <form action="{{ route('admin.users.destroy', $coin->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                         
+                                <button type="submit" class="dropdown-item text-danger">Remove</button>
+                            </form> --}}
+                            
+                              </a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
     
@@ -97,15 +111,5 @@
                 </div>
               </div>
             </div>
-            <footer class="footer position-absolute">
-              <div class="row g-0 justify-content-between align-items-center h-100">
-                <div class="col-12 col-sm-auto text-center">
-                  <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span class="d-none d-sm-inline-block"></span><span class="d-none d-sm-inline-block mx-1">|</span><br class="d-sm-none" />2023 &copy;<a class="mx-1" href="https://themewagon.com">Themewagon</a></p>
-                </div>
-                <div class="col-12 col-sm-auto text-center">
-                  <p class="mb-0 text-600">v1.13.0</p>
-                </div>
-              </div>
-            </footer>
           </div>
             </x-guest-layout>

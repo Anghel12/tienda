@@ -30,6 +30,14 @@
               </a>
             </div>
 
+            
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.orders.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="shopping-bag"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Orders</span></span></div>
+              </a>
+            </div>
+
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.wallet.index') }}" role="button" data-bs-toggle="" aria-expanded="false">

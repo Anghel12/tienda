@@ -1,13 +1,46 @@
-@extends('adminlte::page')
 
-@section('title', 'Dashboard')
+<x-guest-layout>
 
-@section('content_header')
-    <h1>Asignar rol</h1>
-@stop
+    <div class="content">
+        <nav class="mb-2" aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ route('admin.coins.index') }}">Admin</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.coins.index') }}">User</a></li>
+            <li class="breadcrumb-item active">Usuario: {{$user->name}} </li>
+          </ol>
+        </nav>
 
-@section('content')
-@if (session('info'))
+            <div class="mb-6">
+                <h4 class="mb-4">Usuario: {{$user->name}}</h4>
+                <div class="row g-3">
+
+
+                    <div class="col-12 col-sm-6">
+                        <h5> Listado de Roles</h5>
+                        {!! Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put' ]) !!}
+                
+                        @foreach ($roles as $role)
+                
+                        <div>
+                            <label for="">
+                                {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
+                                {{$role->name}}
+                            </label>
+                        </div>
+                            
+                        @endforeach
+                
+                        {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary' ]) !!}
+                
+                        {!! Form::close() !!}
+                    </div>
+
+                </div>
+            </div>
+
+    </div>
+
+@if (session('info')) 
 <div class="alert alert-success">
      <strong> {{session('info')}} </strong>
 </div>
@@ -37,12 +70,4 @@
         {!! Form::close() !!}
     </div>
    </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+</x-guest-layout>

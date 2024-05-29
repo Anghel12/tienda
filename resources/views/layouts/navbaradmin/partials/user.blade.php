@@ -33,6 +33,13 @@
 
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.orders.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="shopping-bag"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Orders</span></span></div>
+              </a>
+            </div>
+
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.wallet.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="credit-card"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">My Wallet</span></span></div>
               </a>
@@ -44,14 +51,23 @@
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="star"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Verificado</span></span></div>
               </a>
             </div>
-
+            
+            <p class="navbar-vertical-label">Historial</p>
+            
+            <hr class="navbar-vertical-line" />
+            <div class="nav-item-wrapper">
+              <a class="nav-link label-1" href="{{ route('admin.transactions.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="star"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Transacciones</span></span></div>
+              </a>
+            </div>
+            <p class="navbar-vertical-label">Config</p>
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.profile.edit', Auth::user()->id ) }}" role="button" data-bs-toggle="" aria-expanded="false">
                 <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="settings"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Confing</span></span></div>
               </a>
             </div><!-- parent pages-->
-
+            <p class="navbar-vertical-label">Nosotros</p>
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.terms.index') }}" role="button" data-bs-toggle="" aria-expanded="false">

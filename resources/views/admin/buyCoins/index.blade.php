@@ -67,25 +67,10 @@
                           </form>
                         </div>
                         <div class="tab-pane" role="tabpanel" aria-labelledby="bootstrap-wizard-validation-tab3" id="bootstrap-wizard-validation-tab3">
-                          <form class="mb-2 needs-validation" id="wizardValidationForm3" novalidate="novalidate" data-wizard-form="3">
-                            <button class="btn btn-soft-info me-1 mb-1" type="button">Pagar con Skrill</button>
-                          </form>
 
-                          <form class="mb-2 needs-validation" id="wizardValidationForm3" novalidate="novalidate" data-wizard-form="3">
-                          <button class="btn btn-soft-success" type="button">Pagar con Binance</button>
-                          </form>
+                          
+                          @include('admin.buyCoins.partials.modal')
 
-                          <form class="mb-2 needs-validation" id="wizardValidationForm3" novalidate="novalidate" data-wizard-form="3">
-                            <button class="btn btn-soft-warning " type="button">Pagar con Paypal</button>
-                            </form>
-
-                            <form class="mb-2 needs-validation" id="wizardValidationForm3" novalidate="novalidate" data-wizard-form="3">
-                              <button class="btn btn-soft-secondary " type="button">Pagar con Yape</button>
-                              </form>
-
-                              <form class="mb-2 needs-validation" id="wizardValidationForm3" novalidate="novalidate" data-wizard-form="3">
-                                <button class="btn btn-soft-info" type="button">Pagar con izipay</button>
-                                </form>
                           
                         </div>
                         <div class="tab-pane" role="tabpanel" aria-labelledby="bootstrap-wizard-validation-tab4" id="bootstrap-wizard-validation-tab4">

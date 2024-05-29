@@ -19,9 +19,6 @@
             <div class="p-4 code-to-copy">
 
 
-
-
-        
               <div class="card theme-wizard mb-5" data-theme-wizard="data-theme-wizard">
                 <div class="card-header bg-100 pt-3 pb-2 border-bottom-0">
                   <ul class="nav justify-content-between nav-wizard" role="tablist">

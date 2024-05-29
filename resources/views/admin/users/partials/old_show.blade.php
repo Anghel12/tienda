@@ -1,48 +1,38 @@
 
-<x-guest-layout>
 
-    <div class="content">
-        <nav class="mb-2" aria-label="breadcrumb">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="{{ route('admin.coins.index') }}">Admin</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.coins.index') }}">User</a></li>
-            <li class="breadcrumb-item active">Usuario: {{$user->name}} </li>
-          </ol>
-        </nav>
+@section('content_header')
+    <h1>ESTAS VIENDO AL USUARIO NOMBRE: {{ $user->name }}</h1>
+@stop
 
-            <div class="mb-6">
-                <h4 class="mb-4">EDITAR ROL:</h4>
-                <div class="row g-3">
-                    <div class="col-12 col-sm-6">
-                        <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}" role="button">EDITAR</a>
-                    </div>
+@section('content')
+ {{-- ACCION  --}}
+<div class="container text-center">
+    <div class="row">    
+            <div class="card col-sm-3 m-2 p-2">
+                <label for="name" class="">EDITAR ROL:</label>
+
+                <div class="card-footer">
+                    <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}" role="button">EDITAR</a>
                 </div>
             </div>
+            <div class="card col-sm-3 m-2 p-2">
+                <label for="name" class="">LOGIN CON ESTE USER:</label>
 
-            <div class="mb-6">
-                <h4 class="mb-4">LOGIN CON ESTE USER:</h4>
-                <div class="row g-3">
-                    <div class="col-12 col-sm-6">
-                        <form action=" {{ route('impersonate.start', compact('user')) }} " method="post" style="display: none" id="forImpersonate">
-                            @csrf
-                              
-                            </form>
-                            <a class="btn btn-success" href="#" onclick="document.getElementById('forImpersonate').submit() ">LOGIN CON ESTE USER</a>
-                        
-                    </div>
+                <div class="card-footer">
+                    <form action=" {{ route('impersonate.start', compact('user')) }} " method="post" style="display: none" id="forImpersonate">
+                    @csrf
+                      
+                    </form>
+                    <a class="btn btn-dark" href="#" onclick="document.getElementById('forImpersonate').submit() ">LOGIN CON ESTE USER</a>
                 </div>
             </div>
+            <div class="card col-sm-3 m-2 p-2">
+                <label for="name" class="">BAN:</label>
 
-            
-            <div class="mb-6">
-                <h4 class="mb-4">Ban:</h4>
-                <div class="row g-3">
-                    <div class="col-12 col-sm-6">
-                        <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}" role="button">Banear</a>
-                    </div>
+                <div class="card-footer">
+                    <a class="btn btn-danger" href="#" role="button">BANEAR</a>
                 </div>
             </div>
-
             <div class="card col-sm-2 m-2 p-2">
                 <label for="name" class="">ROL:</label>
 
@@ -56,8 +46,9 @@
                     @endif
                 </div>
             </div>
-
-                {{-- DETALLES DEL USUARIO  --}}
+    </div>
+</div>
+    {{-- DETALLES DEL USUARIO  --}}
 <div class="card text-center">
     <div class="card-header">
         <h2 class="text-center">Detalles del usuario</h2>
@@ -178,6 +169,32 @@
 
             </div>
         </div>  
+@stop
 
-    </div>
-</x-guest-layout>
+@section('css')
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/css/admin_custom.css"> 
+@stop
+
+@section('js')
+
+    <script> console.log('Hi!'); </script>
+   {{--  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> --}}
+  
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+
+
+    $('#myTable').DataTable({
+        responsive: true,
+        autoWitdth: false
+    });
+
+        </script>
+@stop
