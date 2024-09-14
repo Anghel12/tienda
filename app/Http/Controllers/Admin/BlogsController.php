@@ -19,22 +19,12 @@ class BlogsController extends Controller
         return view('admin.blogs.index', compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('admin.blogs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -47,12 +37,7 @@ class BlogsController extends Controller
         return redirect()->route('admin.blogs.index')->with('success', 'El blog ha sido creado correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Blogs $blog)
     {
         return view('admin.blogs.show', compact('blog'));

@@ -8,12 +8,13 @@
 
             @if($content)
 
-            <h4 class="text-gradient text-primary fadeIn1 fadeInBottom">{{$content->title}}</h4>
-            <h1 class="text-white fadeIn2 fadeInBottom">{{$content->subtitle}}</h1>
+            <h4 class="text-white text-primary fadeIn1 fadeInBottom">{{$content->subtitle}}</h4>
+            <h1 class="text-gradient text-primary fadeIn2 fadeInBottom">{{$content->title}}</h1>
             <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-5">{{$content->body}}</p>
-            <button type="submit" class="btn bg-white btn-rounded me-2 fadeIn1 fadeInBottom">Registrarse ahora</button>
-            <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
-    
+            <h4> <a href="{{ url('/register') }}" type="submit" class="btn btn-outline-primary btn-rounded me-5 fadeIn1 fadeInBottom">Registrarse ahora</a></h4>
+           
+          {{--   <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
+     --}}
             @auth
             @if(auth()->user()->hasRole('Admin'))
             <a href="{{ route('admin.content.edit', $content) }}" class="btn bg-success btn-rounded me-2 fadeIn1 fadeInBottom">Editar</a>
@@ -23,10 +24,11 @@
            
 
             @else
-            <h4 class="text-gradient text-primary fadeIn1 fadeInBottom">BIENVENIDOS A TERRA BANK UNIVERSAL </h4>
-            <h1 class="text-white fadeIn2 fadeInBottom">Primer fondo de alta rentabilidad.</h1>
+            <h4 class="text-white text-primary fadeIn1 fadeInBottom">Primer fondo de alta rentabilidad.</h4>
+            <h1 class="text-white fadeIn2 fadeInBottom">BIENVENIDOS A TERRA BANK UNIVERSAL</h1>
             <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-5">{{$slider->body}}</p>
-            <button type="submit" class="btn bg-white btn-rounded me-2 fadeIn1 fadeInBottom">Registrarse ahora</button>
+
+            <a href="{{ url('/register') }}" type="submit" class="btn bg-primary btn-rounded me-2 fadeIn1 fadeInBottom">Registrarse ahora</a>
             <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
             @endif
 

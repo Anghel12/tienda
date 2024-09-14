@@ -30,10 +30,8 @@ class ImagesController extends Controller
         // Mover el archivo de imagen a la ubicación deseada (por ejemplo, la carpeta "public/posts")
         $path = $imageFile->store('posts', 'public');
 
-        // Verificar el contenido de $path
         dd($path);
 
-        // ...
     }
     
 

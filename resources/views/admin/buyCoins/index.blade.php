@@ -7,7 +7,7 @@
       </ol>
     </nav>
     <div class="pb-9">
-      <h2 class="mb-7">Recargar coins de {{ $coin->name  }} </h2>
+      <h2 class="mb-7">Recargar Dollares, Euros, Criptomonedas, Terras u Otras Monedas</h2>
       <div class="row">
         <div class="col-xl-12 mb-1">
           <div class="tabs mb-7">

@@ -73,19 +73,20 @@
                         <div class="form-check mb-0 fs-0"><input class="form-check-input" id="checkbox-bulk-products-select" type="checkbox" data-bulk-select='{"body":"products-table-body"}' /></div>
                       </th>
                       <th class="sort white-space-nowrap align-middle fs--2" scope="col" style="width:70px;"></th>
-                      <th class="sort white-space-nowrap align-middle ps-4" scope="col" style="width:350px;" data-sort="product">COIN NAME</th>
-                      <th class="sort align-middle text-end ps-4" scope="col" data-sort="price" style="width:150px;">SYMBOL</th>
-                      <th class="sort align-middle ps-4" scope="col" data-sort="category" style="width:150px;">RATE</th>
+                      <th class="sort white-space-nowrap align-middle ps-4" scope="col"  data-sort="IMAGE">IMAGE</th>
+                      <th class="sort white-space-nowrap align-middle ps-4" scope="col"  data-sort="COIN">COIN NAME</th>
+                      <th class="sort align-middle text-end ps-4" scope="col" data-sort="SYMBOL" style="width:150px;">SYMBOL</th>
+                      <th class="sort align-middle ps-4" scope="col" data-sort="RATE" style="width:150px;">exchange_rate</th>
 
-                      <th class="sort align-middle ps-4" scope="col" data-sort="time" style="width:50px;">PUBLISHED ON</th>
-                      <th class="sort text-end align-middle pe-0 ps-4" scope="col"></th>
+                      <th class="sort align-middle ps-4" scope="col" data-sort="time" style="width:50px;">CREACION</th>
+                      <th class="sort text-end align-middle pe-0 ps-4" scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody class="list" id="products-table-body">
                                  @foreach ($coins as $coin)
                     <tr class="position-static">
                       <td class="fs--1 align-middle">
-                        <div class="form-check mb-0 fs-0"><input class="form-check-input" type="checkbox" data-bulk-select-row='{"product":"Fitbit Sense Advanced Smartwatch with Tools for Heart Health, Stress Management & Skin Temperature Trends, Carbon/Graphite, One Size (S & L Bands...","productImage":"/products/1.png","price":"$39","category":"Plants","tags":["Health","Exercise","Discipline","Lifestyle","Fitness"],"star":false,"vendor":"Blue Olive Plant sellers. Inc","publishedOn":"Nov 12, 10:45 PM"}' /></div>
+                        <div class="form-check mb-0 fs-0"><input class="form-check-input" type="checkbox"/></div>
                       </td>
                       <td class="align-middle white-space-nowrap py-0"><a class="d-block border rounded-2" href="../landing/product-details.html"><img src="https://prium.github.io/phoenix/v1.13.0/assets/img//products/1.png" alt="" width="53" /></a></td>
                       <td class="product align-middle ps-4"><a class="fw-semi-bold line-clamp-3 mb-0" href="../landing/product-details.html"> {{ $coin->name }} </a></td>

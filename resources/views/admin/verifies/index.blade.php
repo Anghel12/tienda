@@ -1,7 +1,16 @@
 <x-guest-layout>
   <div class="content">
-    <h2 class="mb-2 lh-sm">Wizard form</h2>
-    <p class="text-700 lead mb-2">A form UI to enable users to achieve a goal through a series of steps.</p>
+
+    <nav class="mb-2" aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="deal-details.html#!">Admin</a></li>
+        <li class="breadcrumb-item"><a href="deal-details.html#!">Verificar</a></li>
+        <li class="breadcrumb-item active">Verificar</li>
+      </ol>
+    </nav>
+
+    <h2 class="mb-2 lh-sm">Verificar Mi Cuenta</h2>
+    <p class="text-700 lead mb-2">Para mejorar la experiencia del usuario y tener mas seguridad</p>
     <div class="row mb-9">
       <div class="col-12 col-xxl-6">
         <div class="card shadow-none border border-300 my-4" data-component-card="data-component-card">

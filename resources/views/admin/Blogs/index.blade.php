@@ -94,11 +94,11 @@
                       <td class="price align-middle white-space-nowrap text-end fw-bold text-700 ps-4">{{$blog->body }}</td>
                       <td class="category align-middle white-space-nowrap text-600 fs--1 ps-4 fw-semi-bold">{{$blog->created_at->diffForHumans() }}</td>
 
-{{--                       <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
+                    <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
                         <div class="font-sans-serif btn-reveal-trigger position-static"><button class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2"></span></button>
-                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="{{ route('admin.coins.show', $coin->id ) }}">View</a><a class="dropdown-item" href="{{ route('admin.coins.edit', $coin->id  ) }}">EDIT</a>
+                          <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="{{ route('admin.blogs.show', $blog->id ) }}">View</a><a class="dropdown-item" href="{{ route('admin.blogs.edit', $blog->id  ) }}">EDIT</a>
                             <div class="dropdown-divider"></div>
-                            <form action="{{ route('admin.coins.destroy', $coin->id) }}" method="post">
+                            <form action="{{ route('admin.blogs.destroy', $blog->id) }}" method="post">
                               @csrf
                               @method('DELETE')
                        
@@ -108,7 +108,7 @@
                             </a>
                           </div>
                         </div>
-                      </td> --}}
+                      </td> 
                     </tr>
                 @endforeach
    

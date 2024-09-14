@@ -60,8 +60,8 @@
                         <div class="avatar avatar-m"><img class="rounded-circle" src="{{ $user->profile_photo_url }}" alt="{{$user->name }}" /></div>
                          <h6 class="mb-0 ms-3 fw-semi-bold">{{$user->name }}</h6>
                           </a></td>
-                        <td class="email align-middle white-space-nowrap"><a class="fw-semi-bold" href="mailto:annac34@gmail.com">{{$user->email }}</a></td>
-                        <td class="mobile_number align-middle white-space-nowrap"><a class="fw-bold text-1100" href="tel:+912346578">+912346578</a></td>
+                        <td class="email align-middle white-space-nowrap"><a class="fw-semi-bold" href="{{$user->email }}">{{$user->email }}</a></td>
+                        <td class="mobile_number align-middle white-space-nowrap"><a class="fw-bold text-1100" href="tel:+912346578">+{{$user->phone }}</a></td>
                         <td class="city align-middle white-space-nowrap text-900">
                           @if ($user->hasRole('Admin'))
                           <span class="badge bg-primary">Administrador</span>

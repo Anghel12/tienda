@@ -16,9 +16,16 @@
   @php( $register_url = $register_url ? url($register_url) : '' )
   @endif
 
+  <style>
+  .page_header{
+    background-image: linear-gradient(310deg, #141727, #d900b3);
 
-
-  <section>
+  }
+       
+  </style>
+  
+  
+  <section class="page_header">
     <div class="container">
       <div class="row">
         <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
@@ -152,6 +159,7 @@
     </div>
   </section>
 
+  @include('posts.partials.footer')
 
 
   

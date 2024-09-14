@@ -70,6 +70,7 @@ use App\Http\Controllers\Admin\Home\AboutController;
 use App\Http\Controllers\Admin\Home\MembershipController;
 use App\Http\Controllers\Admin\Home\PackageController;
 use App\Http\Controllers\Admin\Home\ServiceController;
+use App\Http\Controllers\Admin\Rutas\PermissionController;
 use App\Http\Controllers\Admin\User\VerifyController;
 
 /* coins */
@@ -145,8 +146,8 @@ Route::resource('orders', orderController::class)->only('index', 'edit', 'update
 
 Route::get('/user_order', [ReferralController::class, 'UserOrder'])->name('admin.orders.user_order');
 
-
-
+/* roles y permisos */
+Route::resource('permissions', PermissionController::class)->names('admin.permissions');
 Route::resource('roles', RoleController::class)->names('admin.roles');
 
 Route::resource('postyoutube', PostYoutubeController::class)->names('admin.postyoutubes');

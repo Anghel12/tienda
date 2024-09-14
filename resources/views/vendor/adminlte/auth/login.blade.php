@@ -18,12 +18,18 @@
     @php( $register_url = $register_url ? url($register_url) : '' )
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
+ 
+
+<style>
+  .page_header{
+    background-image: linear-gradient(310deg, #141727, #d900b3);
+
+  }
+     
+</style>
 
 
-
-
-
-<section>
+<section class="page_header">
   <div class="page-header min-vh-100">
     <div class="container">
       <div class="row">
@@ -130,10 +136,10 @@
     </div>
   </div>
 </section>
-
+@include('posts.partials.footer')
 
 </body>
-@include('posts.partials.footer')
+
 
 <script src="vendor/jquery/jquery.min.js"></script>
 

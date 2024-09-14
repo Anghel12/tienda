@@ -18,27 +18,8 @@ class DevToolsController extends Controller
      */
     public function index()
 {
-    $files = new Filesystem;
 
-    //Obtener una colección de nombres de modelos
-    $models = collect(File::glob(app_path('Models/*.php')))
-        ->map(function ($path) {
-            return class_basename($path, '.php');
-        })
-        ->all();
-
-    //Obtener una colección de nombres de controladores con su fecha de creación
-    $controllers = collect(File::glob(app_path('Http/Controllers/*Controller.php')))
-        ->map(function ($path) {
-            return [
-                'name' => class_basename($path, '.php'),
-                'created_at' => File::lastModified($path)
-            ];
-        })
-        ->all();
-
-    //Devolver la vista con los datos recopilados
-    return view('admin.DevTools.index', compact('models', 'controllers'));
+    return view('admin.DevTools.index');
 }
 
     

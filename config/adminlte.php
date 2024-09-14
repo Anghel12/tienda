@@ -371,16 +371,6 @@ return [
             'can'        => 'admin.adminTitulo.index',
             'submenu' => [
 
-                [
-                    'text'        => 'Roles',
-                    'route'         => 'admin.roles.index',
-                    'icon'        => 'fas fa-users',
-                    'icon_color' => 'green',
-                    'label'       => 2,
-                    'label_color' => 'success',
-                    'can'        => 'admin.roles.index',
-                    
-                ],
 
                 [
                     'text'        => 'Pagos-Metodos',
@@ -389,16 +379,6 @@ return [
                     'icon_color' => 'green',
                     'label_color' => 'success',
                     'can'        => 'admin.PaymentMethods.index',
-                ],
-
-                [
-                    'text'        => 'Usuarios',
-                    'route'         => 'admin.users.index',
-                    'icon'        => 'fas fa-users',
-                    'icon_color' => 'success',
-                    'label'       => 4,
-                    'label_color' => 'success',
-                    'can'        => 'admin.users.index',
                 ],
 
                 [
@@ -417,15 +397,6 @@ return [
                     'icon_color' => 'orange',
                     'label_color' => 'success',
                     'can'        => 'admin.CommentsAll.index',
-                ],
-
-            
-                [
-                    'text'        => 'Terminos y condiciones',
-                    'route'         => 'admin.terms.index',
-                    'icon'        => 'fas fa-file-contract',        
-                    'label_color' => 'success',
-                    'can'        => 'admin.Terms.index',
                 ],
 
                 [
@@ -533,22 +504,6 @@ return [
                     'route'         => 'admin.navbars.index',
                     'icon_color' => 'primary',
                     'can'        => 'admin.navbars.index',
-                ],
-                [
-                    'text'        => 'Sobre nosotros',
-                    'route'         => 'admin.about_us_homes.index',
-                    'icon'        => 'fas fa-icons',
-                    'icon_color' => 'gray',
-                    'label_color' => 'success',
-                    'can'        => 'admin.icons.index',
-                ],
-                [
-                    'text'        => 'Ayuda',
-                    'route'         => 'admin.home_helps.index',
-                    'icon'        => 'fas fa-icons',
-                    'icon_color' => 'gray',
-                    'label_color' => 'success',
-                    'can'        => 'admin.icons.index',
                 ],
 
                 [

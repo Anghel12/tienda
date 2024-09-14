@@ -84,14 +84,66 @@
                       <div class="col-auto">
                         <h5 class="text-1000 mb-0">Link de Referido:</h5>
                       </div>
-                      <div class="col-auto"><a>{{ $referralLink }}</a></div>
+                      <div class="col-md-8"><input class="form-control form-control-sm mt-3 text-center w-100 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="{{ $referralLink }}" /></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div class="col-12 col-lg-4">
+
+
+
+     {{--        <div class="col-12 col-lg-4">
+            <div class="card h-100 mb-3">
+              <div class="card-body">
+                <div class="row align-items-center g-3">
+                  <div class="col-12 col-sm-auto flex-1">
+                    <h3 class="fw-bolder mb-2 line-clamp-1">Estado de la Cuenta  Deal details</h3>
+                    <div class="d-flex align-items-center mb-4">
+                      <h5 class="mb-0 me-4">USD $12,000.00</h5>
+                      <h5 class="fw-semi-bold"><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid d-inline-block lh-sm me-1" style="height:16px;width:16px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg><span class="d-inline-block lh-sm">Financial</span></h5>
+                    </div>
+                    <div class="d-md-flex d-xl-block align-items-center justify-content-between mb-5">
+                      <div class="d-flex align-items-center mb-3 mb-md-0 mb-xl-3">
+                        <div class="avatar avatar-xl me-3"><img class="rounded-circle" src="../../assets/img/team/72x72/58.webp" alt=""></div>
+                        <div>
+                          <h5>Ansolo Lazinatov</h5>
+                          <div class="dropdown"><a class="text-800 dropdown-toggle text-decoration-none dropdown-caret-none" href="deal-details.html#!" data-bs-toggle="dropdown" aria-expanded="false"> Owner<svg class="svg-inline--fa fa-caret-down text-800 fs--1 ms-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M310.6 246.6l-127.1 128C176.4 380.9 168.2 384 160 384s-16.38-3.125-22.63-9.375l-127.1-128C.2244 237.5-2.516 223.7 2.438 211.8S19.07 192 32 192h255.1c12.94 0 24.62 7.781 29.58 19.75S319.8 237.5 310.6 246.6z"></path></svg><!-- <span class="fa-solid fa-caret-down text-800 fs--1 ms-2"></span> Font Awesome fontawesome.com --></a>
+                            <div class="dropdown-menu shadow-sm" style="min-width:20rem">
+                              <div class="card position-relative border-0">
+                                <div class="card-body p-0">
+                                  <div class="mx-3">
+                                    <h4 class="mb-3 fw-bold">Switch ownership</h4>
+                                    <h5 class="mb-3">Deal Owner</h5><select class="form-select mb-3" aria-label="Default select">
+                                      <option selected="selected">Select</option>
+                                      <option value="1">Jerry Seinfield</option>
+                                      <option value="2">Anthoney Michael</option>
+                                      <option value="3">Ansolo Lazinatov</option>
+                                    </select>
+                                    <div class="text-end"><button class="btn btn-link text-danger" type="button">Cancel</button><button class="btn btn-sm btn-primary px-5" type="button">Save</button></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div><span class="badge badge-phoenix badge-phoenix-success me-2">Success</span><span class="badge badge-phoenix badge-phoenix-danger me-2">Lost</span><span class="badge badge-phoenix badge-phoenix-secondary">Close</span></div>
+                    </div>
+                    <div class="progress mb-2" style="height:5px">
+                      <div class="progress-bar bg-primary-200" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                      <p class="mb-0"> Verificación</p>
+                      <div><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock d-inline-block lh-sm me-1" style="height:16px;width:16px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span class="d-inline-block lh-sm"> Dec 15, 05:00AM</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div> --}}
+
+      <div class="col-12 col-lg-4">
               <div class="card h-100">
                 <div class="card-body">
                   <div class="border-bottom border-dashed border-300">
@@ -130,14 +182,14 @@
                       <div class="col-auto">
                         <h5 class="text-1000 mb-0">Phone</h5>
                       </div>
-                      <div class="col-auto"><a href="tel:+1234567890">+1234567890</a></div>
+                      <div class="col-auto"><a href="tel:+{{ Auth::user()->phone }}">{{ Auth::user()->phone }}</a></div>
                     </div>
 
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
 
 
           

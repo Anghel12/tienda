@@ -1,149 +1,18 @@
-  {{-- perfil --}}
+{{-- Notificaciones --}}
 
-  <nav class="navbar navbar-top fixed-top navbar-expand" id="navbarDefault" style="display:none;">
+  <nav class="navbar navbar-top navbar-slim fixed-top navbar-expand" id="topNavSlim" style="display:none;">
     <div class="collapse navbar-collapse justify-content-between">
       <div class="navbar-logo">
         <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-        <a class="navbar-brand me-1 me-sm-3" href=" {{ url('/') }} ">
-          <div class="d-flex align-items-center">
-            <div class="d-flex align-items-center"><img src=" {{ asset('cssadmin/assets/img/icons/logo.png') }} " alt="phoenix" width="27" />
-              <p class="logo-text ms-2 d-none d-sm-block">Terra Bank</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="search-box navbar-top-search-box d-none d-lg-block" data-list='{"valueNames":["title"]}' style="width:25rem;">
-        <form class="position-relative" data-bs-toggle="search" data-bs-display="static"><input class="form-control search-input fuzzy-search rounded-pill form-control-sm" type="search" placeholder="Search..." aria-label="Search" />
-          <span class="fas fa-search search-box-icon"></span>
-        </form>
-        <div class="btn-close position-absolute end-0 top-50 translate-middle cursor-pointer shadow-none" data-bs-dismiss="search"><button class="btn btn-link btn-close-falcon p-0" aria-label="Close"></button></div>
-        <div class="dropdown-menu border border-300 font-base start-0 py-0 overflow-hidden w-100">
-          <div class="scrollbar-overlay" style="max-height: 30rem;">
-            <div class="list pb-3">
-              <h6 class="dropdown-header text-1000 fs--2 py-2">24 <span class="text-500">results</span></h6>
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Recently Searched </h6>
-              <div class="py-2"><a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"><span class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span> Store Macbook</div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"> <span class="fa-solid fa-clock-rotate-left" data-fa-transform="shrink-2"></span> MacBook Air - 13″</div>
-                  </div>
-                </a>
-              </div>
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Products</h6>
-              <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="apps/e-commerce/landing/product-details.html">
-                  <div class="file-thumbnail me-2"><img class="h-100 w-100 fit-cover rounded-3" src="https://prium.github.io/phoenix/v1.13.0/assets/img/products/60x60/3.png" alt="" /></div>
-                  <div class="flex-1">
-                    <h6 class="mb-0 text-1000 title">MacBook Air - 13″</h6>
-                    <p class="fs--2 mb-0 d-flex text-700"><span class="fw-medium text-600">8GB Memory - 1.6GHz - 128GB Storage</span></p>
-                  </div>
-                </a>
-                <a class="dropdown-item py-2 d-flex align-items-center" href="apps/e-commerce/landing/product-details.html">
-                  <div class="file-thumbnail me-2"><img class="img-fluid" src="https://prium.github.io/phoenix/v1.13.0/assets/img/products/60x60/3.png" alt="" /></div>
-                  <div class="flex-1">
-                    <h6 class="mb-0 text-1000 title">MacBook Pro - 13″</h6>
-                    <p class="fs--2 mb-0 d-flex text-700"><span class="fw-medium text-600 ms-2">30 Sep at 12:30 PM</span></p>
-                  </div>
-                </a>
-              </div>
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Quick Links</h6>
-              <div class="py-2"><a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"><span class="fa-solid fa-link text-900" data-fa-transform="shrink-2"></span> Support MacBook House</div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"> <span class="fa-solid fa-link text-900" data-fa-transform="shrink-2"></span> Store MacBook″</div>
-                  </div>
-                </a>
-              </div>
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Files</h6>
-              <div class="py-2"><a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"><span class="fa-solid fa-file-zipper text-900" data-fa-transform="shrink-2"></span> Library MacBook folder.rar</div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"> <span class="fa-solid fa-file-lines text-900" data-fa-transform="shrink-2"></span> Feature MacBook extensions.txt</div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"> <span class="fa-solid fa-image text-900" data-fa-transform="shrink-2"></span> MacBook Pro_13.jpg</div>
-                  </div>
-                </a>
-              </div>
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Members</h6>
-              <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center" href="pages/members.html">
-                  <div class="avatar avatar-l status-online  me-2 text-900">
-                    <img class="rounded-circle " src="{{ Auth::user()->profile_photo_url }}" alt=""/>
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0 text-1000 title">Carry Anna</h6>
-                    <p class="fs--2 mb-0 d-flex text-700">anna@technext.it</p>
-                  </div>
-                </a>
-                <a class="dropdown-item py-2 d-flex align-items-center" href="pages/members.html">
-                  <div class="avatar avatar-l  me-2 text-900">
-                    <img class="rounded-circle " src="{{ Auth::user()->profile_photo_url }}" alt=""/>
-                  </div>
-                  <div class="flex-1">
-                    <h6 class="mb-0 text-1000 title">John Smith</h6>
-                    <p class="fs--2 mb-0 d-flex text-700">smith@technext.it</p>
-                  </div>
-                </a>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <hr class="text-200 my-0" />
-              <h6 class="dropdown-header text-1000 fs--1 border-bottom border-200 py-2 lh-sm">Related Searches</h6>
-              <div class="py-2"><a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"><span class="fa-brands fa-firefox-browser text-900" data-fa-transform="shrink-2"></span> Search in the Web MacBook</div>
-                  </div>
-                </a>
-                <a class="dropdown-item" href="apps/e-commerce/landing/product-details.html">
-                  <div class="d-flex align-items-center">
-                    <div class="fw-normal text-1000 title"> <span class="fa-brands fa-chrome text-900" data-fa-transform="shrink-2"></span> Store MacBook″</div>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div class="text-center">
-              <p class="fallback fw-bold fs-1 d-none">No Result Found.</p>
-            </div>
-          </div>
-        </div>
+        <a class="navbar-brand navbar-brand" href="index.html">phoenix <span class="text-1000 d-none d-sm-inline">slim</span></a>
       </div>
       <ul class="navbar-nav navbar-nav-icons flex-row">
-        <li class="nav-item">
-          <div class="theme-control-toggle fa-icon-wait px-2"><input class="form-check-input ms-0 theme-control-toggle-input" type="checkbox" data-theme-control="phoenixTheme" value="dark" id="themeControlToggle" /><label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon" data-feather="moon"></span></label><label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon" data-feather="sun"></span></label></div>
+    {{--     <li class="nav-item">
+          <div class="theme-control-toggle fa-ion-wait pe-2 theme-control-toggle-slim"><input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox" data-theme-control="phoenixTheme" value="dark" /><label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon me-1 d-none d-sm-block" data-feather="moon"></span><span class="fs--1 fw-bold">Dark</span></label><label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon me-1 d-none d-sm-block" data-feather="sun"></span><span class="fs--1 fw-bold">Light</span></label></div>
         </li>
+        <li class="nav-item"> <a class="nav-link" href="index.html#" data-bs-toggle="modal" data-bs-target="#searchBoxModal"><span data-feather="search" style="height:12px;width:12px;"></span></a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link" href="index.html#" style="min-width: 2.5rem" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-auto-close="outside"><span data-feather="bell" style="height:20px;width:20px;"></span></a>
+          <a class="nav-link" id="navbarDropdownNotification" href="index.html#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false"><span data-feather="bell" style="height:12px;width:12px;"></span></a>
           <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu py-0 shadow border border-300 navbar-dropdown-caret" id="navbarDropdownNotfication" aria-labelledby="navbarDropdownNotfication">
             <div class="card position-relative border-0">
               <div class="card-header p-2">
@@ -151,8 +20,7 @@
                   <h5 class="text-black mb-0">Notificatons</h5><button class="btn btn-link p-0 fs--1 fw-normal" type="button">Mark all as read</button>
                 </div>
               </div>
-
-            {{--   <div class="card-body p-0">
+              <div class="card-body p-0">
                 <div class="scrollbar-overlay" style="height: 27rem;">
                   <div class="border-300">
                     <div class="px-2 px-sm-3 py-3 border-300 notification-card position-relative read border-bottom">
@@ -251,9 +119,7 @@
                     </div>
                   </div>
                 </div>
-              </div> --}}
-
-
+              </div>
               <div class="card-footer p-0 border-top border-0">
                 <div class="my-2 text-center fw-bold fs--2 text-600"><a class="fw-bolder" href="pages/notifications.html">Notification history</a></div>
               </div>
@@ -261,7 +127,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" id="navbarDropdownNindeDots" href="index.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a class="nav-link" id="navbarDropdownNindeDots" href="index.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false"><svg width="10" height="10" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="2" cy="2" r="2" fill="currentColor"></circle>
               <circle cx="2" cy="8" r="2" fill="currentColor"></circle>
               <circle cx="2" cy="14" r="2" fill="currentColor"></circle>
@@ -276,7 +142,7 @@
             <div class="card bg-white position-relative border-0">
               <div class="card-body pt-3 px-3 pb-0 overflow-auto scrollbar" style="height: 20rem;">
                 <div class="row text-center align-items-center gx-0 gy-0">
-                {{--   <div class="col-4"><a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="index.html#!"><img src="assets/img/nav-icons/behance.webp" alt="" width="30" />
+                  <div class="col-4"><a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="index.html#!"><img src="assets/img/nav-icons/behance.webp" alt="" width="30" />
                       <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Behance</p>
                     </a></div>
                   <div class="col-4"><a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="index.html#!"><img src="assets/img/nav-icons/google-cloud.webp" alt="" width="30" />
@@ -317,76 +183,45 @@
                     </a></div>
                   <div class="col-4"><a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="index.html#!"><img src="assets/img/nav-icons/spotify.webp" alt="" width="30" />
                       <p class="mb-0 text-black text-truncate fs--2 mt-1 pt-1">Spotify</p>
-                    </a></div> --}}
+                    </a></div>
                 </div>
               </div>
             </div>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link lh-1 pe-0" id="navbarDropdownUser" href="index.html#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-            @if ( Auth::user()->active_status) 
-            <div class="avatar avatar-l status-online  me-2 text-900">
-           @else 
-           <div class="avatar avatar-l">
-           @endif
-              <img class="rounded-circle status-online" src="{{ Auth::user()->profile_photo_url }}" alt="" />
-            </div>
-          </a>
+        <li class="nav-item dropdown"><a class="nav-link lh-1 pe-0 white-space-nowrap" id="navbarDropdownUser" href="index.html#!" role="button" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false">Olivia <span class="fa-solid fa-chevron-down fs--2"></span></a>
           <div class="dropdown-menu dropdown-menu-end navbar-dropdown-caret py-0 dropdown-profile shadow border border-300" aria-labelledby="navbarDropdownUser">
             <div class="card position-relative border-0">
               <div class="card-body p-0">
                 <div class="text-center pt-4 pb-3">
-                  @if ( Auth::user()->active_status) 
-                  <div class="avatar avatar-l status-online  me-2 text-900">
-                 @else 
-                 <div class="avatar avatar-l">
-                 @endif
-                    <img class="rounded-circle status-online" src="{{ Auth::user()->profile_photo_url }}" alt="" />
+                  <div class="avatar avatar-xl ">
+                    <img class="rounded-circle " src="assets/img/team/72x72/57.webp" alt="" />
                   </div>
-                  <h6 class="mt-2 text-black">{{ Auth::user()->name }}</h6>
+                  <h6 class="mt-2 text-black">Jerry Seinfield</h6>
                 </div>
                 <div class="mb-3 mx-3"><input class="form-control form-control-sm" id="statusUpdateInput" type="text" placeholder="Update your status" /></div>
               </div>
               <div class="overflow-auto scrollbar" style="height: 10rem;">
                 <ul class="nav d-flex flex-column mb-2 pb-1">
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.show', Auth::user()->id ) }}"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
-                 
-                  @if(auth()->user()->hasRole('Admin'))
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.dashboard.e_commerces.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>
-                  
-                  @endif
-              
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.posts.index') }}"> <span class="me-2 text-900" data-feather="lock"></span>Posts &amp; Activity</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.edit', Auth::user()->id) }} "> <span class="me-2 text-900" data-feather="settings"></span>Settings &amp; Privacy </a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.index') }}"> <span class="me-2 text-900" data-feather="help-circle"></span>Help Center</a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ Auth::user()->name }}"> <span class="me-2 text-900" data-feather="globe"></span>Language</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="user"></span><span>Profile</span></a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"><span class="me-2 text-900" data-feather="pie-chart"></span>Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="lock"></span>Posts &amp; Activity</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="settings"></span>Settings &amp; Privacy </a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="help-circle"></span>Help Center</a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="globe"></span>Language</a></li>
                 </ul>
               </div>
               <div class="card-footer p-0 border-top">
                 <ul class="nav d-flex flex-column my-3">
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.buyCoins.index') }}"> <span class="me-2 text-900" data-feather="credit-card"></span>Comprar {{$coin->name}} </a></li>
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.users.index') }}"> <span class="me-2 text-900" data-feather="user-plus"></span>Otra Cuenta </a></li>
-               
-               
+                  <li class="nav-item"><a class="nav-link px-3" href="index.html#!"> <span class="me-2 text-900" data-feather="user-plus"></span>Add another account</a></li>
                 </ul>
                 <hr />
-            
-                <div class="px-3">
-                  <form method="POST" action="{{ route('logout') }}" x-data>
-                    @csrf
-  
-                    <button class="btn btn-phoenix-secondary d-flex flex-center w-100">
-                      <span class="me-2" data-feather="log-out"> </span>{{ __('Log Out') }}
-                    </button>
-
-                </form>
-                </div>
-                <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="{{ Auth::user()->name }}">Privacy policy</a>&bull;<a class="text-600 mx-1" href="index.html#!">Terms</a>&bull;<a class="text-600 ms-1" href="index.html#!">Cookies</a></div>
+                <div class="px-3"> <a class="btn btn-phoenix-secondary d-flex flex-center w-100" href="index.html#!"> <span class="me-2" data-feather="log-out"> </span>Sign out</a></div>
+                <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="index.html#!">Privacy policy</a>&bull;<a class="text-600 mx-1" href="index.html#!">Terms</a>&bull;<a class="text-600 ms-1" href="index.html#!">Cookies</a></div>
               </div>
             </div>
           </div>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </nav>

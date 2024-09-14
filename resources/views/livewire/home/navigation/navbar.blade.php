@@ -1,3 +1,4 @@
+
 <div>
   <nav
           class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
@@ -6,8 +7,23 @@
               title="Terra Bank" data-placement="bottom">
               Terra Bank
             </a>
-            <a href="https://www.creative-tim.com/product/soft-ui-design-system-pro#pricingCard"
-              class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Buy Terra</a>
+
+            @if (Route::has('login'))
+            @auth
+
+            <a href="{{ route('admin.buyCoins.index') }}"
+            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Depósito Rápido</a>
+
+            @else
+
+
+            <a href="{{ url('/login') }}"
+            class="btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block">Depósito Rápido</a>
+
+            @endauth
+
+            @endif
+          
             <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
               data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
               aria-label="Toggle navigation">
@@ -26,10 +42,14 @@
    
 
     @auth
+    {{-- user login --}}
     @include('livewire.home.navigation.partials.user_login')
      @endauth
      
-    @include('livewire.home.navigation.partials.about_us')
+     @can('abouts_us')
+     @include('livewire.home.navigation.partials.about_us')
+     @endcan
+    
 
      @include('livewire.home.navigation.partials.coin')
 

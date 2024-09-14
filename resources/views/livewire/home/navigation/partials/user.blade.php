@@ -33,14 +33,14 @@
 {{-- admin,user, salir botones --}}
 
 <!-- Authentication -->
-        @can('admin.home')
+{{--         @can('admin.home')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.profile.show', Auth::user()->id ) }}">
               <i class="fas fa-newspaper"></i> 
              Admin
             </a>
           </li>
-        @endcan
+        @endcan --}}
 <!-- Authentication -->
 
 {{-- categorias --}}

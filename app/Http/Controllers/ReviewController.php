@@ -24,7 +24,7 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($post)
+    public function create( Post $post)
     {
         $post = Post::findOrFail($post);
         return view('admin.reviews.create', compact('post'));
