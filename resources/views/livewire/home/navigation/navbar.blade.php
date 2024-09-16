@@ -37,23 +37,23 @@
               <ul class="navbar-nav navbar-nav-hover mx-auto">
 
                 
-    @include('livewire.home.navigation.partials.user')
-
-   
-
-    @auth
-    {{-- user login --}}
-    @include('livewire.home.navigation.partials.user_login')
-     @endauth
-     
-     @can('abouts_us')
-     @include('livewire.home.navigation.partials.about_us')
-     @endcan
-    
-
-     @include('livewire.home.navigation.partials.coin')
+            @include('livewire.home.navigation.partials.user')
 
           
+
+            @auth
+            {{-- user login --}}
+            @include('livewire.home.navigation.partials.user_login')
+            @endauth
+            
+            @can('abouts_us')
+            @include('livewire.home.navigation.partials.about_us')
+            @endcan
+            
+
+            @include('livewire.home.navigation.partials.coin')
+
+                  
             </div>
           </div>
         </nav>

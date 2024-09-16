@@ -11,14 +11,14 @@
             <h4 class="text-white text-primary fadeIn1 fadeInBottom">{{$content->subtitle}}</h4>
             <h1 class="text-gradient text-primary fadeIn2 fadeInBottom">{{$content->title}}</h1>
             <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-5">{{$content->body}}</p>
-            <h4> <a href="{{ url('/register') }}" type="submit" class="btn btn-outline-primary btn-rounded me-5 fadeIn1 fadeInBottom">Registrarse ahora</a></h4>
+            <h4> <a href="{{ route('user_actions.buy_coins.index') }}" type="submit" class="btn btn-outline-primary btn-rounded me-5 fadeIn1 fadeInBottom">Comprar {{ $coin->name }} </a></h4>
            
           {{--   <button type="submit" class="btn bg-white btn-icon-only rounded-circle fadeIn1 fadeInBottom"><i class="fas fa-play"></i></button>
      --}}
             @auth
             @if(auth()->user()->hasRole('Admin'))
             <a href="{{ route('admin.content.edit', $content) }}" class="btn bg-success btn-rounded me-2 fadeIn1 fadeInBottom">Editar</a>
-        @endif
+           @endif
             @endauth
         
            

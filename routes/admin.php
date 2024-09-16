@@ -72,6 +72,10 @@ use App\Http\Controllers\Admin\Home\PackageController;
 use App\Http\Controllers\Admin\Home\ServiceController;
 use App\Http\Controllers\Admin\Rutas\PermissionController;
 use App\Http\Controllers\Admin\User\VerifyController;
+use App\Http\Controllers\UserActions\BuyCoinsController;
+
+/* acction user */ 
+Route::resource('fastbuycoins', BuyCoinsController::class)->names('user_actions.buy_coins');
 
 /* coins */
 Route::resource('coins', CoinConfigController::class)->names('admin.coins');
