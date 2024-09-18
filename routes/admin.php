@@ -73,9 +73,26 @@ use App\Http\Controllers\Admin\Home\ServiceController;
 use App\Http\Controllers\Admin\Rutas\PermissionController;
 use App\Http\Controllers\Admin\User\VerifyController;
 use App\Http\Controllers\UserActions\BuyCoinsController;
+use App\Http\Controllers\UserActions\HistoryTransaccionController;
+use App\Http\Controllers\UserActions\TransferCoinController;
+use App\Http\Controllers\UserActions\WalletController as UserActionsWalletController;
+
+/* acction user */  
+/* transacciones compra de coins */
+route::post('/purchase-coins', [PaymentController::class, 'purchaseCoins'])->name('purchase.coins');
+//Route::resource('Payments', PaymentController::class)->names('admin.Payments');
+Route::resource('WalletShow', UserActionsWalletController::class)->names('user_actions.wallets');
+
+Route::get('transferCoin', [TransferCoinController::class, 'index'])->name('user_actions.transfer_coins.index');
+Route::post('transferCoin', [TransferCoinController::class, 'completeTransfer'])->name('user_actions.transfer.complete');
+Route::post('/wallet/transfer/preview', [TransferCoinController::class, 'show'])->name('user_actions.transfer_coins.show');
+
+Route::resource('fastbuycoins', BuyCoinsController::class)->names('user_actions.buy_coins');
+
+Route::resource('User/Transaccions', HistoryTransaccionController::class)->names('user_actions.history_transaccions');
+
 
 /* acction user */ 
-Route::resource('fastbuycoins', BuyCoinsController::class)->names('user_actions.buy_coins');
 
 /* coins */
 Route::resource('coins', CoinConfigController::class)->names('admin.coins');
@@ -130,11 +147,11 @@ Route::resource('wallet', WalletController::class)->names('admin.wallet');
 
 Route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 
-Route::resource('Transacciones', transactionsController::class)->names('admin.transactions');
+Route::resource('AllTransacciones', transactionsController::class)->names('admin.transactions');
 
 Route::resource('PaymentMethods', PaymentMethodsController::class)->names('admin.PaymentMethods');
 
-Route::resource('Payments', PaymentController::class)->names('admin.Payments');
+
 
 Route::resource('Comments', CommentsAllController::class)->names('admin.CommentsAll');
 

@@ -9,6 +9,10 @@ class wallet extends Model
 {
     use HasFactory;
 
+       // Añade los campos que se pueden asignar masivamente
+       protected $fillable = ['name', 'currency', 'balance', 'type', 'is_active', 'user_id'];
+    
+
     public function user()
     {
         return $this->belongsTo(User::class);

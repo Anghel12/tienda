@@ -10,6 +10,7 @@ use App\Interfaces\PaymentGateway\StripeGateway;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Coin;
 use App\Models\Favorite;
+use App\Models\wallet;
 use Exception;
 
 
@@ -43,18 +44,32 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /* mostar mfavoritos */
         view()->composer('*', function ($view) {
             if (auth()->check()) {
                 $favoritesCount = Favorite::where('user_id', auth()->user()->id)->count();
                 $view->with('favoritesCount', $favoritesCount);
             }
         });
-
+/* mostar snombre de la moneda */
     
         view()->composer('*', function ($view) {
             $coin = Coin::find(1);
             $view->with(['coin' => $coin]);
         }); 
+/* mostar sus coins a los usuarios */
+        View()->composer('*', function ($view) {
+            // Verifica si el usuario está autenticado
+            if (auth()->check()) {
+                $user = auth()->user();
+                $wallet = wallet::where('user_id', $user->id)->first();
+                $balance = $wallet ? $wallet->balance : 0; // Si tiene wallet, mostrar coins, sino mostrar 0
+            } else {
+                $balance = 0; // Si no está autenticado, mostrar 0 coins
+            }
+            
+            $view->with('userBalance', $balance);
+        });
 
     }
 }
