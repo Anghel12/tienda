@@ -56,7 +56,9 @@ Route::resource('packages', PackageController::class)->names('admin.home.package
 Route::resource('about', AboutController::class)->names('admin.home.abouts');
 Route::resource('helps', HelpController::class)->names('admin.home.helps');
 Route::resource('memberships', MembershipController::class)->names('admin.home.memberships');
-Route::resource('meet_us', MeetUsController::class)->names('admin.home.meet_us');
+/* Route::resource('meet_us', MeetUsController::class)->names('admin.home.meet_us'); cambie el nombre la ruta porque laravel hacia esto meet_u */
+Route::resource('meet_us', MeetUsController::class)->names('admin.home.meet_us')
+->parameters(['meet_us' => 'meetUs']);
 
 
 

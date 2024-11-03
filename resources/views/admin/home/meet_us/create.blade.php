@@ -1,52 +1,39 @@
 @extends('adminlte::page')
 
-@section('title', 'Nuevo Baneo')
+@section('title', 'Crear Meet Us')
 
 @section('content_header')
-    <h1>Nuevo banner</h1>
+    <h1>Crear Nueva Entrada en Meet Us</h1>
 @stop
 
 @section('content')
-    <div class="container">
-        <h1>Add New Meet Us</h1>
-        <form action="{{ route('admin.home.meet_us.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-            <div class="form-group">
-                <label for="subtitle">Subtitle</label>
-                <input type="text" class="form-control" id="subtitle" name="subtitle">
-            </div>
-            <div class="form-group">
-                <label for="body">Body</label>
-                <textarea class="form-control" id="body" name="body" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="extract">Extract</label>
-                <textarea class="form-control" id="extract" name="extract"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="title_button">Button Title</label>
-                <input type="text" class="form-control" id="title_button" name="title_button">
-            </div>
-            <button type="submit" class="btn btn-success">Create</button>
-        </form>
+<div class="card-minimalista">
+        <div class="card-body">
+            <form action="{{ route('admin.home.meet_us.store') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" name="title" class="form-control" value="{{ old('title') }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="subtitle">Subtítulo</label>
+                    <input type="text" name="subtitle" class="form-control" value="{{ old('subtitle') }}">
+                </div>
+                <div class="form-group">
+                    <label for="body">Contenido</label>
+                    <textarea name="body" class="form-control" rows="5" required>{{ old('body') }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="extract">Extracto</label>
+                    <input type="text" name="extract" class="form-control" value="{{ old('extract') }}">
+                </div>
+                <div class="form-group">
+                    <label for="title_button">Título del Botón</label>
+                    <input type="text" name="title_button" class="form-control" value="{{ old('title_button') }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a href="{{ route('admin.home.meet_us.index') }}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
     </div>
-@endsection
-
-
-    @section('css')
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-    @stop
-    
-    @section('js')
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#usersTable').DataTable();
-            });
-        </script>
-    @stop
+@stop

@@ -18,71 +18,57 @@ class BlogsController extends Controller
         $blogs = Blogs::all();
         return view('admin.blogs.index', compact('blogs'));
     }
-
-
+    
     public function create()
     {
         return view('admin.blogs.create');
     }
-
+    
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'slug' => 'required|string|unique:blogs|max:255',
+            'body' => 'required',
+            'user_id' => 'required|exists:users,id',
         ]);
-
+    
         Blogs::create($validatedData);
-
-        return redirect()->route('admin.blogs.index')->with('success', 'El blog ha sido creado correctamente.');
+    
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog creado con éxito');
     }
-
-
-    public function show(Blogs $blog)
+    
+    public function show($id)
     {
+        $blog = Blogs::findOrFail($id);
         return view('admin.blogs.show', compact('blog'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Blogs $blog)
+    
+    public function edit($id)
     {
+        $blog = Blogs::findOrFail($id);
         return view('admin.blogs.edit', compact('blog'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Blogs $blogs)
+    
+    public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'slug' => 'required|string|unique:blogs,slug,' . $id,
+            'body' => 'required',
         ]);
-
-        $blogs->update($validatedData);
-
-        return redirect()->route('admin.blogs.index')->with('success', 'El blog ha sido actualizado correctamente.');
+    
+        $blog = Blogs::findOrFail($id);
+        $blog->update($validatedData);
+    
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog actualizado con éxito');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Blogs $blogs)
+    
+    public function destroy($id)
     {
-        $blogs->delete();
-
-        return redirect()->route('admin.blogs.index')->with('success', 'El blog ha sido eliminado correctamente.');
+        $blog = Blogs::findOrFail($id);
+        $blog->delete();
+    
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog eliminado con éxito');
     }
-}
+}   

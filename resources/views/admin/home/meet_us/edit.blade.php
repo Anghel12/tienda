@@ -1,62 +1,40 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar baneo')
+@section('title', 'Editar Meet Us')
 
 @section('content_header')
-    <h1>Editar banner</h1>
-
+    <h1>Editar Meet Us</h1>
 @stop
 
 @section('content')
-    <div class="card-minimalista">
+<div class="card-minimalista">
         <div class="card-body">
-            <form action="{{ route('admin.home.memberships.update', $membership->id) }}" method="POST">
+            <form action="{{ route('admin.home.meet_us.update', $meetUs->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="title">Título:</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ $membership->title }}" required>
+                    <label for="title">Título</label>
+                    <input type="text" name="title" class="form-control" value="{{ $meetUs->title }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="subtitle">Subtítulo:</label>
-                    <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{ $membership->subtitle }}">
+                    <label for="subtitle">Subtítulo</label>
+                    <input type="text" name="subtitle" class="form-control" value="{{ $meetUs->subtitle }}">
                 </div>
                 <div class="form-group">
-                    <label for="body">Contenido:</label>
-                    <textarea class="form-control" id="body" name="body" rows="5" required>{{ $membership->body }}</textarea>
+                    <label for="body">Contenido</label>
+                    <textarea name="body" class="form-control" rows="5" required>{{ $meetUs->body }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="price_title">Título del Precio:</label>
-                    <input type="text" class="form-control" id="price_title" name="price_title" value="{{ $membership->price_title }}">
+                    <label for="extract">Extracto</label>
+                    <input type="text" name="extract" class="form-control" value="{{ $meetUs->extract }}">
                 </div>
                 <div class="form-group">
-                    <label for="price">Precio:</label>
-                    <input type="text" class="form-control" id="price" name="price" value="{{ $membership->price }}" pattern="[0-9]+([\.,][0-9]+)?">
-                </div>
-                <div class="form-group">
-                    <label for="offer">Oferta:</label>
-                    <textarea class="form-control" id="offer" name="offer" rows="5">{{ $membership->offer }}</textarea>
+                    <label for="title_button">Título del Botón</label>
+                    <input type="text" name="title_button" class="form-control" value="{{ $meetUs->title_button }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="{{ route('admin.home.meet_us.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
-            
-            
         </div>
     </div>
-    @stop
-
-
-    @section('css')
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
-        <link rel="stylesheet" href="/css/admin_custom.css"> 
-        @stop
-    
-    @section('js')
-        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#usersTable').DataTable();
-            });
-        </script>
-    @stop
+@stop

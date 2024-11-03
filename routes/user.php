@@ -45,7 +45,7 @@ Route::delete('/users/{user}/unfollow', [FollowController::class, 'unfollow'])->
  */
 Route::get('/referrals', [ReferralController::class, 'referral'])->name('admin.referrals.index');
 /* rasterar usuario middwolrd */
-Route::resource('Notifications', NotificationController::class)->names('admin.Notifications');
+Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
 
 Route::resource('verifies', VerifyController::class)->names('admin.verifies');
 
