@@ -8,18 +8,18 @@ use App\Http\Controllers\Admin\ReferralController;
 use App\Http\Controllers\Admin\User\VerifyController;
 use App\Http\Controllers\UserActions\BuyCoinsController;
 use App\Http\Controllers\UserActions\HistoryTransaccionController;
+use App\Http\Controllers\UserActions\OrderVoucherController;
 use App\Http\Controllers\UserActions\TransferCoinController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserActions\WalletController as UserActionsWalletController;
 
 
+Route::resource('OrderVoucher', OrderVoucherController::class)->names('user_actions.order_vouchers');
 
 
 /* Metodos de pago vistas al pagar  */
 Route::get('/payment/voucher', [PaymentController::class, 'showVoucherPage'])->name('payment_methods.voucher');
-// Completar el pago de voucher
 Route::post('/payment/voucher/complete', [PaymentController::class, 'completeVoucherPayment'])->name('payment_methods.voucher.complete');
-
 Route::get('/payment/stripe', [PaymentController::class, 'showStripePage'])->name('payment_methods.stripe');
 Route::get('/payment/paypal', [PaymentController::class, 'showPaypalPage'])->name('payment_methods.paypal');
 Route::get('/payment/visa', [PaymentController::class, 'showVisaPage'])->name('payment_methods.visa');
@@ -36,6 +36,8 @@ Route::resource('fastbuycoins', BuyCoinsController::class)->names('user_actions.
 Route::resource('User/Transaccions', HistoryTransaccionController::class)->names('user_actions.history_transaccions');
 
 
+
+
 /* FOLOWERS USER */
 Route::resource('follows', FollowController::class)->names('admin.follows');
 Route::post('/users/{user}/follow', [FollowController::class, 'follow'])->name('admin.users.follow');
@@ -45,7 +47,7 @@ Route::delete('/users/{user}/unfollow', [FollowController::class, 'unfollow'])->
  */
 Route::get('/referrals', [ReferralController::class, 'referral'])->name('admin.referrals.index');
 /* rasterar usuario middwolrd */
-Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
+Route::resource('Notifications', NotificationController::class)->names('admin.Notifications');
 
 Route::resource('verifies', VerifyController::class)->names('admin.verifies');
 

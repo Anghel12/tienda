@@ -53,6 +53,36 @@
 
             @include('livewire.home.navigation.partials.coin')
 
+
+
+            @auth
+            <ul class="navbar-nav d-lg-block d-none">
+              <li class="nav-item">
+                <a href="{{ route('user_actions.order_vouchers.index') }}" class="btn btn-sm  bg-gradient-info  btn-round mb-0 me-1">Order
+                {{--   @if (isset($OrderCoin) && $OrderCoin > 0)
+                  <span class="badge badge-md badge-circle badge-floating badge-success">{{ $OrderCoin }}</span>
+               @endif --}}
+                </a>
+              </li>
+            </ul>
+      {{-- can poner order_coins.index  --}}
+            @can('admin.home')
+            <ul class="navbar-nav d-lg-block d-none">
+              <li class="nav-item">
+                <a href="{{ route('admin.order_coins.index') }}" class="btn btn-sm  bg-gradient-info  btn-round mb-0 me-1">Order
+                  @if (isset($OrderCoin) && $OrderCoin > 0)
+                  <span class="badge badge-md badge-circle badge-floating badge-success">{{ $OrderCoin }}</span>
+               @endif
+                </a>
+              </li>
+            </ul>
+            @endcan
+
+
+            @endauth
+
+   
+
                   
             </div>
           </div>

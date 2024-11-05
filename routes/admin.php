@@ -46,10 +46,13 @@ use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
 use App\Http\Controllers\Admin\FuntWallet\PackageCoinController;
 use App\Http\Controllers\Admin\Home\MembershipController;
+use App\Http\Controllers\Admin\OrderCoinController;
 use App\Http\Controllers\Admin\Rutas\PermissionController;
 
 
-
+/* Route::middleware(['auth', 'Admin'])->group(function () { */
+    Route::resource('order_coins', OrderCoinController::class)->names('admin.order_coins');
+/* }); */
 
 /* coins */
 Route::resource('coins', CoinConfigController::class)->names('admin.coins');
@@ -171,7 +174,7 @@ Route::resource('Term', TermController::class)->names('admin.terms');
 /* Terminos y condiciones   */
 Route::resource('Rules', RuleController::class)->names('admin.Rules');
 
-/* Terminos y condiciones   */
+/* Terminos y condiciones   */ 
 Route::resource('Loans', LoansController::class)->names('admin.Loans');
 Route::resource('LoanDetails', LoanDetailsController::class)->names('admin.LoanDetails');
 

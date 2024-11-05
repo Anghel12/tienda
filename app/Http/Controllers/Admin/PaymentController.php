@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
+use App\Models\OrderCoin;
 use Stripe\Stripe;
 use Stripe\PaymentIntent;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -90,46 +92,55 @@ class PaymentController extends Controller
             return back()->with('error', 'Usuario no encontrado.');
         }
 
-        $wallet = Wallet::firstOrCreate(
+    /*     $wallet = Wallet::firstOrCreate(
             ['user_id' => $user->id],
             ['name' => 'Wallet for ' . $user->name, 'currency' => 'USD', 'balance' => 0]
         );
 
         $wallet->balance += $request->input('amount');
-        $wallet->save();
+        $wallet->save(); */
 
         $transaction = Transaction::create([
             'user_id' => $user->id,
             'amount' => $request->input('amount'),
             'coin_id' => $request->input('coin_id'),
-            'type' => 'Compra realizada con vaucher exitoso',
+            'type' => 'El vaucher se envio exitosamente',
             'status' => 'pending',
             'price' => $request->input('amount'),
             'ip_address' => $request->input('ip_address'),
+        ]); 
+
+        $order = OrderCoin::create([
+            'user_id' => $user->id,
+            'transaction_id' => $transaction->id,
+            'name' => $user->name,
+            'email' => $request->input('email'),
+            'amount' => $request->input('amount'),
+            'payment_method' => 'voucher',
+            'status' => 'pending',
         ]);
 
 
-    // Manejar la subida de imágenes del voucher
-    if ($request->hasFile('voucher_images')) {
-        foreach ($request->file('voucher_images') as $file) {
-            $url = $file->store('vouchers', 'public');
+        // Manejar la subida de imágenes del voucher
+        if ($request->hasFile('voucher_images')) {
+            foreach ($request->file('voucher_images') as $file) {
+                $url = Storage::put('public/OrderVoucher', $file);
 
-            $image = new Image([
-                'url' => $url,
-                'imageable_id' => $transaction->id,
-                'imageable_type' => Transaction::class,
-                'created_by' => $user->id,
-            ]);
+                $image = new Image([
+                    'url' => $url,
+                    'imageable_id' => $transaction->id,
+                    'imageable_type' => Transaction::class,
+                    'created_by' => $user->id,
+                ]);
 
-            $image->save();
+                $order->images()->save($image);
+            }
         }
-    }
 
-
-
-            // Redirigir a la vista del historial de transacciones, pasando el ID
-        return redirect()->route('user_actions.history_transaccions.show', $transaction->id)
-        ->with('success', 'Compra realizada con éxito.');
+  
+    // Redirigir a la vista del historial de transacciones, pasando el ID
+    return redirect()->route('user_actions.order_vouchers.show', $order->id)
+      ->with('success', 'Se a enviado el Voucher exitosamente al administrador'); 
     }
 
     public function showVoucherPage(Request $request)

@@ -8,7 +8,7 @@
 
 @section('content')
   <div class="container">
-    <div class="signup-content">
+    <div class="card-minimalista">
         {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
         <h2 class="form-title"><a href="{{ url('/') }}">x</a>Create Post</h2>
         @include('admin.posts.partials.form')

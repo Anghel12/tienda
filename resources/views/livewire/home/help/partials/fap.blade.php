@@ -103,7 +103,7 @@
               <button class="accordion-button border-bottom font-weight-bold text-start" type="button"
                 data-bs-toggle="collapse" data-bs-target="#collapse{{ $HomeHelp->id }}" aria-expanded="true"
                 aria-controls="collapse{{ $HomeHelp->id }}">
-                How do I order? {{ $HomeHelp->title }}
+               {{ $HomeHelp->title }}
                 <i class="collapse-close fa fa-plus text-xs pt-1 position-absolute end-0 me-3"></i>
                 <i class="collapse-open fa fa-minus text-xs pt-1 position-absolute end-0 me-3"></i>
               </button>

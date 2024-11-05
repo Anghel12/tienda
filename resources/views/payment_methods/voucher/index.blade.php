@@ -28,7 +28,10 @@
                 @endif
     
                 <div class="form-container z-index-2 border-radius-xl py-3 blur shadow-blur">
-                    <form action="{{ route('payment_methods.voucher.complete') }}" method="POST">
+
+                    {!! Form::open(['route' => 'payment_methods.voucher.complete', 'autocomplete' => 'off', 'files' => true]) !!}
+                    
+                  {{--   <form action="{{ route('payment_methods.voucher.complete') }}" method="POST" enctype="multipart/form-data"> --}}
                         @csrf
                         <input type="hidden" name="amount" value="{{ $amount }}">
                         <input type="hidden" name="coin_id" value="{{ $coin_id }}">
@@ -72,7 +75,7 @@
 
 
                         <button type="submit" class="btn bg-gradient-info col-12">CONTINUAR</button>
-                    </form>
+                        {!! Form::close() !!}
                 </div>
             </div>
         </div>

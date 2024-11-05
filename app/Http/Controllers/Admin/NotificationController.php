@@ -25,7 +25,7 @@ class NotificationController extends Controller
         Auth::user()->unreadNotifications->markAsRead();
 
         // Retorna la vista de las notificaciones
-        return view('admin.notifications.index', compact('notifications'));
+        return view('admin.Notifications.index', compact('notifications'));
     }
 
     /**

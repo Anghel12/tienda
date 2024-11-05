@@ -10,6 +10,7 @@ use App\Interfaces\PaymentGateway\StripeGateway;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Coin;
 use App\Models\Favorite;
+use App\Models\OrderCoin;
 use App\Models\Wallet;
 use Exception;
 
@@ -57,6 +58,14 @@ class AppServiceProvider extends ServiceProvider
             $coin = Coin::find(1);
             $view->with(['coin' => $coin]);
         }); 
+/* mostar coin-order count */
+        view()->composer('*', function ($view) {
+            $OrderCoin = OrderCoin::count();
+            $view->with(['OrderCoin' => $OrderCoin]);
+        }); 
+
+
+
 /* mostar sus coins a los usuarios */
         View()->composer('*', function ($view) {
             // Verifica si el usuario está autenticado
