@@ -50,10 +50,55 @@
                 <div class="form-check form-switch"><input class="form-check-input" id="permitFollow" type="checkbox" checked="checked" name="permitFollow" /><label class="form-check-label fs-0" for="permitFollow">Permit users to follow you.</label></div>
               </div>
             </div>
+
+
             <div class="col-12 col-xl-8">
               <div class="border-bottom border-300 mb-4">
-                <div class="mb-6">
-                  <h4 class="mb-4">Personal Information</h4>
+                <div class="row gx-3 mb-6 gy-6 gy-sm-3">
+
+                  <div class="col-12 col-sm-6">
+                    <form action="">
+                    <h4 class="mb-4">Personal info</h4>
+               
+                    <div class="form-icon-container mb-3">
+
+                      <div class="form-floating">
+                        <input class="form-control form-icon-input" id="companyName" type="text" placeholder="Company Name" />
+                        <label class="text-700 form-icon-label" for="companyName">Nombre</label></div><i class="fa-solid fa-building text-900 fs--1 form-icon"></i>
+                    </div>
+                   
+                    <div class="form-icon-container">
+                      <div class="form-floating"><input class="form-control form-icon-input" id="website" type="text" placeholder="Website" />
+                        <label class="text-700 form-icon-label" for="website">email</label></div><i class="fa-solid fa-globe text-900 fs--1 form-icon"></i>
+                    </div>
+                    <p>enviar verificacion de correo</p>
+                    <button>Guardar</button>
+                    </form>
+                  </div>
+
+             
+                 
+                  <div class="col-12 col-sm-6">
+                    <form action="">
+                    <h4 class="mb-4">Cambiar Contraseña</h4>
+                    <div class="form-icon-container mb-3">
+                      <div class="form-floating"><input class="form-control form-icon-input" id="oldPassword" type="password" placeholder="Old password" /><label class="text-700 form-icon-label" for="oldPassword">Old Password</label></div><span class="fa-solid fa-lock text-900 fs--1 form-icon"></span>
+                    </div>
+                    <div class="form-icon-container mb-3">
+                      <div class="form-floating"><input class="form-control form-icon-input" id="newPassword" type="password" placeholder="New password" /><label class="text-700 form-icon-label" for="newPassword">New Password</label></div><span class="fa-solid fa-key text-900 fs--1 form-icon"></span>
+                    </div>
+                    <div class="form-icon-container">
+                      <div class="form-floating"><input class="form-control form-icon-input" id="newPassword2" type="password" placeholder="Confirm New password" /><label class="text-700 form-icon-label" for="newPassword2">Confirm New Password</label></div><span class="fa-solid fa-key text-900 fs--1 form-icon"></span>
+                    </div>
+                    <button>Guardar</button>
+                  </form>
+                  </div>
+
+
+                  
+                </div>
+                 <div class="mb-6">
+                  <h4 class="mb-4">Datos adicionales</h4>
                   <div class="row g-3">
                     <div class="col-12 col-sm-6">
                       <div class="form-icon-container">
@@ -82,6 +127,9 @@
                     </div>
                   </div>
                 </div>
+
+
+
                 <div class="row gx-3 mb-6 gy-6 gy-sm-3">
                   <div class="col-12 col-sm-6">
                     <h4 class="mb-4">Company Info</h4>
@@ -93,7 +141,7 @@
                     </div>
                   </div>
                   <div class="col-12 col-sm-6">
-                    <h4 class="mb-4">Change Password</h4>
+                    <h4 class="mb-4">numero</h4>
                     <div class="form-icon-container mb-3">
                       <div class="form-floating"><input class="form-control form-icon-input" id="oldPassword" type="password" placeholder="Old password" /><label class="text-700 form-icon-label" for="oldPassword">Old Password</label></div><span class="fa-solid fa-lock text-900 fs--1 form-icon"></span>
                     </div>
@@ -172,16 +220,17 @@
 
 
       
-      <x-app-layout>
+  
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Profile') }}
             </h2>
         </x-slot>
-    
+     
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                 @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+           
                     @livewire('profile.update-profile-information-form')
     
                     <x-jet-section-border />
@@ -216,5 +265,5 @@
                 @endif
             </div>
         </div>
-    </x-app-layout>
+
     

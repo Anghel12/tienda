@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\Referral;
 use App\Models\User;
 use App\Models\UserParent;
+use App\Notifications\User\WelcomeUserRegistered;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -81,6 +82,9 @@ class CreateNewUser implements CreatesNewUsers
     }
     
     }
+
+    // Envía la notificación al usuario
+        $user->notify(new WelcomeUserRegistered($user));
 
     return $user;
 }

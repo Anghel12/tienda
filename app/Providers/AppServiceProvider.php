@@ -13,8 +13,7 @@ use App\Models\Favorite;
 use App\Models\OrderCoin;
 use App\Models\Wallet;
 use Exception;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -63,6 +62,28 @@ class AppServiceProvider extends ServiceProvider
             $OrderCoin = OrderCoin::count();
             $view->with(['OrderCoin' => $OrderCoin]);
         }); 
+
+    /* Notificaciones */
+    view()->composer('*', function ($view) {
+        $unreadNotificationsCount = 0;
+
+        if (Auth::check()) {
+            $user = Auth::user();
+
+            // Verificar si el usuario es Admin
+            if ($user->hasRole('Admin')) {
+                // Contar solo las notificaciones tipo 'Admin'
+                $unreadNotificationsCount = $user->unreadNotifications->where('data.type', 'Admin')->count();
+            } else {
+                // Para otros usuarios, contar solo sus notificaciones personales
+                $unreadNotificationsCount = $user->unreadNotifications->where('data.type', 'User')->count();
+            }
+        }
+
+        // Compartir el conteo con todas las vistas
+        $view->with('unreadNotificationsCount', $unreadNotificationsCount);
+    });
+
 
 
 

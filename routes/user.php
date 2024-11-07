@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ReferralController;
 use App\Http\Controllers\Admin\User\VerifyController;
 use App\Http\Controllers\UserActions\BuyCoinsController;
 use App\Http\Controllers\UserActions\HistoryTransaccionController;
+use App\Http\Controllers\UserActions\HistoryUserController;
 use App\Http\Controllers\UserActions\OrderVoucherController;
 use App\Http\Controllers\UserActions\TransferCoinController;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ use App\Http\Controllers\UserActions\WalletController as UserActionsWalletContro
 
 Route::resource('OrderVoucher', OrderVoucherController::class)->names('user_actions.order_vouchers');
 
+Route::resource('Histories', HistoryUserController::class)->names('user_actions.histories');
 
 /* Metodos de pago vistas al pagar  */
 Route::get('/payment/voucher', [PaymentController::class, 'showVoucherPage'])->name('payment_methods.voucher');

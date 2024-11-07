@@ -46,6 +46,7 @@ use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
 use App\Http\Controllers\Admin\FuntWallet\PackageCoinController;
 use App\Http\Controllers\Admin\Home\MembershipController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\OrderCoinController;
 use App\Http\Controllers\Admin\Rutas\PermissionController;
 
@@ -64,6 +65,8 @@ Route::resource('packageCoins', PackageCoinController::class)->names('admin.funt
 /* sub */
 Route::resource('subscription', MembershipController::class)->names('admin.home.subscription');
 
+Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
+Route::post('/notifications/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['can:admin.home'

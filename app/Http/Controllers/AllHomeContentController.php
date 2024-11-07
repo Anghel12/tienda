@@ -12,12 +12,13 @@ use App\Models\Home\Service;
 use App\Models\Home\Subscription;
 use App\Models\OrderCoin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AllHomeContentController extends Controller
 {
     public function all_bd_index()
     {
-     
+
         $membership = Membership::first();
         $about = About::first();
         $package = Package::first();
@@ -31,5 +32,12 @@ class AllHomeContentController extends Controller
     {
 
         return view('terms');
+    }//
+
+
+    public function user_contact()
+    {
+
+        return view('user_contact');
     }//
 }

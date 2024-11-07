@@ -25,7 +25,7 @@
         {{-- tabla de referidos  --}}
 
         
-        <div class="card col-12 col-md-8 mx-auto mb-2">
+        <div class="card col-12 col-md-12 mx-auto mb-2">
           <div class="row py-lg-5 py-3">
             <h4>(Admin) Ordenes De Los Usuarios Que Compraron Monedas Con El Metodo Voucher</h4>
             <div class="card">

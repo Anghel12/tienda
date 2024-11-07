@@ -48,8 +48,8 @@ class PostController extends Controller
         $categories = category::all();
         $configuracion_homes = Configuracion::all();
         $banners = HomeBaner::all();
-     
         $reviews = Review::all();
+        
 
         return view('posts.index', compact('posts','tags', 'sliders', 'configuracion_homes', 'postyoutubes','categories', 'banners', 'reviews'));
         

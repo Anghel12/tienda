@@ -10,6 +10,8 @@ use Stripe\PaymentIntent;
 use App\Models\User;
 use App\Models\Wallet;
 use App\Models\Transaction;
+use App\Notifications\Admin\OrderCoinVoucher;
+use App\Notifications\User\OrderCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -136,7 +138,18 @@ class PaymentController extends Controller
                 $order->images()->save($image);
             }
         }
+        // Notificar al administrador
+        // Encuentra al usuario con rol de Admin
+        $admin = User::role('Admin')->first(); // Cambia 'Admin' por el nombre exacto de tu rol
 
+
+        if ($admin) {
+            $admin->notify(new OrderCoinVoucher($order));
+            
+        }
+        // Notificar al usuario que realizó la orden
+        $user = $order->user;
+        $user->notify(new OrderCreated($order));
   
     // Redirigir a la vista del historial de transacciones, pasando el ID
     return redirect()->route('user_actions.order_vouchers.show', $order->id)

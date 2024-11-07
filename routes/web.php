@@ -108,4 +108,6 @@ Route::middleware([
 
 Route::get('/terms', [AllHomeContentController::class, 'terms'])->name('terms');  
 
+Route::get('/Contactar', [AllHomeContentController::class, 'user_contact'])->name('user_contact');  
+
 

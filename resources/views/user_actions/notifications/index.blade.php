@@ -12,17 +12,17 @@
     <div class="row justify-content-center align-items-center" style="height: 100vh; padding-top: 7rem;">
 
         <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
-    {{--     <div class="col-lg-7 col-12 text-center text-lg-start mb-3 mb-lg-0">
+        <div class="col-lg-7 col-12 text-center text-lg-start mb-3 mb-lg-0">
             <h1 class="text-white pt-3 mt-n5">{{$coin->name}}: La Moneda del Futuro <br>
                 que Está Revolucionando el Mercado</h1>
-            <p class="lead text-white mt-3">
+            {{-- <p class="lead text-white mt-3">
                 Únete a los +1000 de usuarios <br>
                 que ya están aprovechando las ventajas de {{$coin->name}}. <br>
                 Transacciones rápidas, seguras y con bajas comisiones. <br>
                 No te quedes atrás <br>
                 forma parte de la próxima gran revolución financiera.
-            </p> 
-        </div> --}}
+            </p> --}}
+        </div>
 
         <!-- Formulario a la derecha (12 columnas en móviles, 5 columnas en pantallas grandes) -->
         <div class="col-lg-5 col-12">
@@ -46,7 +46,7 @@
                 <form action="{{ route('purchase.coins') }}" method="POST" id="payment-form">
                     @csrf
                     <div class="text-center">
-                        <h2>Depositar a mi Cuenta:</h2>
+                        <h1>Depositar a mi Cuenta:</h1>
                     </div>
                     <label for="payment-method">Usuario:</label>
                     <!-- Email -->

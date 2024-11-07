@@ -28,8 +28,49 @@
        
         <h2 class="mb-5">Notifications</h2>
         <h5 class="text-black mb-3">Today</h5>
-        <div class="mx-n4 mx-lg-n6 mb-5 border-bottom border-300">
-          <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top read">
+        <div class="mx-n4 border-bottom border-300"> {{-- margin mx-lg-n6--}}
+ 
+
+    @forelse ($notifications as $notification)
+    <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top {{ $notification->read_at ? 'read' : 'unread' }}">
+        <div class="d-flex">
+            <div class="avatar avatar-xl me-3">
+                <img class="rounded-circle" src="{{ $notification->data['user_id'] ?? 'https://via.placeholder.com/50' }}" alt="Avatar" />
+            </div>
+            <div class="me-3 flex-1 mt-2">
+                <h4 class="fs--1 text-black">{{ $notification->data['user_name'] ?? 'Usuario' }}</h4>
+                <p class="fs--1 text-1000">
+                    <span class='me-1'>💬</span>{{ $notification->data['message'] ?? 'Tienes una nueva notificación' }}
+                    <span class="fw-bold ms-2 text-600 fs--2">{{ $notification->created_at->diffForHumans() }}</span>
+                </p>
+                <p class="text-800 fs--1 mb-0">
+                    <span class="me-1 fas fa-clock"></span>
+                    <span class="fw-bold">{{ $notification->created_at->format('h:i A') }} </span>{{ $notification->created_at->format('F j, Y') }}
+                </p>
+            </div>
+        </div>
+        <div class="font-sans-serif">
+
+          
+      
+          @if (Auth::user()->hasRole('Admin'))
+          <a class="btn fs--2 btn-sm dropdown-toggle dropdown-caret-none transition-none notification-dropdown-toggle" 
+          href="{{ route('admin.order_coins.show',$notification->data['order_id'] ) }}"
+           onclick="markAsUnread('{{ $notification->id }}')">Ver Admin</a>
+       
+          @else
+          <a class="btn fs--2 btn-sm dropdown-toggle dropdown-caret-none transition-none notification-dropdown-toggle" 
+          href="{{ route('user_actions.order_vouchers.show',$notification->data['order_id'] ) }}"
+           onclick="markAsUnread('{{ $notification->id }}')">Ver</a>
+          @endif
+
+             
+        </div>
+    </div>
+      @empty
+          <p>No tienes notificaciones nuevas.</p>
+      @endforelse
+     {{--      <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top read">
             <div class="d-flex">
               <div class="avatar avatar-xl me-3"><img class="rounded-circle" src="https://prium.github.io/phoenix/v1.13.0/assets/img/team/30.webp" alt="" /></div>
               <div class="me-3 flex-1 mt-2">
@@ -41,8 +82,9 @@
             <div class="font-sans-serif"><button class="btn fs--2 btn-sm dropdown-toggle dropdown-caret-none transition-none notification-dropdown-toggle" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2 text-900"></span></button>
               <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="notifications.html#!">Mark as unread</a></div>
             </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top unread">
+          </div> --}}
+
+          {{-- <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top unread">
             <div class="d-flex">
               <div class="avatar avatar-xl me-3">
                 <div class="avatar-name rounded-circle"><span>J</span></div>
@@ -69,13 +111,13 @@
             <div class="font-sans-serif"><button class="btn fs--2 btn-sm dropdown-toggle dropdown-caret-none transition-none notification-dropdown-toggle" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2 text-900"></span></button>
               <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="notifications.html#!">Mark as unread</a></div>
             </div>
-          </div>
+          </div> --}}
         </div>
 
      
         <h5 class="text-semi-bold text-black mb-3">Yesterday</h5>
-        <div class="mx-n4 mx-lg-n6 mb-9 border-bottom border-300">
-          <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top unread">
+        <div class="mx-n4 mb-9 border-bottom border-300">
+         {{--   <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top unread">
             <div class="d-flex">
               <div class="avatar avatar-xl me-3"><img class="rounded-circle" src="../assets/img/team/57.webp" alt="" /></div>
               <div class="me-3 flex-1 mt-2">
@@ -114,7 +156,7 @@
               <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="notifications.html#!">Mark as unread</a></div>
             </div>
           </div>
-          <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top read">
+         <div class="d-flex align-items-center justify-content-between py-3 border-300 px-lg-6 px-4 notification-card border-top read">
             <div class="d-flex">
               <div class="avatar avatar-xl me-3"><img class="rounded-circle" src="https://prium.github.io/phoenix/v1.13.0/assets/img/team/60.webp" alt="" /></div>
               <div class="me-3 flex-1 mt-2">
@@ -139,7 +181,7 @@
             <div class="font-sans-serif"><button class="btn fs--2 btn-sm dropdown-toggle dropdown-caret-none transition-none notification-dropdown-toggle" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false" data-bs-reference="parent"><span class="fas fa-ellipsis-h fs--2 text-900"></span></button>
               <div class="dropdown-menu dropdown-menu-end py-2"><a class="dropdown-item" href="notifications.html#!">Mark as unread</a></div>
             </div>
-          </div>
+          </div> --}}
         </div>
 
       </div>

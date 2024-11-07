@@ -18,15 +18,37 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        // Obtén las notificaciones del usuario actual
-        $notifications = Auth::user()->notifications;
-
-        // Marca las notificaciones como leídas
-        Auth::user()->unreadNotifications->markAsRead();
-
-        // Retorna la vista de las notificaciones
-        return view('admin.Notifications.index', compact('notifications'));
+        $user = Auth::user();
+    
+        // Obtener las notificaciones según el rol del usuario (User o Admin)
+        if ($user->hasRole('Admin')) {
+            $notifications = $user->notifications->where('data.type', 'Admin')->sortByDesc('created_at');
+        } else {
+            $notifications = $user->notifications->where('data.type', 'User')->sortByDesc('created_at');
+        }
+    
+        // Renderizar la vista y pasar las notificaciones filtradas
+        return view('admin.notifications.index', compact('notifications'));
     }
+    
+
+
+  /*   public function adminNotifications()
+    {
+        $notifications = Auth::user()->notifications->where('data.type', 'Admin')->sortByDesc('created_at');
+        return view('admin.notifications.index', compact('notifications'));
+    } */
+
+    public function markAsRead($id)
+    {
+        $notification = Auth::user()->notifications()->find($id);
+        if ($notification) {
+            $notification->markAsRead();
+        }
+
+        return back();
+    }
+
 
     /**
      * Envía una notificación al usuario especificado.
@@ -50,4 +72,31 @@ class NotificationController extends Controller
         ];
         event(new \App\Events\NewNotification($data));
     }
+
+
+/*     public function index()
+{
+    // Obtener las notificaciones del usuario logueado
+    $userNotifications = Auth::user()->notifications->where('data.type', 'User')->sortByDesc('created_at');
+    $adminNotifications = Auth::user()->notifications->where('data.type', 'Admin')->sortByDesc('created_at');
+    
+    // Verificar si hay notificaciones de tipo 'User' o 'Admin'
+    return view('admin.notifications.index', [
+        'userNotifications' => $userNotifications,
+        'adminNotifications' => $adminNotifications
+    ]);
+
+
+    <h3>Notificaciones de Usuario</h3>
+@foreach ($userNotifications as $notification)
+    <!-- Aquí el contenido de cada notificación -->
+@endforeach
+
+<h3>Notificaciones de Admin</h3>
+@foreach ($adminNotifications as $notification)
+    <!-- Aquí el contenido de cada notificación -->
+@endforeach
+
+} */
+
 }
