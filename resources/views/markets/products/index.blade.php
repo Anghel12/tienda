@@ -15,22 +15,38 @@
         @include('markets.products.partials.filters')
     
         <div class="col-lg-9 col-xxl-10">
+          
+          <div class="d-flex">
+            <div class="col-12 mb-5" style="height: 100px">
+              <p>Anuncios aqui</p>
+            </div>
+          </div>
+          <h3 class="text-white ">Productos mas Recientes</h3>
             @include('markets.products.partials.product')
 
              
               <div class="d-flex">
-                <div class="card">
-                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114335291355852"
-                    crossorigin="anonymous"></script>
+                <div class="col-12 mb-5" style="height: 100px">
+                  <p>Anuncios aqui</p>
                 </div>
               </div>
+
+              <h3 class="text-white">Productos mas Vendidos</h3>
+              @include('markets.products.partials.product')
+
+
+             
+              <div class="d-flex">
+                <div class="col-12 mb-5" style="height: 100px">
+                  <p>Anuncios aqui</p>
+                </div>
+              </div>
+
         </div>
     </div>
     </div>
   </div>
   @include('posts.partials.footer')
-
-
 
 
 <!-- Swiper JS -->

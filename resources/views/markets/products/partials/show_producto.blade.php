@@ -57,8 +57,7 @@
               {{-- Anuncio de google --}}
               <div class="d-flex">
                 <div class="card">
-                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114335291355852"
-                  crossorigin="anonymous"></script>
+                addsencs
                 </div>
               </div>
 
