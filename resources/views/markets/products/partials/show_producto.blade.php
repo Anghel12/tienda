@@ -55,11 +55,8 @@
                
               </div> --}}
               {{-- Anuncio de google --}}
-              <div class="d-flex">
-                <div class="card">
-                addsencs
-                </div>
-              </div>
+              @include('markets.products.partials.adsend')
+
 
 
             </div>

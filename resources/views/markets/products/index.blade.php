@@ -16,31 +16,20 @@
     
         <div class="col-lg-9 col-xxl-10">
           
-          <div class="d-flex">
-            <div class="col-12 mb-5" style="height: 100px">
-              <p>Anuncios aqui</p>
-            </div>
-          </div>
+        {{--   @include('markets.products.partials.adsend') --}}
+
+
           <h3 class="text-white ">Productos mas Recientes</h3>
             @include('markets.products.partials.product')
 
              
-              <div class="d-flex">
-                <div class="col-12 mb-5" style="height: 100px">
-                  <p>Anuncios aqui</p>
-                </div>
-              </div>
+            @include('markets.products.partials.adsend')
+
 
               <h3 class="text-white">Productos mas Vendidos</h3>
               @include('markets.products.partials.product')
 
-
-             
-              <div class="d-flex">
-                <div class="col-12 mb-5" style="height: 100px">
-                  <p>Anuncios aqui</p>
-                </div>
-              </div>
+           @include('markets.products.partials.adsend')
 
         </div>
     </div>

@@ -10,11 +10,15 @@ class ProductController extends Controller
 {
     public function index()
     {
-         // Cargar productos con enlaces filtrados
-            $products = Product::with(['links' => function ($query) {
-                $query->where('type', 'image'); // Solo un enlace de tipo imagen
-            }])->get();
+        // Cargar productos con enlaces filtrados y ordenarlos por fecha de creación descendente
+        $products = Product::with(['links' => function ($query) {
+            $query->where('type', 'image'); // Solo un enlace de tipo imagen
+        }])
+        ->orderBy('created_at', 'desc') // Ordenar por productos más recientes
+        ->get();
 
+        
+    
         return view('markets.products.index', compact('products'));
     }
 
