@@ -16,20 +16,22 @@
     
         <div class="col-lg-9 col-xxl-10">
           
+
         {{--   @include('markets.products.partials.adsend') --}}
-
-
           <h3 class="text-white ">Productos mas Recientes</h3>
             @include('markets.products.partials.product')
-
-             
             @include('markets.products.partials.adsend')
 
+            <h3 class="text-white">Categoria: <strong>Motokares</strong> </h3>
+            @include('markets.products.partials.motokar_category')
 
-              <h3 class="text-white">Productos mas Vendidos</h3>
-              @include('markets.products.partials.product')
+            <h3 class="text-white">Categoria: <strong>Aros</strong></h3>
+            @include('markets.products.partials.category_aros')
+            @include('markets.products.partials.adsend')
 
-           @include('markets.products.partials.adsend')
+              
+            <h3 class="text-white">Categoria: <strong>Motores</strong></h3>
+            @include('markets.products.partials.motores_category')
 
         </div>
     </div>
