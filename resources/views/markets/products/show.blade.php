@@ -15,11 +15,12 @@
             @include('markets.products.partials.show_producto')
 
             @include('markets.products.partials.similar')
+            @include('markets.products.partials.adsend')
  
     </div>
 </div>
 </div>
-
+@include('posts.partials.footer')
 
 
 <!-- Swiper JS -->

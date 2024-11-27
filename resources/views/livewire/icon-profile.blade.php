@@ -26,16 +26,16 @@
                 <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_actions.wallets.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Billetera: {{ $userBalance }} </a></li>
                 
                 @endif
-                <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.edit', Auth::user()->id) }} "> <span class="me-2 text-900" data-feather="settings"></span>Settings &amp; Privacy </a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.edit', Auth::user()->id) }} "> <span class="me-2 text-900" data-feather="settings"></span>Configuracion</a></li>
                 <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_actions.histories.index') }}"> <span class="me-2 text-900" data-feather="lock"></span>Historial</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_contact') }}"> <span class="me-2 text-900" data-feather="help-circle"></span>Help Center</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="{{ Auth::user()->name }}"> <span class="me-2 text-900" data-feather="globe"></span>Language</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_contact') }}"> <span class="me-2 text-900" data-feather="help-circle"></span>Ayuda</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="/terms"> <span class="me-2 text-900" data-feather="globe"></span>Term&C</a></li>
               </ul>
             </div>
             <div class="card-footer p-0 border-top">
               <ul class="nav d-flex flex-column my-3">
                 <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_actions.buy_coins.index') }}"> <span class="me-2 text-900" data-feather="credit-card"></span>Comprar Monedas</a></li>
-                <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.users.index') }}"> <span class="me-2 text-900" data-feather="user-plus"></span>Otra Cuenta </a></li>
+                <li class="nav-item"><a class="nav-link px-3" > <span class="me-2 text-900" data-feather="user-plus"></span>Otra Cuenta </a></li>
              
              
               </ul>
@@ -51,7 +51,7 @@
     
               </form>
               </div>
-              <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="{{ Auth::user()->name }}">Privacy policy</a>&bull;<a class="text-600 mx-1" href="index.html#!">Terms</a>&bull;<a class="text-600 ms-1" href="index.html#!">Cookies</a></div>
+              <div class="my-2 text-center fw-bold fs--2 text-600"><a class="text-600 me-1" href="/terms">Privacy policy</a>&bull;<a class="text-600 mx-1" href="/terms">Terms</a>&bull;<a class="text-600 ms-1" href="/terms">Cookies</a></div>
             </div>
           </div>
         </div>

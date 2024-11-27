@@ -57,11 +57,17 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-
         $linkYoutube = $product->links()->where('type', 'youtube')->first();
         $linkImage = $product->links()->where('type', 'image')->first();
-        return view('markets.products.show', compact('product', 'linkYoutube', 'linkImage'));
+        
+        // Obtener productos de la misma categoría, excluyendo el producto actual
+        $relatedProducts = Product::where('category_id', $product->category_id)
+                                  ->where('id', '!=', $product->id)
+                                  ->get();
+    
+        return view('markets.products.show', compact('product', 'linkYoutube', 'linkImage', 'relatedProducts'));
     }
+    
 
 
 }
