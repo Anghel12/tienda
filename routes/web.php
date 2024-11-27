@@ -30,7 +30,7 @@ use WireUi\Support\Facades\WireUi;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('products', ProductController::class)->names('markets.products');
+Route::resource('marketplace/products', ProductController::class)->names('markets.products');
 
 Route::post('/payment/notification', [CoinController::class, 'paymentNotification'])->name('paymentNotification');
 /* HOME BLOG */

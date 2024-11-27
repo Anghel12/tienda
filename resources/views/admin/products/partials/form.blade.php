@@ -1,56 +1,62 @@
 <div class="form-group">
-    <label>Nombre:</label>
-    <input type="text" name="name" class="form-control" value="{{ $product->name }}" required>
+    <label class="text-white">Nombre:</label>
+    <input type="text" name="name" class="form-control" value="{{ $product->name ?? '' }}" required>
 </div>
 
 <div class="form-group">
-  <label>URL del Video (YouTube):</label>
+
+  <label class="text-white">URL del Video (YouTube):</label>
   <input type="text" name="link_youtube" class="form-control" 
          value="{{ $linkYoutube ? $linkYoutube->url : '' }}">
 </div>
 
 <div class="form-group">
-  <label>URL de la Imagen:</label>
+  <label class="text-white">URL de la Imagen: <img src="{{ $linkImage->url ?? '' }}" alt="" class="avatar avatar-md"> </label>
   <input type="text" name="link_image" class="form-control" 
          value="{{ $linkImage ? $linkImage->url : '' }}">
 </div>
 
 
 <div class="form-group">
-    <label>Informacion importante :</label>
-    <textarea name="body" class="form-control">{{ $product->body }}</textarea>
+    <label class="text-white">Informacion importante :</label>
+    <textarea name="body" class="form-control text-black">{{ $product->body ?? ''}}</textarea>
 </div>
 
 <div class="form-group">
-    <label>Extra de info del Producto:</label>
-    <input type="text" name="extract" class="form-control" value="{{ $product->extract }}">
+    <label class="text-white">Extra de info del Producto:</label>
+    <textarea name="extract" id="extract" class="form-control text-black">{{ $product->extract  ?? '' }}</textarea>
 </div>
 
-<div class="form-group">
-    <label>Precio del Producto:</label>
-    <input type="number" name="price" class="form-control" value="{{ $product->price }}">
+<div class="row">
+
+<div class="form-group col-3">
+    <label class="text-white">Precio del Producto:</label>
+    <input type="number" name="price" class="form-control" value="{{ $product->price ?? '' }}">
 </div>
 
-<div class="form-group">
-    <label>Cantidad del Producto:</label>
-    <input type="number" name="stock" class="form-control" value="{{ $product->stock }}">
-</div>
-
-<div class="form-group">
-    <label>Categoría:</label>
+<div class="form-group col-3">
+    <label class="text-white">Categoría:</label>
     <select name="category_id" class="form-control">
-      @foreach ($categories as $category)
-      <option value="{{ $category->id }}">{{ $category->name }}</option>
-      @endforeach
-       
-        <!-- Agrega aquí más opciones de categorías si es necesario -->
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}" 
+                {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                {{ $category->name }}
+            </option>
+        @endforeach
     </select>
 </div>
 
-<div class="form-group">
-    <label>Status:</label>
+
+<div class="form-group col-3">
+    <label class="text-white">Cantidad del Producto:</label>
+    <input type="number" name="stock" class="form-control" value="{{ $product->stock ?? '' }}">
+</div>
+
+<div class="form-group col-3">
+    <label class="text-white">Status:</label>
     <select name="status" class="form-control">
         <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>1</option>
         <option value="2" {{ $product->status == 2 ? 'selected' : '' }}>2</option>
     </select>
+</div>
 </div>

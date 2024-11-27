@@ -14,7 +14,14 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->paginate(10); // Paginación
+         // Cargar productos con enlaces filtrados y ordenarlos por fecha de creación descendente
+         $products = Product::with(['links' => function ($query) {
+            $query->where('type', 'image'); // Solo un enlace de tipo imagen
+        }])
+        ->orderBy('created_at', 'desc') // Ordenar por productos más recientes
+        ->get();
+
+       /*  $products = Product::with('category')->paginate(10); // Paginación */
         return view('admin.products.index', compact('products'));
     }
 
