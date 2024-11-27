@@ -23,10 +23,9 @@
 @include('posts.partials.footer')
 
 
-<!-- Swiper JS -->
+<!-- Swiper JS Similares-->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
 <script>
   var swiper = new Swiper(".swiper-container-post", {
       grabCursor: true,
@@ -59,26 +58,22 @@
   });
 </script>
 
-<style>
-    .background-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
+        <!-- Swiper main show -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script>
+          var swiper = new Swiper(".swiper-show-products", {
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            keyboard: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+              },
+            },
+          });
+        </script>
 
-    .form-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        /* Fondo blanco semi-transparente */
-        border-radius: 15px;
-        padding: 20px;
-    }
-
-    .bg-mod-black {
-      background-color: #0f111a;
-      color: rgb(255, 255, 255);
-    }
-</style>

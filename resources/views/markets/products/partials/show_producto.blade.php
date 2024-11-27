@@ -8,29 +8,84 @@
             </ol>
           </nav>
           <div class="row g-5 mb-5 mb-lg-8" data-product-details="data-product-details">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-7">
               <div class="row g-3 mb-3">
 
-                <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+           {{--      <div class="col-12 col-md-12 col-lg-12 col-xl-12">
                   <div class="d-flex align-items-center border rounded-3 text-center h-100">
                  
                     <iframe width="700" height="400" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
                   </div>
-                </div>
+                </div> --}}
 
-            
-                  <div thumbsSlider="" class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                {{--         @foreach ($images as $image)
-                            <div class="swiper-slide">
-                              <img src="{{ Storage::url($image->url) }}" />
-                            </div>
-                        @endforeach --}}
+                              {{-- swiper --}}
+            <div class="gy-1">
+              <div class="swiper swiper-show-products">
+                <div class="swiper-wrapper">
+
+
+                @if ($linkYoutube->exists())
+                <div class="swiper-slide">
+                  <div class="minimalista-card col-lg-12">
+                    <div class="position-relative text-decoration-none product-card h-100">
+                      <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="">
+                          <div class=" rounded-3 position-relative mb-3">
+
+                            <iframe width="670" height="420" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                          </div>
+
+
+                        </div>
+                      
+                      </div>
                     </div>
+
+
+                  </div>
                 </div>
+                @endif
+
                   
-            
+
+{{--                   @foreach ($relatedProducts as $product) --}}
+                  <div class="swiper-slide">
+                    <div class="minimalista-card col-lg-12">
+                      <div class="position-relative text-decoration-none product-card h-100">
+                        <div class="d-flex flex-column justify-content-between h-100">
+                          <div class="">
+                            <div class=" rounded-3 position-relative mb-3">
+
+                              <img style="height:450px; width: 100%" class="img-fluid rounded-3" 
+                                  src="{{ $linkImage->url }}"
+                                  alt="{{ $product->name }}" />
+                      
+              
+                              
+                            </div>
+
+
+                          </div>
+                        
+                        </div>
+                      </div>
+
+
+                    </div>
+                  </div>
+            {{--       @endforeach --}}
+
+                </div>
+                    {{-- paginacion --}}
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+              </div>
+
+            </div>
+            {{-- swiper --}}
+
 
               </div>
         {{--       <div class="d-flex">
@@ -60,7 +115,7 @@
 
 
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-5">
               <div class="d-flex flex-column justify-content-between h-50">
                 <div>
                   <div class="d-flex flex-wrap">
@@ -95,18 +150,18 @@
                   </div>
                   <div class="row g-3 g-sm-5 align-items-end">
                     <div class="col-12 col-sm-auto">
-                      <p class="fw-semi-bold mb-2 text-900">Tamaño : </p>
-                      <div class="d-flex align-items-center"><select class="form-select w-auto">
+                      <p class="fw-semi-bold mb-2 text-900">Categoria: {{$product->category->name}}</p>
+                     {{--  <div class="d-flex align-items-center"><select class="form-select w-auto">
                           <option value="44">44</option>
                           <option value="22">22</option>
                           <option value="18">18</option>
-                        </select><a class="ms-2 fs--1 fw-semi-bold" href="product-details.html#!">Size chart</a></div>
+                        </select><a class="ms-2 fs--1 fw-semi-bold" href="product-details.html#!">Size chart</a></div> --}}
                     </div>
                     <div class="col-12 col-sm">
-                      <p class="fw-semi-bold mb-2 text-900">Cantidad: </p>
-                      <div class="d-flex justify-content-between align-items-end">
+                      <p class="fw-semi-bold mb-2 text-900">Cantidad: {{$product->stock}}</p>
+                    {{--   <div class="d-flex justify-content-between align-items-end">
                         <div class="d-flex flex-between-center" data-quantity="data-quantity"><button class="btn btn-phoenix-primary px-3" data-type="minus"><span class="fas fa-minus"></span></button><input class="form-control text-center input-spin-none bg-transparent border-0 outline-none" style="width:50px;" type="number" min="1" value="2" /><button class="btn btn-phoenix-primary px-3" data-type="plus"><span class="fas fa-plus"></span></button></div><button class="btn btn-phoenix-primary px-3 border-0"><span class="fas fa-share-alt fs-1"></span></button>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>

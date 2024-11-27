@@ -16,7 +16,11 @@
     
         <div class="col-lg-9 col-xxl-10">
           
-
+          <nav class="mb-3  " aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 bg-black">
+              <li class="breadcrumb-item"><a class="text-white" href="{{ route('markets.products.index') }}">Mercado</a></li>
+            </ol>
+          </nav>
         {{--   @include('markets.products.partials.adsend') --}}
           <h3 class="text-white ">Productos mas Recientes</h3>
             @include('markets.products.partials.product')
@@ -51,10 +55,15 @@
       grabCursor: true,
     slidesPerView: 3,
     spaceBetween: 30,
+    keyboard: true,
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    }, 
+              el: ".swiper-pagination",
+              clickable: true,
+              renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+              },
+            },
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -77,44 +86,3 @@
       },
   });
 </script>
-
-<style>
-    .background-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-
-        
-    }
-    .form-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        /* Fondo blanco semi-transparente */
-        border-radius: 15px;
-        padding: 20px;
-    }
-    /* modo oscuro tienda */
-
-    .bg-mod-black {
-      background-color: #0f111a;
-      color: rgb(255, 255, 255);
-    }
-
-    .minimalista-card {
-      border: 2px solid #161a2b; /* Borde de 1px con el color de fondo anterior */
-      color: rgb(255, 255, 255);
-      border-radius: 10px; /* Bordes redondeados para un toque moderno */
-      padding: 5px; /* Espaciado interno */
-      transition: box-shadow 0.3s ease; /* Transición suave */
-      
-    }
-    .minimalista-card:hover {
-    box-shadow: 4px 4px 4px rgba(42, 18, 255, 0.158); /* Sombra blanca más intensa en hover */
-    
-}
-   
-
-</style>

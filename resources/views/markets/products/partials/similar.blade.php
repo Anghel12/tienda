@@ -2,13 +2,18 @@
 
         <div class="d-flex flex-between-center mb-1">
           <div>
-            <h3>Similares A este Producto </h3>
+            <h3 class="text-white">Similares A este Producto </h3>
             <p class="mb-0 text-700 fw-semi-bold">{{$product->category->name}}</p>
-          </div><button class="btn btn-sm btn-phoenix-primary">View all</button>
+          </div><a href="{{ route('markets.products.index') }}" class="btn btn-sm btn-phoenix-primary">View all</a>
         </div>
 
        
-    
+        @if ($relatedProducts->isEmpty())
+        <p>No hay productos relacionados. Buscar Producto en  <a href="{{ route('markets.products.index') }}" class="btn btn-sm btn-primary">Market Place</a></p>
+       
+    @else
+        
+ 
     {{-- swiper --}}
  <div class="row gx-3 gy-1">
   <div class="swiper swiper-container-post">
@@ -106,9 +111,10 @@
   </div>
 
 </div>
+
 {{-- swiper --}}
-      
- 
+
+@endif
    
     
       <!-- Swiper JS -->

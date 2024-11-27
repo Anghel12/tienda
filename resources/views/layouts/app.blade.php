@@ -79,4 +79,76 @@
     @livewireScripts
 </body>
 
+
+<style>
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+
+    .minimalista-card {
+      border: 2px solid #161a2b; /* Borde de 1px con el color de fondo anterior */
+      color: rgb(255, 255, 255);
+      border-radius: 10px; /* Bordes redondeados para un toque moderno */
+      padding: 5px; /* Espaciado interno */
+      transition: box-shadow 0.3s ease; /* Transición suave */
+      
+    }
+    .minimalista-card:hover {
+    box-shadow: 4px 4px 4px rgba(42, 18, 255, 0.158); /* Sombra blanca más intensa en hover */
+    
+}
+
+    .bg-mod-black {
+      background-color: #0f111a;
+      color: rgb(255, 255, 255);
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+    background-color: white; /* Fondo blanco */
+    border-radius: 50%; /* Hacer los botones circulares */
+    width: 40px; /* Ajusta el tamaño del botón */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 1px solid #ccc; /* Borde suave */
+    color: #333; /* Color del icono */
+    transition: all 0.3s ease;
+}
+
+  .swiper-button-next:hover, .swiper-button-prev:hover {
+      background-color: #f0f0f0; /* Fondo ligeramente gris al pasar el cursor */
+      transform: scale(1.1); /* Efecto de agrandamiento */
+  }
+
+  .swiper-button-next::after, .swiper-button-prev::after {
+      font-size: 18px; /* Ajusta el tamaño del icono */
+      color: inherit; /* Usa el color del botón */
+  }
+
+    .swiper-pagination-bullet {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: rgba(177, 177, 177, 0.432);
+          }
+      
+          .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
+          }
+</style>
+
 </html>
