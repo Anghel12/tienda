@@ -13,10 +13,6 @@ class Navbar extends Component
     
     public function render()
     {
-
-        $categories = Category::all();
-        $navbarConfigs = navbarConfig::all();
-
-        return view('livewire.home.navigation.navbar', compact('categories', 'navbarConfigs'));
+        return view('livewire.home.navigation.navbar');
     }
 }

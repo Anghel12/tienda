@@ -68,11 +68,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
-
-    protected $with = [
+ /* coins */
+ /*    protected $with = [
         'coins'
-    ];
-
+    ]; */
+       
+    public function coins()
+    {
+        return $this->belongsToMany(Coin::class, 'user_coins')->withPivot('balance');
+    }
+ 
     public function wallets()
     {
         return $this->hasMany(Wallet::class);
@@ -115,9 +120,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(postyoutube::class);
     }
 
-    public function pedidos(){
+/*     public function pedidos(){
         return $this->hasMany(pedidos::class);
-    }
+    } */
 
     public function videos(){
         return $this->hasMany(Video::class);
@@ -125,9 +130,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     
     //Relacion uno a muchos 
-    public function comments(){
+   /*  public function comments(){
         return $this->hasMany(Comment::class);
-    }
+    } */
 
     public function navbarconfing(){
         return $this->hasMany(navbarConfig::class);
@@ -137,11 +142,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Provider::class);
     }
  
-    /* coins */
-    public function coins()
-    {
-        return $this->belongsToMany(Coin::class, 'user_coins')->withPivot('balance');
-    }
+
 
     public function transactions()
     {
@@ -230,10 +231,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(BlockedFollow::class, 'blocked_user_id');
     }
 
-    public function loans()
+/*     public function loans()
     {
         return $this->hasMany(Loan::class);
-    }
+    } */
    /*   public function address(){
         return $this->hasMany(Address::class);
     }

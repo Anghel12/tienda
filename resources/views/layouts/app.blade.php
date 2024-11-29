@@ -37,7 +37,7 @@
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   {{--  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
 
     <link id="pagestyle" href="{{ asset('assets/css/soft-design-system-pro.min.css@v=1.1.0.css') }}" rel="stylesheet" />
@@ -82,7 +82,7 @@
 
 <style>
     .background-image {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -101,7 +101,7 @@
       
     }
     .minimalista-card:hover {
-    box-shadow: 4px 4px 4px rgba(42, 18, 255, 0.158); /* Sombra blanca más intensa en hover */
+    box-shadow: 0px 0px 4px 4px rgba(42, 18, 255, 0.158); /* Sombra blanca más intensa en hover */
     
 }
 
@@ -122,11 +122,13 @@
     border: 1px solid #ccc; /* Borde suave */
     color: #333; /* Color del icono */
     transition: all 0.3s ease;
+    
 }
 
   .swiper-button-next:hover, .swiper-button-prev:hover {
       background-color: #f0f0f0; /* Fondo ligeramente gris al pasar el cursor */
       transform: scale(1.1); /* Efecto de agrandamiento */
+      
   }
 
   .swiper-button-next::after, .swiper-button-prev::after {

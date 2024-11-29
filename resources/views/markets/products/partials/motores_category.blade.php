@@ -1,6 +1,6 @@
  {{-- swiper --}}
  <div class="row gx-3 gy-7">
-    <div class="swiper swiper-container-post">
+    <div class="swiper swiper-container-category">
       <div class="swiper-wrapper">
 
         @foreach ($motores_filtro_market as $product)
@@ -41,43 +41,45 @@
                   </div>
 
                   <div class="p-2">
-                  <a class="stretched-link" href="{{route('markets.products.show', $product)}}">
-                    <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 70px">{{$product->name}}</h4>
-                  </a>
-                  <p class="fs--1"><span class="fa fa-star text-warning"></span><span
+                    <a class="stretched-link" href="{{route('markets.products.show', $product)}}">
+                      <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}</h4>
+                    </a>
+                    <div class="d-flex align-items-center mb-3">
+                          
+                      <h3 class="text-1100 mb-0 text-white">S/{{$product->price}}</h3>
+                      <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->price_reciente}}</p> 
+                    </div>
+  
+                      <div class="mb-3">
+                   
+                        <p class="fs--1 text-1000 fs--1 mb-0 fw-bold text-truncate text-white" style="max-width: 300px;">{!! $product->extract !!}</p>
+                        <p class="fs--1 text-700 fs--1 mb-2">Categoria:{{$product->Category->name}}</p>
+    
+                        <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">{{$product->brand->title}}</p>
+      
+                        {{-- carrito --}}
+                     {{--    <div class="">
+                          {!! Form::open(['route' => 'agregaritem', 'autocomplete' => 'off', 'method' => 'POST']) !!}
+      
+                          {!! Form::hidden('Producto_id', $product->id) !!}
+      
+                          {!! Form::hidden('Producto_precio', $product->price) !!}
+      
+                          {!! Form::submit('Agregar al carrito', ['class' => 'btn style-btn']) !!}
+      
+                          {!! Form::close() !!}
+                        </div> --}}
+                        {{-- carrito --}}
+                      </div>
+  
+                             
+                    <p class="fs--1"><span class="fa fa-star text-warning"></span><span
                       class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span
                       class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span
                       class="text-500 fw-semi-bold ms-1">(64 people rated)</span>
                     </p>
-
-                    <div>
-                      <p class="fs--1 text-1000 fs--1 mb-0 fw-bold text-truncate text-white" style="max-width: 300px;">{!! $product->extract !!}</p>
-                      <p class="fs--1 text-700 fs--1 mb-2">Categoria:{{$product->Category->name}}</p>
-    
-                      <div class="d-flex align-items-center mb-1">
-                        
-                        <h3 class="text-1100 mb-0 text-white">S/{{$product->price}}</h3>
-                        <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->price_reciente}}</p> 
-                      </div>
-                  
-                      <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0 text-white">{{$product->brand->title}}</p>
-    
-                      {{-- carrito --}}
-                   {{--    <div class="">
-                        {!! Form::open(['route' => 'agregaritem', 'autocomplete' => 'off', 'method' => 'POST']) !!}
-    
-                        {!! Form::hidden('Producto_id', $product->id) !!}
-    
-                        {!! Form::hidden('Producto_precio', $product->price) !!}
-    
-                        {!! Form::submit('Agregar al carrito', ['class' => 'btn style-btn']) !!}
-    
-                        {!! Form::close() !!}
-                      </div> --}}
-                      {{-- carrito --}}
+  
                     </div>
-
-                  </div>
 
 
                 </div>

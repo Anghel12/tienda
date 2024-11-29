@@ -90,23 +90,5 @@
     </div>
   </div>
 </section>
-<style>
-    .background-image {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
 
-    .form-container {
-        background-color: rgba(255, 255, 255, 0.8);
-        /* Fondo blanco semi-transparente */
-        border-radius: 15px;
-        padding: 20px;
-    }
-</style>
-<!-- END Pricing w/ 2 cards & nav tabs -->
 

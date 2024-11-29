@@ -15,7 +15,7 @@
               </div>
               <div class="card-body text-white position-relative">
                 <p class="display-2 font-weight-bold mb-0">$ {{ $wallet->balance ?? 0 }} </p>
-                <span>{{ $coin->name }}</span>
+                <span>Coins</span>
                 <ul class="list-unstyled my-4">
 
                   <li class="align-items-center">

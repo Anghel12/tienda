@@ -31,7 +31,7 @@ use WireUi\Support\Facades\WireUi;
 |
 */
 Route::resource('marketplace/products', ProductController::class)->names('markets.products');
-
+ 
 Route::post('/payment/notification', [CoinController::class, 'paymentNotification'])->name('paymentNotification');
 /* HOME BLOG */
 Route::post('/image/upload', [ImagesController::class, 'upload'])->name('image.upload');

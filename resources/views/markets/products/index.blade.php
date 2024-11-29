@@ -49,13 +49,54 @@
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper -->
+<!-- Initialize Swiper, no funciona el boton preview porque utliza botones de todos del mismo css -->
 <script>
-  var swiper = new Swiper(".swiper-container-post", {
+  var swiper = new Swiper(".swiper-container-products", {
       grabCursor: true,
     slidesPerView: 3,
     spaceBetween: 30,
     keyboard: true,
+
+    pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+              },
+            },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  breakpoints: {
+        "@0.00": {
+          slidesPerView: 1,
+        },
+        "@0.75": {
+          slidesPerView: 2,
+        },
+        "@1.00": {
+          slidesPerView: 3,
+        },
+        "@1.70": {
+          slidesPerView: 3,
+        },
+        
+      },
+  });
+
+</script>
+
+
+<script>
+  var swiper = new Swiper(".swiper-container-category", {
+      grabCursor: true,
+    slidesPerView: 3,
+    spaceBetween: 30,
+    keyboard: true,
+
     pagination: {
               el: ".swiper-pagination",
               clickable: true,

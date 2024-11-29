@@ -22,7 +22,7 @@
     
                 @if (session('success'))
                 <div class="alert alert-success" role="alert">
-                    <strong>DEPOSITO EXITOSO {{ $userBalance }} {{ $coin->name }}!</strong>
+                    <strong>DEPOSITO EXITOSO {{ $userBalance }}!</strong>
                     <a href=""> <- Ver transacción -> </a>
                 </div>
                 @endif
@@ -34,7 +34,7 @@
                   {{--   <form action="{{ route('payment_methods.voucher.complete') }}" method="POST" enctype="multipart/form-data"> --}}
                         @csrf
                         <input type="hidden" name="amount" value="{{ $amount }}">
-                        <input type="hidden" name="coin_id" value="{{ $coin_id }}">
+                        <input type="hidden" name="coin_id" value="1">
                         <input type="hidden" name="email" value="{{ $email }}">
                         <input type="hidden" name="ip_address" value="{{ $ip_address }}">
                         
@@ -52,7 +52,7 @@
 
                             <div class="col-lg-12 col-12">
                                 <div class="form-group has-success">
-                                    <input type="hidden" name="coin_id" value="{{ $coin->id }}" readonly/>
+                                    <input type="hidden" name="coin_id" value="1" readonly/>
                                     <input type="number" name="amount" class="form-control form-control-alternative" value="{{ $amount }}" readonly/>
                                 </div>
                             </div>

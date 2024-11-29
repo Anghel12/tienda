@@ -31,11 +31,6 @@ class AppServiceProvider extends ServiceProvider
                 return new MercadoPagoGateway();  
         });
 
-        if ($this->app->environment('local')) {
-            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
-            $this->app->register(TelescopeServiceProvider::class);
-        }
-
     }
     
 
@@ -46,26 +41,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /* mostar mfavoritos */
-        view()->composer('*', function ($view) {
+
+        /* No hacer esto mala practicas */
+       /*  view()->composer('*', function ($view) {
             if (auth()->check()) {
                 $favoritesCount = Favorite::where('user_id', auth()->user()->id)->count();
                 $view->with('favoritesCount', $favoritesCount);
             }
         });
-/* mostar snombre de la moneda */
-    
-        view()->composer('*', function ($view) {
+      view()->composer('*', function ($view) {
             $coin = Coin::find(1);
             $view->with(['coin' => $coin]);
-        }); 
-/* mostar coin-order count */
-        view()->composer('*', function ($view) {
+        });  
+
+      view()->composer('*', function ($view) {
             $OrderCoin = OrderCoin::count();
             $view->with(['OrderCoin' => $OrderCoin]);
-        }); 
+        });  */
 
-    /* Notificaciones */
+    /* QUITAR ESTO SI O SI PROBLEMAS DE RENDIMIENTO */
     view()->composer('*', function ($view) {
         $unreadNotificationsCount = 0;
 
@@ -89,7 +83,7 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        /* mostar sus coins a los usuarios */
+        /* mostar sus coins a los usuarios quitar y poner en el navbar*/
         View()->composer('*', function ($view) {
             // Verifica si el usuario está autenticado
             if (auth()->check()) {
@@ -102,6 +96,7 @@ class AppServiceProvider extends ServiceProvider
             
             $view->with('userBalance', $balance);
         });
+        
         /* certificado ssl https */
         if (env('FORCE_HTTPS') === 'true') {
             URL::forceScheme('https');

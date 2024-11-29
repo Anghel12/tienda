@@ -1,4 +1,4 @@
-<footer class="footer py-5 position-relative overflow-hidden" style="height: 450px;      background-color: #0f111a;
+<footer class="footer py-5 position-relative overflow-hidden" style="height: 480px;      background-color: #0f111a;
       color: rgb(255, 255, 255);">
   <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines"
     class="position-absolute start-0 top-0 w-100 opacity-6">

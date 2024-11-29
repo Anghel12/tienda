@@ -1,5 +1,5 @@
 <div class="d-flex">
-    <div class="col-12 " style="height: 150px">
+    <div class="col-12 " style="height: 200px">
       {{-- anuncio gogle --}}
       <div class="adsense">
         <ins class="adsbygoogle"

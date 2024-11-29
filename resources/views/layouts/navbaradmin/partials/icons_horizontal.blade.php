@@ -365,7 +365,7 @@
               </div>
               <div class="card-footer p-0 border-top">
                 <ul class="nav d-flex flex-column my-3">
-                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.buyCoins.index') }}"> <span class="me-2 text-900" data-feather="credit-card"></span>Comprar {{$coin->name}} </a></li>
+                  <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.buyCoins.index') }}"> <span class="me-2 text-900" data-feather="credit-card"></span>Comprar Coins </a></li>
                   <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.users.index') }}"> <span class="me-2 text-900" data-feather="user-plus"></span>Otra Cuenta </a></li>
                
                

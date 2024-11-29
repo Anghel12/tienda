@@ -4,20 +4,6 @@
 </div>
 
 <div class="form-group">
-
-  <label class="text-white">URL del Video (YouTube):</label>
-  <input type="text" name="link_youtube" class="form-control" 
-         value="{{ $linkYoutube ? $linkYoutube->url : '' }}">
-</div>
-
-<div class="form-group">
-  <label class="text-white">URL de la Imagen: <img src="{{ $linkImage->url ?? '' }}" alt="" class="avatar avatar-md"> </label>
-  <input type="text" name="link_image" class="form-control" 
-         value="{{ $linkImage ? $linkImage->url : '' }}">
-</div>
-
-
-<div class="form-group">
     <label class="text-white">Informacion importante :</label>
     <textarea name="body" class="form-control text-black">{{ $product->body ?? ''}}</textarea>
 </div>
@@ -27,7 +13,7 @@
     <textarea name="extract" id="extract" class="form-control text-black">{{ $product->extract  ?? '' }}</textarea>
 </div>
 
-<div class="row">
+<div class="row mb-3">
 
 <div class="form-group col-3">
     <label class="text-white">Precio del Producto:</label>

@@ -35,7 +35,7 @@
 
             @if (session('success'))
             <div class="alert alert-success" role="alert">
-                <strong>DEPOSITO EXITOSO {{ $userBalance }} {{ $coin->name }}!</strong>
+                <strong>DEPOSITO EXITOSO {{ $userBalance }}!</strong>
                 <a href="">
                     <- Ver transacción ->
                 </a>
@@ -74,10 +74,10 @@
                         <div class="col-lg-4 col-12">
                             <label for="coin_id">Moneda:</label>
                             <select name="coin_id" id="coin_id" class="form-control">
-                                <option value="{{ $coin->id }}">{{ $coin->name }}</option>
-                                <option value="{{ $coin->id }}">USD</option>
-                                <option value="{{ $coin->id }}">SOL</option>
-                                <option value="{{ $coin->id }}">USDT</option>
+                                <option value="1">Terra</option>
+                                <option value="2">USD</option>
+                                <option value="3">SOL</option>
+                                <option value="4">USDT</option>
                                 <!-- Agrega más opciones según los métodos de pago habilitados en tu cuenta de Stripe -->
                             </select>
                         </div>

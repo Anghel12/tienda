@@ -42,16 +42,16 @@ class PostController extends Controller
             cache::put($key, $posts);
         }
        
-        $postyoutubes = PostYoutube::all();
-        $tags = Tag::all();
-        $sliders = Slider::all();
-        $categories = category::all();
+        /* $postyoutubes = PostYoutube::all(); */
+        /* $tags = Tag::all();
+        $sliders = Slider::all(); */
+       /*  $categories = category::all();
         $configuracion_homes = Configuracion::all();
         $banners = HomeBaner::all();
-        $reviews = Review::all();
+        $reviews = Review::all(); */
         
 
-        return view('posts.index', compact('posts','tags', 'sliders', 'configuracion_homes', 'postyoutubes','categories', 'banners', 'reviews'));
+        return view('posts.index', compact('posts'));
         
     }
 

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Home\Product;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -67,6 +68,11 @@ class ProductController extends Controller
         $this->updateOrCreateMediaLink($product, 'youtube', $request->link_youtube);
         $this->updateOrCreateMediaLink($product, 'image', $request->link_image);
 
+        // Refresca la caché asociada a los productos de las categorías
+        $categories = Category::whereIn('name', ['Motokares', 'Aros', 'Motores'])->pluck('id');
+        Cache::forget('products_' . implode('_', $categories->toArray())); // Se usa el array de categorías dinámico
+
+
         return redirect()->route('admin.products.index')
             ->with('success', 'Producto creado exitosamente.');
     }
@@ -89,6 +95,10 @@ class ProductController extends Controller
         // Busca los links asociados al producto
         $linkYoutube = $product->links()->where('type', 'youtube')->first();
         $linkImage = $product->links()->where('type', 'image')->first();
+
+         // Borrar la caché asociada a los productos con las categorías filtradas
+         $categories = ['Motokares', 'Aros', 'Motores'];
+         Cache::forget('products_' . implode('_', $categories));
     
         // Pasamos las URLs (o null si no existen)
         return view('admin.products.edit', compact('product', 'categories', 'linkYoutube', 'linkImage'));
@@ -124,6 +134,11 @@ class ProductController extends Controller
         $this->updateOrCreateMediaLink($product, 'youtube', $request->link_youtube);
         $this->updateOrCreateMediaLink($product, 'image', $request->link_image);
 
+       // Refresca la caché asociada a los productos de las categorías
+    $categories = Category::whereIn('name', ['Motokares', 'Aros', 'Motores'])->pluck('id');
+    Cache::forget('products_' . implode('_', $categories->toArray())); // Se usa el array de categorías dinámico
+
+
         return redirect()->route('admin.products.index')
             ->with('success', 'Producto actualizado exitosamente.');
     }
@@ -134,6 +149,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+
+          // Refresca la caché asociada a los productos de las categorías
+    $categories = Category::whereIn('name', ['Motokares', 'Aros', 'Motores'])->pluck('id');
+    Cache::forget('products_' . implode('_', $categories->toArray())); // Se usa el array de categorías dinámico
+
+
         return redirect()->route('admin.market.products.index')
             ->with('success', 'Producto eliminado exitosamente.');
     }

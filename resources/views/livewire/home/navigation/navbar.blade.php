@@ -39,7 +39,7 @@
           @include('livewire.home.navigation.partials.coin')
 
 
-      </div>
+      </div> 
       @auth
     {{--   @include('livewire.home.navigation.partials.icon_admin') --}}
     @if(auth()->user()->hasRole('Admin'))

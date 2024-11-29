@@ -9,7 +9,7 @@
 {{-- FORMULARIO DE COMPRA --}}
 {{-- @include('markets.products.partials.navbar') --}}
 <div class="bg-mod-black">
-  <div class="container " style="width: 100%">
+  <div class="container-fluid " style="width: 100%">
     <div class="row pt-7 pb-5">
 
             @include('markets.products.partials.show_producto')
@@ -28,7 +28,7 @@
 
 <script>
   var swiper = new Swiper(".swiper-container-post", {
-      grabCursor: true,
+    grabCursor: true,
     slidesPerView: 4,
     spaceBetween: 30,
     pagination: {
@@ -58,15 +58,16 @@
   });
 </script>
 
-        <!-- Swiper main show -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
+
           var swiper = new Swiper(".swiper-show-products", {
             navigation: {
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
             },
             keyboard: true,
+            grabCursor: true,
+            spaceBetween: 30,
             pagination: {
               el: ".swiper-pagination",
               clickable: true,

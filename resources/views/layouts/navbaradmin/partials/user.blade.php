@@ -36,7 +36,7 @@
             <hr class="navbar-vertical-line" />
             <div class="nav-item-wrapper">
               <a class="nav-link label-1" href="{{ route('admin.buyCoins.index') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="disc"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Buy {{ $coin->name }} </span></span></div>
+                <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="disc"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Buy Coins </span></span></div>
               </a>
             </div>
 
