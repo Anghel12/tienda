@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Home\Navigation;
 
 use Livewire\Component;
-use App\Models\Category;
-use App\Models\Configuracion;
-use App\Models\navbarConfig;
+use App\Models\Wallet;
+use Illuminate\Support\Facades\Auth;
+use Stripe\Balance;
 
 class Navbar extends Component
 {

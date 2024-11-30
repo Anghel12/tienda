@@ -78,10 +78,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Coin::class, 'user_coins')->withPivot('balance');
     }
  
-    public function wallets()
-    {
-        return $this->hasMany(Wallet::class);
-    }
+    public function wallet()
+{
+    return $this->hasOne(Wallet::class);
+}
+
     
     public function homeHelps()
     {
@@ -130,9 +131,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     
     //Relacion uno a muchos 
-   /*  public function comments(){
+    public function comments(){
         return $this->hasMany(Comment::class);
-    } */
+    } 
 
     public function navbarconfing(){
         return $this->hasMany(navbarConfig::class);

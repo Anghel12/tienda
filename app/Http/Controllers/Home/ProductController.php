@@ -23,7 +23,7 @@ class ProductController extends Controller
                     $query->where('type', 'image'); // Solo un enlace de tipo imagen
                 },
                 'category:id,name', // cargar solo los campos id y name de la categoría
-                'brand:id,title'    // cargar solo los campos id y title de la marca
+                'brand:id,title'    
             ])
             ->whereIn('category_id', function($query) use ($categories) {
                 // Filtrar por las categorías definidas
@@ -34,7 +34,7 @@ class ProductController extends Controller
             ->orderBy('created_at', 'desc') // Ordenar por productos más recientes
             ->get();
         });
-    
+
         // Filtrar productos por categoría sin hacer consultas adicionales
         $motokares_filtro_market = $products->where('category.name', 'Motokares');
         $aros_filtro_market = $products->where('category.name', 'Aros');

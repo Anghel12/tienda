@@ -11,11 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
-    /**
-     * Muestra las notificaciones del usuario.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    /* admin y usuario lo ven diferente arreglar que solo el usuario tnega esta vista  */
+
     public function index()
     {
         $user = Auth::user();

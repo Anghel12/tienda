@@ -44,7 +44,7 @@ class CreateNewUser implements CreatesNewUsers
         'email' => $input['email'],
         'password' => Hash::make($input['password']),
         'referral_code' => $this->generateUniqueReferralCode(),
-    ])->assignRole('Blogger');
+    ])->assignRole('User');
 
 
     if (!empty($input['referral_code'])) {

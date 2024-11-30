@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class PackageCoinController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
   // Muestra una lista de los recursos
   public function index()
   {

@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\TermController;
 use Chatify\ChatifyMessenger;
 use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
+use App\Http\Controllers\Admin\EnvConfigController;
 use App\Http\Controllers\Admin\FuntWallet\PackageCoinController;
 use App\Http\Controllers\Admin\Home\MembershipController;
 use App\Http\Controllers\Admin\Market\ProductController;
@@ -51,96 +52,57 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\OrderCoinController;
 use App\Http\Controllers\Admin\Rutas\PermissionController;
 use App\Http\Controllers\Admin\User\VerifyController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::resource('products', ProductController::class)->names('admin.products');
-/* Route::middleware(['auth', 'Admin'])->group(function () { */
-    Route::resource('order_coins', OrderCoinController::class)->names('admin.order_coins');
-/* }); */
-
-/* coins */
+Route::resource('order_coins', OrderCoinController::class)->names('admin.order_coins');
 Route::resource('coins', CoinConfigController::class)->names('admin.coins');
 Route::get('buyCoins', [CoinController::class, 'showBuyCoinsForm'])->name('admin.buyCoins.index');
 Route::get('confirmarPackage', [CoinController::class, 'confirmarPackage'])->name('admin.buyCoins.confirmar_package');
 Route::post('processPayment', [CoinController::class, 'processPayment'])->name('processPayment');
 Route::resource('packageCoins', PackageCoinController::class)->names('admin.funt_wallet.package_coins');
-
-/* sub */
+Route::resource('users', UserController::class)->only('index', 'edit', 'update', 'show')->names('admin.users');
+/* IMPERSONATE CAMBIAR DE USUARIO SIENDO ADMIN */
+Route::post('impersonate/{user}/start', [ImpersonateController::class, 'start'])->name('impersonate.start');
+Route::get('impersonate/stop', [ImpersonateController::class, 'stop'])->name('impersonate.stop');
 Route::resource('subscription', MembershipController::class)->names('admin.home.subscription');
-
-Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
 Route::post('/notifications/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
-
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['can:admin.home'
 /* ,'auth:sanctum', 
 config('jetstream.auth_session'),
 'verified' */
 ])->name('admin.index');
-/* IMPERSONATE CAMBIAR DE USUARIO SIENDO ADMIN */
-Route::post('impersonate/{user}/start', [ImpersonateController::class, 'start'])->name('impersonate.start');
-/* impersonate/stop sin middleware */
-Route::get('impersonate/stop', [ImpersonateController::class, 'stop'])->name('impersonate.stop');
-/* nosotros about us  */
-/* Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('about_us_homes', AboutUsHomeController::class);
-}); */
+
+/* config home */
 Route::resource('about_us_homes', AboutUsHomeController::class)->names('admin.about_us_homes');
-
-/* ruta de ayuda home */
 Route::resource('home_helps', HomeHelpController::class)->names('admin.home_helps');
-
-
-
-
-
-/* roles y permisos */
 Route::resource('permissions', PermissionController::class)->names('admin.permissions');
 Route::resource('roles', RoleController::class)->names('admin.roles');
-
 Route::resource('postyoutube', PostYoutubeController::class)->names('admin.postyoutubes');
-
 Route::resource('sales', SaleController::class)->names('admin.sales');
-
 Route::resource('pedidos', PedidoController::class)->names('admin.pedidos');
-
 Route::resource('providers', ProviderController::class)->names('admin.providers');
- 
 Route::resource('brands', BrandController::class)->names('admin.brands');
-
 Route::resource('dashboards', DashboardController::class)->names('admin.dashboards');
- 
-
+Route::resource('navbars', NavbarConfigController::class)->names('admin.navbars');
+Route::resource('sliders', SliderController::class)->names('admin.sliders');
+Route::resource('footers', FooterController::class)->names('admin.footers');
 /* mercado pago checks*/
 Route::get('MercadoPago/success', [MercadoPagoController::class, 'success'])->name('admin.MercadoPago.success');
 Route::get('MercadoPago/failure', [MercadoPagoController::class, 'failure'])->name('admin.MercadoPago.failure');
 Route::get('MercadoPago/pending', [MercadoPagoController::class, 'pending'])->name('admin.MercadoPago.pending');
 
-/* configuracion de la vista home crud */
-
-Route::resource('navbars', NavbarConfigController::class)->names('admin.navbars');
-Route::resource('sliders', SliderController::class)->names('admin.sliders');
-Route::resource('footers', FooterController::class)->names('admin.footers');
 /* ICONOES  */
 Route::get('/icons', [IconController::class, 'index'])->name('admin.icons.index');
-
-/* Mensajes */
-Route::resource('messages', MensajesController::class)->names('admin.messages');
-
-/* Imagnes  */
 Route::resource('imagenes', ImagesController::class)->names('admin.images');
 
-/* Mensajes */
-Route::get('mensajes', [MensajesController::class, 'listarMensajes'])->name('admin.mensajes.listar');
-Route::get('mensajes/{id}', [MensajesController::class, 'verMensaje'])->name('admin.mensajes.ver');
-/* banear usuarios */
+
 Route::resource('bans', BanController::class)->names('admin.bans');
 Route::put('desbaneo/{id}', [BanController::class, 'desbaneo'])->name('admin.bans.desbaneo');
-/* DATABASE */
 Route::resource('Database', DatabaseController::class)->names('admin.database');
-
-/* ENV CONFIGURACION no mostrar a nadie */
-/* Route::resource('envconfig', EnvConfigController::class)->names('admin.envconfig');
- */
+Route::resource('envconfig', EnvConfigController::class)->names('admin.envconfig');
+ 
 /* dev tools */
 Route::resource('DevTools', DevToolsController::class)->names('admin.DevTools');
 
@@ -196,3 +158,13 @@ Route::resource('HomeContactDetails', HomeContactDetailsController::class)->name
 Route::resource('maps', MapsController::class)->names('admin.maps');
 Route::resource('Places', PlacesController::class)->names('admin.Places');
 
+/* falta */
+Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
+/* Muesta de route  */
+/* Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('about_us_homes', AboutUsHomeController::class);
+}); */
+/* Mensajes */
+Route::resource('messages', MensajesController::class)->names('admin.messages');
+Route::get('mensajes', [MensajesController::class, 'listarMensajes'])->name('admin.mensajes.listar');
+Route::get('mensajes/{id}', [MensajesController::class, 'verMensaje'])->name('admin.mensajes.ver');

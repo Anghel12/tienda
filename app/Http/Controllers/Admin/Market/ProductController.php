@@ -13,6 +13,14 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
+
     public function index()
     {
          // Cargar productos con enlaces filtrados y ordenarlos por fecha de creación descendente
@@ -32,8 +40,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all(); // Para cargar las categorías
-        $brand = Brand::all();
-        return view('admin.products.create', compact('categories', 'brand'));
+        $brands = Brand::all();
+        return view('admin.products.create', compact('categories','brands'));
     }
 
     /**
@@ -90,7 +98,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::all();
+        $edit_categories = Category::all();
+
+        $brands = Brand::all();
     
         // Busca los links asociados al producto
         $linkYoutube = $product->links()->where('type', 'youtube')->first();
@@ -101,7 +111,7 @@ class ProductController extends Controller
          Cache::forget('products_' . implode('_', $categories));
     
         // Pasamos las URLs (o null si no existen)
-        return view('admin.products.edit', compact('product', 'categories', 'linkYoutube', 'linkImage'));
+        return view('admin.products.edit', compact('product','brands', 'edit_categories', 'linkYoutube', 'linkImage'));
     }
     
 
@@ -145,7 +155,7 @@ class ProductController extends Controller
 
     /**
      * Elimina un producto de la base de datos.
-     */
+     */ 
     public function destroy(Product $product)
     {
         $product->delete();

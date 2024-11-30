@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
-    public function __construct()
+public function __construct()
     {
         $this->middleware('can:admin.posts.index')->only('index');
         $this->middleware('can:admin.posts.create')->only('create', 'store');
         $this->middleware('can:admin.posts.edit')->only('edit', 'update');
         $this->middleware('can:admin.posts.destroy')->only('destroy'); 
-    }
+    } 
 
     /**
      * Display a listing of the resource.

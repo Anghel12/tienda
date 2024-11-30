@@ -3,9 +3,9 @@
   <nav
     class="navbar navbar-expand-lg  blur top-0 z-index-fixed shadow position-absolute  py-2 start-0 end-0">
     <div class="container-fluid px-0">
-      <a class="navbar-brand font-weight-bolder ms-sm-3" href="{{ route('admin.profile.index')}}" rel="tooltip" title="Terra Bank"
+      <a class="navbar-brand font-weight-bolder ms-sm-3" href="{{ route('markets.products.index')}}" rel="tooltip" title="CyberEcotienda"
         data-placement="bottom">
-        Terra Bank
+        CyberEcotienda
       </a>
 
       <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
@@ -32,9 +32,9 @@
         {{--   @include('livewire.home.navigation.partials.user_login') --}}
           @endauth
 
-          @can('abouts_us')
+       {{--    @can('abouts_us')
           @include('livewire.home.navigation.partials.about_us')
-          @endcan
+          @endcan --}}
 
           @include('livewire.home.navigation.partials.coin')
 
@@ -47,7 +47,7 @@
     @endif
    
       <livewire:ninde-dots-icon />
-      <livewire:notifications-all-views />
+    <livewire:notifications-all-views />
       <livewire:icon-profile />
       
       {{--   @include('livewire.home.navigation.partials.icon_profile') --}}

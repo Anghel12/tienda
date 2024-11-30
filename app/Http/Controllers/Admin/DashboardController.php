@@ -17,13 +17,13 @@ use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
-/*   public function __construct()
-  {
-      $this->middleware('can:admin.dashboards.index')->only('index');
-      $this->middleware('can:admin.dashboards.create')->only('create', 'store');
-      $this->middleware('can:admin.dashboards.edit')->only('edit', 'update');
-      $this->middleware('can:admin.dashboards.destroy')->only('destroy'); 
-  } */
+  public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
 
     public function index(){ 
 // Obtén los registros de "CPU Traffic" desde la base de datos

@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 
 class OrderCoinController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
+    
      // Método para listar las órdenes de monedas
      public function index()
      {

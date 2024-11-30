@@ -27,7 +27,7 @@
                 <h4 class="text-700 lh-lg mb-0 p-2">Al Correo: <input class="form- form-control-sm mt-3 text-center w-50 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="angheltamo@gmail.com">
                 </h4>
 
-                <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 {{ $coin->name }}
+                <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 Coins
                 </h3>
 
             </div>
@@ -62,7 +62,7 @@
                 <P class="text-700 lh-lg mb-0 p-2">CyberEcotiendaNGE
                 </P>
 
-                  <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 {{ $coin->name }}
+                  <h3 class="text-700 lh-lg p-2">$1 Dolar = 1  coin
                 </h3>
 
             </div>
@@ -93,7 +93,7 @@
                 </h3>
                 <h4 class="text-700 lh-lg mb-0 p-2">Correo:<input class="form- form-control-sm mt-3 text-center w-50 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="angheltamo@gmail.com">
                 </h4>
-                     <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 {{ $coin->name }}
+                     <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 coin
                 </h3>
 
             </div>
@@ -126,7 +126,7 @@
                 <h4 class="text-700 lh-lg mb-0 p-2">Numero:  <input class="form- form-control-sm mt-3 text-center w-50 text-dark bg-200 dark__bg-1100 border-300" type="text" readonly="readonly" value="980980721">
                 </h4>
 
-                    <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 {{ $coin->name }}
+                    <h3 class="text-700 lh-lg p-2">$1 Dolar = 1 coin
                 </h3>
             </div>
 

@@ -12,8 +12,8 @@
         <div class="col-xl-12 mb-1">
           <div class="tabs mb-7">
             <ul class="nav nav-underline nav-tabs mb-3" id="nav-tab" role="tablist">
-              <li class="nav-item" role="presentation"><button class="nav-link " id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab" aria-controls="pills-year" aria-selected="false">Package de {{ $coin->name }}</button></li>
-              <li class="nav-item" role="presentation"><button class="nav-link active" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month" aria-selected="true"> Recargar {{ $coin->name }}</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link " id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab" aria-controls="pills-year" aria-selected="false">Package de Coins</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link active" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month" aria-selected="true"> Recargar Coins</button></li>
             </ul>
 
             
@@ -46,7 +46,7 @@
                         <div class="tab-pane active" role="tabpanel" aria-labelledby="bootstrap-wizard-validation-tab1" id="bootstrap-wizard-validation-tab1">
                           <form class="{{-- needs-validation --}}" id="" novalidate="novalidate" data-wizard-form="1">
                             <div class="mb-2">
-                              <label class="form-label text-900" for="bootstrap-wizard-validation-wizard-name">Monto de {{ $coin->name }}</label>
+                              <label class="form-label text-900" for="bootstrap-wizard-validation-wizard-name">Monto de Coins</label>
                               <input class="form-control" type="text" name="name" placeholder="5" required="required" id="bootstrap-wizard-validation-wizard-name">
                               <div class="invalid-feedback">Poner un Monto</div>
                             </div>
@@ -198,7 +198,7 @@
                   <div class="col-12 col-sm-6 col-xxl-4">
                     <div class="card overflow-hidden bg-transparent h-100 p-2" ><img class="mb-4 d-dark-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/13.png')}} " alt="" width="120" height="96" /><img class="mb-4 d-light-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/dark_13.png')}}" alt="" width="120" height="96" />
                     <div class="mb-sm-5 pricing-column-title-box">
-                      <h3 class="mb-2">{{ $packageCoin->titulo }} 1{{ $coin->name }}</h3>
+                      <h3 class="mb-2">{{ $packageCoin->titulo }} Coins</h3>
                       <p class="text-800 mb-0 pe-3">{{ $packageCoin->body }}</p>
                     </div>
                     <div class="d-flex align-items-center mb-4">
@@ -221,7 +221,7 @@
                   <div class="col-12 col-sm-6 col-xxl-4">
                     <div class="card overflow-hidden bg-transparent h-100 p-2" ><img class="mb-4 d-dark-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/14.png')}}" alt="" width="120" height="96" /><img class="mb-4 d-light-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/dark_14.png')}}" alt="" width="120" height="96" />
                     <div class="mb-sm-5 pricing-column-title-box">
-                      <h3 class="mb-2">Premiun de {{ $coin->name }}</h3>
+                      <h3 class="mb-2">Premiun de Coins</h3>
                       <p class="text-800 mb-0 pe-3">For teams that need to create project plans with confidence.</p>
                     </div>
                     <div class="d-flex align-items-center mb-4">
@@ -243,7 +243,7 @@
                   <div class="col-12 col-sm-6 col-xxl-4">
                     <div class="card overflow-hidden bg-transparent h-100 p-2" ><img class="mb-4 d-dark-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/15.png')}}" alt="" width="120" height="96" /><img class="mb-4 d-light-none" src="{{ asset('cssadmin/assets/img/spot-illustrations/dark_15.png')}}" alt="" width="120" height="96" />
                     <div class="mb-sm-5 pricing-column-title-box">
-                      <h3 class="mb-2">VIP de {{ $coin->name }}</h3>
+                      <h3 class="mb-2">VIP de Coins</h3>
                       <p class="text-800 mb-0 pe-3">For teams that need to manage work across initiatives.</p>
                     </div>
                     <div class="d-flex align-items-center mb-4">

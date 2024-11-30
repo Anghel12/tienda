@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class VerifyController extends Controller 
 {
+    
     public function index()
     { 
         $verifies = Verify::all();

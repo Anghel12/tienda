@@ -23,7 +23,7 @@
                 <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.index' ) }}"> <span class="me-2 text-900" data-feather="user"></span><span>{{ Auth::user()->name }}</span></a></li>
                
                 @if(auth()->user()->hasRole('Admin'))
-                <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_actions.wallets.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Billetera: {{ $userBalance }} </a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="{{ route('user_actions.wallets.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Billetera: {{ $balance }} </a></li>
                 
                 @endif
                 <li class="nav-item"><a class="nav-link px-3" href="{{ route('admin.profile.edit', Auth::user()->id) }} "> <span class="me-2 text-900" data-feather="settings"></span>Configuracion</a></li>

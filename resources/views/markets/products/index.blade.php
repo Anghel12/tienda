@@ -2,13 +2,6 @@
   
 </x-app-layout>
 
-
-{{-- <img class="background-image"
-  src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jpg" alt="Fondo"> --}}
- 
-{{-- FORMULARIO DE COMPRA --}}
-{{-- @include('markets.products.partials.navbar') --}}
-
   <div class="bg-mod-black" style="width: 100%">
     <div class="container-fluid">
       <div class="row pt-7 pb-5">
@@ -21,7 +14,7 @@
               <li class="breadcrumb-item"><a class="text-white" href="{{ route('markets.products.index') }}">Mercado</a></li>
             </ol>
           </nav>
-        {{--   @include('markets.products.partials.adsend') --}}
+           {{-- @include('markets.products.partials.adsend') --}}
           <h3 class="text-white ">Productos mas Recientes</h3>
             @include('markets.products.partials.product')
             @include('markets.products.partials.adsend')
@@ -45,11 +38,8 @@
   </div>
   @include('posts.partials.footer')
 
-
-<!-- Swiper JS -->
+<!-- Swiper JS Similares-->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper, no funciona el boton preview porque utliza botones de todos del mismo css -->
 <script>
   var swiper = new Swiper(".swiper-container-products", {
       grabCursor: true,

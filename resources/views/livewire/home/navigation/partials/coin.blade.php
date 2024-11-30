@@ -12,7 +12,7 @@
 </a> --}}
 
 <a class="btn bg-gradient-info me-1 mb-0 " href="{{ route('user_actions.buy_coins.index') }}" aria-expanded="false">
-  <span>Billetera: $/{{ $userBalance }}</span>
+  <span>Billetera: S/{{ Auth::user()->wallet->balance ?? 0; }}</span>
   
 </a>
 
@@ -384,14 +384,14 @@
 @else
 <ul class="navbar-nav d-lg-block d-none">
   <li class="nav-item">
-    <a href="{{ url('/login') }}" class="btn bg-gradient-info me-1 mb-0">Depósito Rápido</a>
+    <a href="{{ url('/login') }}" class="btn bg-gradient-info me-1 mb-0">Depósito</a>
   </li>
 </ul>
 
 <li class="nav-item dropdown dropdown-hover mx-2">
   <a class="btn bg-gradient-info me-1 mb-0" href="{{ url('/login') }}">
     {{-- <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/icons/flags/US.png" /> --}} Cartera: 
-  <strong style="color: yellow; font-size: 1.1em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">$/10</strong>
+  <strong style="color: yellow; font-size: 1.1em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">S/0</strong>
   </a>
 </li>
 

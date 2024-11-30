@@ -20,12 +20,6 @@ class CategoryHomeController extends Controller
         return view('home.category.index', compact('categories'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Category $category)
     {
 

@@ -441,6 +441,7 @@ return [
         [
             'text'        => 'Dashboard Graficos',
             'route'         => 'admin.dashboards.index',
+            'can'        => 'admin.adminTitulo.index',
             'icon'        => 'fas fa-tachometer-alt',
             'icon_color' => 'orange',
             'label'       => 4, 
@@ -786,13 +787,16 @@ return [
             ],
         ],
 
-        ['header' => 'Ventas'],
+        ['header' => 'Ventas',
+        'can'        => 'admin.adminTituloExtras.index',
+        ],
 
         [
             'text'       => 'Ordenes',
             'icon_color' => 'red',
             'icon'        => 'fas fa-shopping-cart',
             'route'      => 'admin.orders.index',
+             'can'        => 'admin.adminTituloExtras.index',
            
         ],
 
@@ -801,6 +805,7 @@ return [
             'icon_color' => 'red',
             'icon'        => 'fas fa-shopping-cart',
             'route'      => 'admin.sales.index',
+             'can'        => 'admin.adminTituloExtras.index',
            
         ],
 
@@ -809,6 +814,7 @@ return [
             'icon_color' => 'red',
             'icon'        => 'fas fa-shopping-cart',
             'route'      => 'admin.sales.index',
+             'can'        => 'admin.adminTituloExtras.index',
            
         ],
 
@@ -846,6 +852,7 @@ return [
             'route'         => 'admin.reviews.index',
             'icon'        => 'far fa-comment-alt',
             'icon_color' => 'purple',
+            'can'        => 'admin.adminTituloExtras.index',
             'label_color' => 'success',
         ],
 

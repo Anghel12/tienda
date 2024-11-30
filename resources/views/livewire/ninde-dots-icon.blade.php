@@ -18,7 +18,7 @@
 
 
                 <div class="col-4">
-                  <a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="{{ route('user_actions.wallets.index') }}"> 
+                  <a class="d-block hover-bg-200 p-2 rounded-3 text-center text-decoration-none mb-3" href="{{ route('markets.products.index') }}"> 
                       <i class="fas fa-store fa-2x"></i>
                       <p class="mb-0 text-black text-truncate mt-1 pt-1">Market Place</p>
                   </a>

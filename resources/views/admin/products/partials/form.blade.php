@@ -23,7 +23,7 @@
 <div class="form-group col-3">
     <label class="text-white">Categoría:</label>
     <select name="category_id" class="form-control">
-        @foreach ($categories as $category)
+        @foreach ($edit_categories as $category)
             <option value="{{ $category->id }}" 
                 {{ $product->category_id == $category->id ? 'selected' : '' }}>
                 {{ $category->name }}
@@ -32,6 +32,17 @@
     </select>
 </div>
 
+<div class="form-group col-3">
+    <label class="text-white">Marca:</label>
+    <select name="brand_id" class="form-control">
+        @foreach ($brands as $brand)
+            <option value="{{ $brand->id }}" 
+                {{ $product->brand_id == $brand->id ? 'selected' : '' }}>
+                {{ $brand->title }}
+            </option>
+        @endforeach
+    </select>
+</div>
 
 <div class="form-group col-3">
     <label class="text-white">Cantidad del Producto:</label>

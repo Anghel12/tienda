@@ -8,11 +8,15 @@ use Illuminate\Http\Request;
 
 class CoinConfigController extends Controller 
 {
-    /**
-     * Muestra una lista de las monedas.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
+
     public function index()
     {
         $coins = Coin::all();

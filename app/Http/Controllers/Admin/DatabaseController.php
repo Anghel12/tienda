@@ -10,9 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseController extends Controller
 {
-    public function index() {
-        $tablas = collect(DB::select('SHOW TABLES'))->pluck('Tables_in_tienda');
+    public function __construct()
+    {
+        $this->middleware('can:admin.roles.index')->only('index');
+        $this->middleware('can:admin.roles.create')->only('create', 'store');
+        $this->middleware('can:admin.roles.edit')->only('edit', 'update');
+        $this->middleware('can:admin.roles.destroy')->only('destroy'); 
+    } 
 
-        return view('admin.database.index', ['tablas' => $tablas]); //Pasando los nombres de las tablas a la vista
+    public function index() {
+       /*  $tablas = collect(DB::select('SHOW TABLES'))->pluck('Tables_in_tienda'); */
+
+        return view('admin.database.index'/* , ['tablas' => $tablas] */); 
     }
 }

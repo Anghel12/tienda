@@ -102,7 +102,7 @@
               <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute opacity-8">
               <div class="card-header bg-transparent">
                 <h6 class="text-uppercase text-white ls-1 py-3 mb-0">Billetera Virtual:</h6>
-                <p class="display-2 text-white mb-0">$/{{ $userBalance }}</p>
+                <p class="display-2 text-white mb-0">S/{{ Auth::user()->wallet->balance ?? 0; }} </p>
                   <p class=" text-white">Nivel: Premiun</p> {{-- <span class=" text-white">Premiun</span> --}}
                 <h6 class="text-uppercase text-white ls-1 py-3 mb-0">ID: SA5D5A55655626A5DA8WQEQ</h6>
 

@@ -46,9 +46,17 @@ Route::get('about', [AboutUsHomeController::class, 'index'])->name('home.about.i
 
 Route::get('help', [HelpHomeController::class, 'index'])->name('home.help.indexhelp');
 
-Route::get('category', [CategoryHomeController::class, 'index'])->name('home.category.index');
-
-Route::get('category/{category}', [CategoryHomeController::class, 'show'])->name('home.category.show');
+/* Route::get('category', [CategoryHomeController::class, 'index'])->name('home.category.index');
+Route::get('category/{category}', [CategoryHomeController::class, 'show'])->name('home.category.show'); 
+Route::get('categoria/{category}', [PostController::class, 'category'])->name('posts.category');
+Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
+Route::get('tag{tag}', [PostController::class, 'tag'])->name('posts.tag');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+//COMMENTARIOS  
+Route::get('/viewcomment', [CommentController::class, 'viewComment'])->name('viewcomment'); 
+Route::get('/viewcommentpost/{id}', [CommentController::class, 'viewCommentPost'])->name('viewcommentpost'); 
+Route::post('/agregarmensaje/{post}', [CommentController::class, 'agregarMensaje'])->name('agregarmensaje');
+*/
 
 Route::get('/', [AllHomeContentController::class, 'all_bd_index'])->name('posts.index');
 
@@ -56,21 +64,6 @@ Route::get('/', [AllHomeContentController::class, 'all_bd_index'])->name('posts.
 /* ->middleware('log.device.info', CacheMiddleware::class.':300') 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 */
-Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
-
-/* Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
- */
-Route::get('categoria/{category}', [PostController::class, 'category'])->name('posts.category');
-
-Route::get('tag{tag}', [PostController::class, 'tag'])->name('posts.tag');
-
-//CONFIGURACION HOME.INDEX
-
-/* COMMENTARIOS  */
-Route::get('/viewcomment', [CommentController::class, 'viewComment'])->name('viewcomment'); 
-Route::get('/viewcommentpost/{id}', [CommentController::class, 'viewCommentPost'])->name('viewcommentpost'); 
-Route::post('/agregarmensaje/{post}', [CommentController::class, 'agregarMensaje'])->name('agregarmensaje');
-
 
 /* AUTENTICADOR GOOGLE login*/
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
@@ -94,7 +87,7 @@ Route::get('auth/facebook/call-back', [FacebookAuthController::class, 'callbackF
  Route::post('/CrearOrden', [CartController::class, 'CrearOrden'])->name('CrearOrden');  
 
 
- /* ORDEN PEDIDOS */
+ /* Blog */
  Route::get('/Blog', [BlogsController::class, 'index'])->name('home.Blogs.index');  
 
 
