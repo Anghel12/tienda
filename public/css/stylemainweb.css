@@ -1,0 +1,188 @@
+html,
+body,
+.bg-mod-black {
+  height: 100% !important;
+  margin: 0 !important;
+  background: #0f111a !important;
+  color: #fff!important;
+}
+
+.navbar-dark {
+  background: #0f111a !important;
+  color: rgb(255, 255, 255);
+}
+
+/* centrar div medio container vh-100 d-flex justify-content-center align-items-center */
+.card-img-top {
+  height: 200px;
+  /* Ajusta la altura según tus necesidades */
+  object-fit: cover;
+  width: 100%;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 40%;
+}
+.card-minimalista {
+  border: 2px solid #161a2b;
+  /* Borde de 1px con el color de fondo anterior */
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  /* Bordes redondeados para un toque moderno */
+  padding: 5px;
+  /* Espaciado interno */
+  transition: box-shadow 0.3s ease;
+  /* Transición suave */
+}
+
+.minimalista-card {
+  border: 1px solid #444;
+  /* Antiguo  2px solid #161a2b; */
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  /* Bordes redondeados para un toque moderno */
+  padding: 5px;
+  /* Espaciado interno */
+  transition: box-shadow 0.3s ease;
+  /* Transición suave */
+
+}
+
+.card-bg-dark-minimalista {
+  border: 1px solid #444;
+  /* Antiguo  2px solid #161a2b; */
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  /* Bordes redondeados para un toque moderno */
+  padding: 5px;
+  /* Espaciado interno */
+  transition: box-shadow 0.3s ease;
+  /* Transición suave */
+  background: #000000;
+}
+
+.minimalista-card:hover {
+  background: #03000f;
+  box-shadow: 0px 4px 4px 4px rgba(42, 18, 255, 0.158);
+  /* Sombra blanca más intensa en hover */
+}
+
+/* nabvar */
+
+.navbar {
+  background-color: #18191a;
+  border-bottom: 1px solid #3a3b3c;
+  padding: 0.5rem 1rem;
+}
+
+.nav-item:hover {
+  background: #4e4e4e;
+}
+
+/* Hover y Active para enlaces */
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
+  background: #4e4e4e;
+}
+
+.nav-link .fas {
+  font-size: 20px;
+}
+
+/* Bordes al seleccionar */
+.ni-wh {
+  width: 100px;
+  height: 100%;
+  border-radius: 5px;
+
+}
+
+/*celular navbar*/
+
+/* Ajuste para el botón de colapso */
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.d-flex .nav-link {
+  font-size: 24px;
+
+}
+.derecha_margin {
+  font-size: 24px;
+  padding: 5px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+/* todo */
+a {
+    text-decoration: none!important;
+  }
+
+  .mb-10 {
+    margin-bottom: 10px;
+  }
+
+  .mb-15 {
+    margin-bottom: 15px;
+  }
+
+  .mb-20 {
+    margin-bottom: 20px;
+  }
+
+  .mt-10 {
+    margin-top: 10px !important;
+  }
+
+  .mt-15 {
+    margin-top: 15px !important;
+  }
+
+  .mt-20 {
+    margin-top: 20px !important;
+  }
+
+  .mt-30 {
+    margin-top: 30px !important;
+  }
+
+  .mt-40 {
+    margin-top: 40px !important;
+  }
+
+  .formatted-text {
+    white-space: pre-line; /* Mantiene los saltos de línea pero elimina los espacios extra */
+    word-wrap: break-word; /* Evita que el texto se desborde */
+}
+
+  .text-800 {
+    color: #343a40;
+    /* Color gris oscuro como ejemplo */
+    font-weight: 800;
+    /* Peso de la fuente */
+  }
+
+  .z-index {
+    z-index: 1050;
+    /* Superior a la mayoría de elementos Bootstrap */
+  }
+
+  .fs--1 {
+    font-size: 0.875rem;
+    /* Equivalente a 14px */
+  }

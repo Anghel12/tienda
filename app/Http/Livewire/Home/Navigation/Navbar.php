@@ -3,16 +3,31 @@
 namespace App\Http\Livewire\Home\Navigation;
 
 use Livewire\Component;
-use App\Models\Wallet;
 use Illuminate\Support\Facades\Auth;
-use Stripe\Balance;
+use Illuminate\Support\Facades\Cache;
 
 class Navbar extends Component
 {
-    protected $paginationTheme = 'bootstrap';
-    
+    public $Admin = false;
+
+    public function mount()
+    {
+        $user = Auth::user();
+
+        if ($user) {
+            // Guardar el rol en caché para evitar múltiples consultas
+            $this->Admin = Cache::remember("user_role_{$user->id}", now()->addMonths(6), function () use ($user) {
+                return $user->hasRole('Admin');
+            });
+        }
+    }
+
     public function render()
     {
-        return view('livewire.home.navigation.navbar');
+        return view('livewire.home.navigation.navbar', [
+            'Admin' => $this->Admin,
+        ]);
     }
 }
+
+

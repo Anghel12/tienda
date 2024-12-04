@@ -7,8 +7,8 @@
 
 <section class="py-2">
   <div class="container pt-8">
-    <div class="row">
-      <div class="col-lg-12 col-md-10 d-flex justify-content-center flex-column">
+    <div  class="row justify-content-center align-items-center" style="height: 100vh; padding-top: 7rem;">
+      <div class="col-lg-12 col-md-10">
             <div class="card p-2">
                 <h3> (Admin) Editar Orden de Voucher</h3>
                 <a href="{{route('admin.users.show', $user->id) }}">Ver Perdil del Usuario {{ $user->name }}</a>
@@ -38,9 +38,9 @@
 
                     <select name="payment_method" id="payment_method" class="form-control">
                         <option value="{{ $orderCoin->payment_method }}">{{ $orderCoin->payment_method }}</option>
-                        <option value="{{ $coin->id }}">USD</option>
-                        <option value="{{ $coin->id }}">SOL</option>
-                        <option value="{{ $coin->id }}">USDT</option>
+                        <option value="1">USD</option>
+                        <option value="1">SOL</option>
+                        <option value="1">USDT</option>
                         <!-- Agrega más opciones según los métodos de pago habilitados en tu cuenta de Stripe -->
                     </select>
 

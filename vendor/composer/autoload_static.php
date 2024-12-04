@@ -844,6 +844,7 @@ class ComposerStaticInitf60f93635aa6f736e32782899ca75c64
         'App\\Http\\Livewire\\UserActions\\TransferCoins\\EnviarIndex' => __DIR__ . '/../..' . '/app/Http/Livewire/UserActions/TransferCoins/EnviarIndex.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CacheMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/CacheMiddleware.php',
+        'App\\Http\\Middleware\\ContentSecurityPolicy' => __DIR__ . '/../..' . '/app/Http/Middleware/ContentSecurityPolicy.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\LogDeviceInfo' => __DIR__ . '/../..' . '/app/Http/Middleware/LogDeviceInfo.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',

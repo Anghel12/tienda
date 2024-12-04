@@ -9,20 +9,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
 {{-- FORMULARIO DE COMPRA --}}
 
 <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 100vh; padding-top: 7rem;">
-
-        <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
-    {{--     <div class="col-lg-7 col-12 text-center text-lg-start mb-3 mb-lg-0">
-            <h1 class="text-white pt-3 mt-n5">{{$coin->name}}: La Moneda del Futuro <br>
-                que Está Revolucionando el Mercado</h1>
-            <p class="lead text-white mt-3">
-                Únete a los +1000 de usuarios <br>
-                que ya están aprovechando las ventajas de {{$coin->name}}. <br>
-                Transacciones rápidas, seguras y con bajas comisiones. <br>
-                No te quedes atrás <br>
-                forma parte de la próxima gran revolución financiera.
-            </p> 
-        </div> --}}
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 2rem;">
 
         <!-- Formulario a la derecha (12 columnas en móviles, 5 columnas en pantallas grandes) -->
         <div class="col-lg-12 col-12">
@@ -48,7 +35,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
               <div class="col-md-4">
                 <div class="card-image position-relative border-radius-lg">
                   <div class="blur-shadow-image">
-                    <img class="img border-radius-lg" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-cart.jpg">
+                    <img style="height: 100px; "  class="img border-radius-lg" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-cart.jpg">
                   </div>
                 </div>
               </div>
@@ -73,7 +60,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
               <div class="col-md-4">
                 <div class="card-image position-relative border-radius-lg">
                   <div class="blur-shadow-image">
-                    <img class="img border-radius-lg" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-flower.jpg">
+                    <img style="height: 100px; "  src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-flower.jpg">
                   </div>
                 </div>
               </div>
@@ -85,7 +72,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
                   If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, a new offering from MateLabs. MateVerse, a platform where novices can spin out machine... <a href="javascript:;" class="text-dark"> Read More </a>
                 </p>
                 <div class="author">
-                 <img src="../../assets/img/team-3.jpg" alt="..." class="avatar avatar-sm shadow me-2">
+                  <img style="height: 100px; "  src="../../assets/img/team-3.jpg" alt="..." class="avatar avatar-sm shadow me-2">
                  <p class="my-auto">John Mannes</p>
                 </div>
               </div>
@@ -98,7 +85,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
               <div class="col-md-4">
                 <div class="card-image position-relative border-radius-lg">
                   <div class="blur-shadow-image">
-                    <img class="img border-radius-lg" src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-stair.jpg">
+                    <img style="height: 100px; "  src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/color-stair.jpg">
                   </div>
                 </div>
               </div>
@@ -110,7 +97,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
                     Venture investment in U.S. startups rose sequentially in the second quarter of 2017, boosted by large, late-stage financings and a few outsized early-stage rounds in tech and healthcare.. <a href="javascript:;" class="text-dark"> Read More </a>
                 </p>
                 <div class="author">
-                   <img src="../../assets/img/team-4.jpg" alt="..." class="avatar avatar-sm shadow me-2">
+                  <img style="height: 100px; "  src="../../assets/img/team-4.jpg" alt="..." class="avatar avatar-sm shadow me-2">
                    <p class="my-auto">Devin Coldewey</p>
                 </div>
               </div>

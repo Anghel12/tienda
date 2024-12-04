@@ -101,17 +101,17 @@
             <div class="card card-pricing bg-gradient-info border-0 text-center mb-4 overflow-hidden" style="height: 390px;">
               <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute opacity-8">
               <div class="card-header bg-transparent">
-                <h6 class="text-uppercase text-white ls-1 py-3 mb-0">Billetera Virtual:</h6>
-                <p class="display-2 text-white mb-0">S/{{ Auth::user()->wallet->balance ?? 0; }} </p>
-                  <p class=" text-white">Nivel: Premiun</p> {{-- <span class=" text-white">Premiun</span> --}}
-                <h6 class="text-uppercase text-white ls-1 py-3 mb-0">ID: SA5D5A55655626A5DA8WQEQ</h6>
+                <h6 class="text-uppercase ls-1 py-3 mb-0">Billetera Virtual:</h6>
+                <p class="display-2 mb-0">S/{{ Auth::user()->wallet->balance ?? 0; }} </p>
+                  <p class=" ">Nivel: Premiun</p> {{-- <span class=" text-white">Premiun</span> --}}
+                <h6 class="text-uppercase ls-1 py-3 mb-0">ID: SA5D5A55655626A5DA8WQEQ</h6>
 
             
               </div>
               <div class="card-footer bg-transparent position-relative">
-                <a href="{{ route('user_actions.buy_coins.index') }}" class="btn btn-outline-white">Depositar</a>
+                <a href="{{ route('user_actions.buy_coins.index') }}" class="btn btn-info">Depositar</a>
 
-                <a href="{{ route('user_actions.transfer_coins.index') }}" class="btn btn-outline-white">Transferir</a>
+                <a href="{{ route('user_actions.transfer_coins.index') }}" class="btn btn-info">Transferir</a>
               </div>
             </div>
           </div>

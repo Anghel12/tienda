@@ -1,5 +1,10 @@
  <!-- <section> begin ============================-->
     <div class="py-0">
+
+      <!-- Mostrar solo en pantallas pequeñas (móviles) -->
+<div class="d-block d-md-none">
+  @include('markets.products.partials.adsend')
+</div>
         <div class="container-fluid">
           <nav class="mb-3  " aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 bg-black">
@@ -31,12 +36,28 @@
                     <div class="position-relative text-decoration-none product-card h-100">
                       <div class="d-flex flex-column justify-content-between h-100">
                         <div class="">
-                          <div class=" rounded-3 position-relative mb-3">
+                          <div class="rounded-3 position-relative mb-3 youtube-container">
 
-                            <iframe width="100%" height="500" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe width="100%" height="100%" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                           </div>
 
-
+                          <style>
+                            .youtube-container {
+                              height: 500px; /* Altura fija del contenedor */
+                              width: 100%;
+                              overflow: hidden;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              background-color: #f8f9fa; /* Color de fondo para el espacio vacío */
+                            }
+  
+                            @media (max-width: 768px) { /* Aplicar en dispositivos móviles */
+                            .youtube-container {
+                              height: 240px; /* Altura fija en pantallas pequeñas */
+                            }
+                              }
+                            </style>
                         </div>
                       
                       </div>
@@ -55,16 +76,38 @@
                       <div class="position-relative text-decoration-none product-card h-100">
                         <div class="d-flex flex-column justify-content-between h-100">
                           <div class="">
-                            <div class=" rounded-3 position-relative mb-3">
+                            <div class="rounded-3 position-relative mb-3 image-container">
 
-                              <img style="height:500px; width: 100%" class="img-fluid rounded-3" 
+                              <img loading="lazy" class="img-fluid rounded-3" 
                                   src="{{ $linkImage->url }}"
                                   alt="{{ $product->name }}" />
                       
               
                               
                             </div>
+                          <style>
+                          .image-container {
+                            height: 100%; /* Altura fija del contenedor */
+                            width: 100%;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #000000; /* Color de fondo para el espacio vacío */
+                          }
 
+                          .image-container img {
+                            max-width: 100%;
+                            max-height: 500px;
+                            object-fit: contain; /* Ajusta la imagen dentro del contenedor sin distorsión */
+                          }
+
+                          @media (max-width: 768px) { /* Aplicar en dispositivos móviles */
+                            .image-container img {
+                              height: 240px; /* Altura fija en pantallas pequeñas */
+                            }
+                              }
+                          </style>
 
                           </div>
                         
@@ -110,9 +153,11 @@
                
               </div> --}}
               {{-- Anuncio de google --}}
+
+            <!-- Mostrar solo en pantallas grandes (tabletas y de escritorio) -->
+            <div class="d-none d-md-block">
               @include('markets.products.partials.adsend')
-
-
+            </div>
 
             </div>
             <div class="col-12 col-lg-5">
@@ -123,7 +168,7 @@
                     <div class="me-2"><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span></div>
                     <p class="text-primary fw-semi-bold mb-2">65 Personas estan interesados en el producto</p>
                   </div>
-                  <h3 class="mb-3 lh-sm text-white">{{$product->name}}</h3>
+                  <h2 class="mb-3 lh-sm text-white">{{$product->name}}</h2>
                   <div class="d-flex flex-wrap align-items-start mb-3"><a class="fw-semi-bold" href="#">{{$product->user->name}}: </a><span class="badge bg-success fs--1 rounded-pill me-2 fw-semi-bold">#1 Mejor Vendedor</span></div>
                   <div class="d-flex flex-wrap align-items-center mb-3">
                     <h1 class="me-3 text-white">S/{{$product->price}}</h1>
@@ -140,7 +185,8 @@
                   </a>
                 @endauth
                  
-                  <p class="mb-2 text-white"> {{$product->body}} </p>
+                  <p class="mb-2 text-white"> </p>
+                  <p class="text-danger-500 fw-bold mb-lg-0" style="width: 100%">{{$product->body}}</p>
                   <p class="text-danger-500 fw-bold mb-lg-0">OFERTA ESPECIAL HASTA EL 3 DE DICIEMBRE</p>
                 </div>
                 <div>
@@ -148,7 +194,7 @@
                     <p class="fw-semi-bold mb-2 text-900 text-white ">Marca: <span class="text-1100 text-white" data-product-color="data-product-color">{{ $product->brand->title }}</span></p>
               
                   </div>
-                  <div class="row g-3 g-sm-5 align-items-end">
+                  <div class="row g-3 g-sm-5 align-items-end mb-5">
                     <div class="col-12 col-sm-auto">
                       <p class="fw-semi-bold mb-2 text-900 text-white">Categoria: {{$product->category->name}}</p>
                      {{--  <div class="d-flex align-items-center"><select class="form-select w-auto">
@@ -158,7 +204,7 @@
                         </select><a class="ms-2 fs--1 fw-semi-bold" href="product-details.html#!">Size chart</a></div> --}}
                     </div>
                     <div class="col-12 col-sm">
-                      <p class="fw-semi-bold mb-2 text-900"> <span class="badge bg-info rounded-pill">En stock: {{$product->stock}}</span></p>
+                      <p class="fw-semi-bold mb-2 text-900"> <span class="badge bg-dark text-white rounded-pill">En stock: {{$product->stock}}</span></p>
                     {{--   <div class="d-flex justify-content-between align-items-end">
                         <div class="d-flex flex-between-center" data-quantity="data-quantity"><button class="btn btn-phoenix-primary px-3" data-type="minus"><span class="fas fa-minus"></span></button><input class="form-control text-center input-spin-none bg-transparent border-0 outline-none" style="width:50px;" type="number" min="1" value="2" /><button class="btn btn-phoenix-primary px-3" data-type="plus"><span class="fas fa-plus"></span></button></div><button class="btn btn-phoenix-primary px-3 border-0"><span class="fas fa-share-alt fs-1"></span></button>
                       </div> --}}

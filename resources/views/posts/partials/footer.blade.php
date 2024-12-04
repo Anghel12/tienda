@@ -1,11 +1,10 @@
-<footer class="footer py-5 position-relative overflow-hidden" style="height: 480px;      background-color: #0f111a;
-      color: rgb(255, 255, 255);">
-  <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines"
+<footer class="footer py-5 position-relative overflow-hidden">
+  <img loading="lazy" src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines"
     class="position-absolute start-0 top-0 w-100 opacity-6">
-  <div class="container position-relative">
+  <div class="container position-relative" >
     <div class="row">
       <div class="col-lg-4 me-auto mb-lg-0 mb-4 text-lg-start text-center">
-        <h6 class="text-white font-weight-bolder text-uppercase mb-lg-4 mb-3">Terra Bank</h6>
+        <h4 class="text-white font-weight-bolder text-uppercase mb-lg-4 mb-3">Mas Informacion de Cyber Ecotienda</h4>
         <ul class="nav flex-row ms-n3 justify-content-lg-start justify-content-center mb-4 mt-sm-0">
           <li class="nav-item">
             <a class="nav-link text-white opacity-8" href=" {{ route('posts.index') }} ">
@@ -34,33 +33,40 @@
           </script> Cyber Ecotienda Enterprice
         </p>
       </div>
-      <div class="col-lg-6 ms-auto text-lg-end text-center">
+      <div class="col-lg-6 ms-auto text-lg-end text-center" style="height: 300px;">
+        <div class="mb-2">
+          <div class="minimalista-card col-12 p-2" style="height: 100%">
+            <!-- Alineando el texto a la izquierda -->
+            <h6 class="mb-4 text-lg text-white font-weight-bold text-start">
+              ✔ Vendo 🤩
+              OFERTA esta Página Web o aplicación Para Mostrar Productos o cuál actividad..info acá deja mensaje🎫🧾
+            </h6>
+            <p>Atte: Admin
 
-        <div class="d-flex mb-2 ">
-          <div class="minimalista-card col-12 p-4" style="height: 200px">
-            <h4 class="text-white text-lg-center">🤩Vendo OFERTA esta Página Web o aplicación Para Mostrar 
-              Productos o cuál actividad..info acá deja mensaje🎫🧾
-            </h4>
-            <a target="__blank" class="btn btn-info col-12"> MAS INFO </a>
+            </p>
+            <a href="{{ route('user_contact') }}" class="btn btn-info col-12">Contactarnos</a>
           </div>
         </div>
-
-        <p class="mb-5 text-lg text-white font-weight-bold">
-          Empresa reconocida por todo el Mundo por nuestra Seguridad al Cliente. .
-        </p>
-        <a  class="text-white me-xl-4 me-4 opacity-5">
-          <span class="fab fa-dribbble"></span>
-        </a>
-        <a class="text-white me-xl-4 me-4 opacity-5">
-          <span class="fab fa-twitter"></span>
-        </a>
-        <a  class="text-white me-xl-4 me-4 opacity-5">
-          <span class="fab fa-pinterest"></span>
-        </a>
-        <a class="text-white opacity-5">
-          <span class="fab fa-github"></span>
-        </a>
+        
+     
       </div>
+      <div class="col-lg-12 ms-auto text-lg-end text-center">
+      <p class="mb-5 text-lg text-white font-weight-bold">
+        Empresa reconocida por todo el Mundo por nuestra Seguridad al Cliente. .
+      </p>
+      <a  class="text-white me-xl-4 me-4 opacity-5">
+        <span class="fab fa-dribbble"></span>
+      </a>
+      <a class="text-white me-xl-4 me-4 opacity-5">
+        <span class="fab fa-twitter"></span>
+      </a>
+      <a  class="text-white me-xl-4 me-4 opacity-5">
+        <span class="fab fa-pinterest"></span>
+      </a>
+      <a class="text-white opacity-5">
+        <span class="fab fa-github"></span>
+      </a>
+    </div>
     </div>
   </div>
 </footer>

@@ -1,8 +1,8 @@
-<header class="bg-gradient-dark">
-  <div class="page-header min-vh-75" style="background-image: url('../assets/img/office-dark.jpeg');">
+
+  <div class="page-header min-vh-75 mb-4" style="background-image: url('../assets/img/office-dark.jpeg'); height: 500px; position: relative; " >
     <span class="mask bg-gradient-info opacity-8"></span>
-    <div class="container">
-      <div class="row justify-content-center">
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100%; padding-top: 5rem;">
+      <div class="row ">
         <div class="col-lg-8 text-center mx-auto my-auto">
           <h1 class="text-white">Sobre Nosotros<span class="text-white" id="typed"></span></h1>
        {{--    <div id="typed-strings">
@@ -40,9 +40,9 @@
     </div>
 
   </div>
-</header>
 
-<section class="pt-2 pb-6 bg-gray-100" id="count-stats">
+
+<section class="pt-2 pb-6 bg-gray-100 mb-8" id="count-stats">
   <div class="container">
    {{--  <div class="row mb-7">
       <div class="col-lg-2 col-md-4 col-6 mb-4">
@@ -90,7 +90,7 @@
       <div class="col-lg-6">
         <div class="row justify-content-start">
           <div class="col-md-6">
-            <div class="info">
+            <div class="info card-minimalista ">
               <div class="icon icon-shape text-center">
                 <svg class="text-info" width="25px" height="25px" viewBox="0 0 40 40" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -121,8 +121,8 @@
               <p>Etamos tratando de hacer el mejor esfuerzo en ser los numero 1 </p>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="info">
+          <div class="col-md-6 ">
+            <div class="info card-minimalista">
               <div class="icon icon-shape text-center">
                 <svg class="text-info" width="43px" height="20px" viewBox="0 0 43 36" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -151,7 +151,7 @@
         </div>
         <div class="row justify-content-start">
           <div class="col-md-6">
-            <div class="info">
+            <div class="info card-minimalista">
               <div class="icon icon-shape text-center">
                 <svg class="text-info" width="25px" height="25px" viewBox="0 0 42 42" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -180,7 +180,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="info">
+            <div class="info card-minimalista">
               <div class="icon icon-shape text-center">
                 <svg class="text-info" width="25px" height="25px" viewBox="0 0 46 42" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -211,18 +211,18 @@
         </div>
       </div>
       <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
-        <div class="card shadow-lg">
+        <div class="card-minimalista shadow-lg">
           <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
             <div class="d-block blur-shadow-image">
-              <img
+              <img loading="lazy"
                 src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/funny.jpg"
                 alt="img-blur-shadow" class="img-fluid shadow rounded-3">
             </div>
-            <div class="colored-shadow"
+            <div class="colored-shadow" loading="lazy"
               style="background-image: url(https://demos.creative-tim.com/marketplace/soft-ui-design-system-pro/pages/&quot;https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/funny.jpg&quot;);">
             </div>
           </div>
-          <div class="card-body">
+          <div class="card-body m-3">
             <a href="javascript:;">
               <h5 class="mt-3">
                 Mejorando la Plataforma

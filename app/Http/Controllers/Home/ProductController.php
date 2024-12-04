@@ -12,42 +12,49 @@ class ProductController extends Controller
 {
     public function index() 
     {
-        //crud borra la cache ok 6 meses
-        // Definir las categorías que deseas filtrar
-        $categories = ['Motokares', 'Aros', 'Motores'];
+        // Obtener categorías con caché de 6 meses
+        $filtro_categorias = Cache::remember('categories_id_name', now()->addMonths(6), function () {
+            return Category::select('id', 'name')->get();
+        });
     
-        // Intentar obtener los productos desde la caché con una duración de 6 meses
-        $products = Cache::remember('products_' . implode('_', $categories), now()->addMonths(6), function () use ($categories) {
+        // Obtener categorías con productos limitados a 3, sus enlaces de tipo imagen y con caché
+        $prodcuts_categorias = Cache::remember('prodcuts_categorias', now()->addMonths(6), function () {
+            return Category::with([
+                'products' => function ($query) {
+                    // Ordenar productos por los más recientes y cargar los enlaces de tipo imagen
+                    $query->orderBy('created_at', 'desc')
+                        ->with(['links' => function ($query) {
+                            $query->where('type', 'image'); // Solo enlaces tipo imagen
+                        }])
+                        ->with('brand'); // Cargar la marca de los productos también
+                }
+            ])
+            ->take(3) // Limitar a las primeras 3 categorías
+            ->get(['id', 'name']); // Obtener solo id y nombre de las categorías
+        });
+    
+        // Cargar productos con relaciones, caché de 6 meses
+        $products = Cache::remember('products_with_relations', now()->addMonths(6), function () {
             return Product::with([
                 'links' => function ($query) {
-                    $query->where('type', 'image'); // Solo un enlace de tipo imagen
+                    $query->where('type', 'image'); // Solo enlaces tipo imagen
                 },
-                'category:id,name', // cargar solo los campos id y name de la categoría
-                'brand:id,title'    
+                'category:id,name', // Cargar solo id y name de la categoría
+                'brand:id,title'    // Cargar solo id y title de la marca
             ])
-            ->whereIn('category_id', function($query) use ($categories) {
-                // Filtrar por las categorías definidas
-                $query->select('id')
-                    ->from('categories')
-                    ->whereIn('name', $categories);
-            })
-            ->orderBy('created_at', 'desc') // Ordenar por productos más recientes
+            ->orderBy('created_at', 'desc') // Ordenar por los más recientes
             ->get();
         });
 
-        // Filtrar productos por categoría sin hacer consultas adicionales
-        $motokares_filtro_market = $products->where('category.name', 'Motokares');
-        $aros_filtro_market = $products->where('category.name', 'Aros');
-        $motores_filtro_market = $products->where('category.name', 'Motores');
     
-        return view('markets.products.index', compact('products', 'motokares_filtro_market', 'aros_filtro_market', 'motores_filtro_market'));
+        return view('markets.products.index', compact('products', 'filtro_categorias', 'prodcuts_categorias'));
     }
     
     
-    public function show(Product $product)
+    public function show($slug)
     {
-        // Usar cache para el producto completo con una duración de 6 meses
-        $product = Cache::remember("product_{$product->id}", now()->addMonths(6), function() use ($product) {
+        // Buscar el producto por su slug
+        $product = Cache::remember("product_{$slug}", now()->addMonths(6), function() use ($slug) {
             return Product::with([
                 'user:id,name',
                 'links' => function($query) {
@@ -55,28 +62,34 @@ class ProductController extends Controller
                 },
                 'category:id,name',
                 'brand:id,title'
-            ])->find($product->id);
+            ])->where('slug', $slug)->first();  // Buscar por el slug en lugar del id
         });
-        
+    
+        // Verificar si el producto existe
+        if (!$product) {
+            abort(404, 'Producto no encontrado');
+        }
+    
         // Usar cache para los enlaces relacionados con el producto, con 6 meses de duración
-        $linkYoutube = Cache::remember("link_youtube_{$product->id}", now()->addMonths(6), function() use ($product) {
+        $linkYoutube = Cache::remember("link_youtube_{$product->slug}", now()->addMonths(6), function() use ($product) {
             return $product->links()->where('type', 'youtube')->first();
         });
-        
-        $linkImage = Cache::remember("link_image_{$product->id}", now()->addMonths(6), function() use ($product) {
+    
+        $linkImage = Cache::remember("link_image_{$product->slug}", now()->addMonths(6), function() use ($product) {
             return $product->links()->where('type', 'image')->first();
         });
-        
+    
         // Usar cache para los productos relacionados, con 6 meses de duración
         $relatedProducts = Cache::remember("related_products_{$product->category_id}", now()->addMonths(6), function() use ($product) {
             return Product::where('category_id', $product->category_id)
                           ->where('id', '!=', $product->id)
-                          ->limit(5)  // Limitar la cantidad de productos relacionados si es necesario
+                          ->limit(5)  // Limitar la cantidad de productos relacionados
                           ->get();
         });
     
         return view('markets.products.show', compact('product', 'linkYoutube', 'linkImage', 'relatedProducts'));
     }
+    
     
 
    /*  public function show(Product $product)

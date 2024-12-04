@@ -1,12 +1,12 @@
-<section class="py-4 position-relative overflow-hidden">
-    <img src="https://demos.creative-tim.com/marketplace/soft-ui-design-system-pro//assets/img/shapes/waves-white.svg"
+<section class="py-4 position-relative overflow-hidden mb-20">
+    <img loading="lazy" src="https://demos.creative-tim.com/marketplace/soft-ui-design-system-pro//assets/img/shapes/waves-white.svg"
       alt="pattern-lines" class="position-absolute top-0 opacity-6">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-10 mx-auto bg-gradient-dark border-radius-lg">
-          <div class="row py-5">
-            <div class="col-xl-4 col-md-6 px-5 position-relative">
-              <img class="img border-radius-md max-width-300 w-100 position-relative z-index-2"
+        <div class="col-10 mx-auto bg-gradient-dark border-radius-lg ">
+          <div class="row py-5 card-minimalista">
+            <div class="col-xl-4 col-md-6 px-5 position-relative ">
+              <img loading="lazy" class="img border-radius-md max-width-300 w-100 position-relative z-index-2"
                 src="https://demos.creative-tim.com/marketplace/soft-ui-design-system-pro//assets/img/jordan.jpg"
                 alt="card image">
             </div>

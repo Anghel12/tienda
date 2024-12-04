@@ -6,9 +6,9 @@
 
 {{--   @include('user_actions.buy_coins.partials.header') --}}
 <!-- START Pricing w/ 2 cards & nav tabs -->
-<section class="py-2 bg-light">
+<section class="py-2 ">
   <div class="container pt-8">
-    <div class="row">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 7rem;">
       <div class="col-lg-4 col-md-10 d-flex justify-content-center flex-column">
         <h3 class="mt-3">Invita A Tus Amigos</h3>
           <p class="lead">y obtendras mas monedas por cada usuario registrado y se activara la Black Card</p>

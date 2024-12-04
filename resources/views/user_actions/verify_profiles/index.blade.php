@@ -8,7 +8,7 @@
 {{-- FORMULARIO DE COMPRA --}}
 
 <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 80vh; padding-top: 7rem;">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 7rem;">
 
         <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
         <div

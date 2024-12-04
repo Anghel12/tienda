@@ -23,19 +23,27 @@
 <style>
   .page_header{
     background-image: linear-gradient(310deg, #141727, #d900b3);
-
-  }
-     
+    }
+    .form-submit {
+        cursor: pointer; /* Cambia el cursor a una manita */
+    }
+    .toggle-password {
+        cursor: pointer; /* Cambia el cursor a una manita */
+    }
+    .molor-red{
+        color: brown;
+    }
+ 
 </style>
 
 
 <section class="page_header">
-  <div class="page-header min-vh-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-          <div class="card z-index-0 mt-8">
-            <div class="card-header text-center pt-4 pb-1">
+  <div class="page-header min-vh-100 mt-40">
+    <div class="container ">
+      <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 5rem;">
+        <div class="col-xl-5 col-lg-12 col-md-12 mx-auto">
+          <div class="card">
+            <div class="card-header text-center pt-4 pb-1 ">
               <h4 class="font-weight-bolder mb-1">Login</h4>
               <p class="mb-0">Bienvenido</p>
             </div>
@@ -69,7 +77,7 @@
                 </div>
                 <div class="text-center">
                 
-                  <button type="submit"name="submit" id="submit" class="btn bg-gradient-info w-100 mt-4 mb-2">Sign in</button>
+                  <button type="submit"name="submit" id="submit" class="btn bg-info w-100 mt-4 mb-2">Sign in</button>
                 </div>
               </form>
             </div>
@@ -134,7 +142,8 @@
         </div>
       </div>
     </div>
-  </div>
+
+</div>
 </section>
 
 
@@ -142,20 +151,6 @@
 
 
 <script src="vendor/jquery/jquery.min.js"></script>
-
-
-<style>
-    .form-submit {
-        cursor: pointer; /* Cambia el cursor a una manita */
-    }
-    .toggle-password {
-        cursor: pointer; /* Cambia el cursor a una manita */
-    }
-    .molor-red{
-        color: brown;
-    }
-</style>
-
 
 <!-- Agrega esto después de incluir jQuery -->
 <script>

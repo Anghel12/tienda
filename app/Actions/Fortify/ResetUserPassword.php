@@ -31,10 +31,10 @@ class ResetUserPassword implements ResetsUserPasswords
         ])->save();
 
          // Registrar la actividad del usuario
-         $user = Auth::user();
+     /*     $user = Auth::user();
          UserActivity::create([
              'user_id' => $user->id,
              'activity' => 'Restablecimiento de contraseña',
-         ]);
+         ]); */
     }
 }

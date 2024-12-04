@@ -1,9 +1,11 @@
  {{-- swiper --}}
+ @foreach ($prodcuts_categorias as $category)
+ <h3 class="text-white mt-30">Categoria: <strong>{{ $category->name }}</strong> </h3>
  <div class="row gx-3 gy-7">
     <div class="swiper swiper-container-category">
       <div class="swiper-wrapper">
 
-        @foreach ($aros_filtro_market as $product)
+        @foreach ($category->products as $product)
         <div class=" swiper-slide">
           <div class="minimalista-card {{-- border border-1 --}} col-lg-12">
 
@@ -14,7 +16,7 @@
                 <div class="">
                   <div class=" rounded-3 position-relative mb-3">
                     {{-- favoritos --}}
-                  <form method="POST" action="{{ route('admin.favorites.store') }}">
+           {{--        <form method="POST" action="{{ route('admin.favorites.store') }}">
                       @csrf
                       <input type="hidden" name="item_id" value="{{ $product->id }}">
                       <button
@@ -22,14 +24,14 @@
                         type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to wishlist">
                         <span class="fas fa-heart d-block-hover"></span><span class="far fa-heart d-none-hover"></span>
                       </button>
-                    </form> 
+                    </form>  --}}
 
                   
 {{-- 
                     <img style="height:200px" class="img-fluid rounded-3" src="{{Storage::url($post->images->url)}}"
                       alt="" /> --}}
                 @if ($product->links)
-                  <img style="height:250px; width: 100%" class="img-fluid rounded-3" src="{{ $product->links->url }}"
+                  <img loading="lazy" style="height:250px; width: 100%" class="img-fluid rounded-3 card-img-top" src="{{ $product->links->url }}"
                   alt="{{$product->name}}" />
 
                 @else 
@@ -42,7 +44,7 @@
 
               
                   <div class="p-2">
-                    <a class="stretched-link" href="{{route('markets.products.show', $product)}}">
+                    <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
                       <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}</h4>
                     </a>
                     <div class="d-flex align-items-center mb-3">
@@ -54,9 +56,9 @@
                       <div class="mb-3">
                    
                         <p class="fs--1 text-1000 fs--1 mb-0 fw-bold text-truncate text-white" style="max-width: 300px;">{!! $product->extract !!}</p>
-                        <p class="fs--1 text-700 fs--1 mb-2">Categoria:{{$product->Category->name}}</p>
-    
+                        <p class="fs--1 text-700 fs--1 mb-2">Categoria: {{$product->category->name}}</p>
                         <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">{{$product->brand->title}}</p>
+                        
       
                         {{-- carrito --}}
                      {{--    <div class="">
@@ -102,4 +104,6 @@
     </div>
 
   </div>
+
+  @endforeach
 {{-- swiper --}}

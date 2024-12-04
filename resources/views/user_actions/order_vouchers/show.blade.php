@@ -7,8 +7,8 @@
 
 <section class="py-2">
   <div class="container pt-8">
-    <div class="row">
-      <div class="col-lg-12 col-md-10 d-flex justify-content-center flex-column">
+    <div class="row justify-content-center align-items-center"style="height: 100%; padding-top: 2rem;">
+      <div class="col-lg-12 col-md-10 ">
 
  
         <div class="card p-2">
@@ -21,26 +21,28 @@
                 <p><strong>Estado:</strong> {{ $order->status }}</p>
                 <p><strong>Fecha de Creación:</strong> {{ $order->created_at->format('d/m/Y H:i') }}</p>
 
-                <div class="form-group">
+                <div class="form-group ">
                     <label>Imágenes actuales:</label>
-                    <div class="card">
+                    <div class="card col-1">
                         @if($order->images)
                         {{--     @foreach($order->images as $image) --}}
-                                <img class="w-10 h-10 rounded-full mr-4" src="{{ Storage::url($order->images->url) }}" alt="Imagen actual">
+                                <img style="height: 80px" class="image-fluid" src="{{ asset('storage/' . $order->images->url)}}" alt="{{ asset('storage/' . $order->name) }}">
+
+                                <img style="height: 40px" class="w-10 h-10 rounded-full mr-4" src="{{ Storage::url($order->images->url) }}" alt="Imagen actual">
                           {{--   @endforeach --}}
                         @else
-                            No se encontraron imágenes. Puedes subir imágenes nuevas si es necesario.
+                            Subir Imagen
                          
                         @endif
                     </div>
                     
                 </div>
-                <a class="btn btn-secondary mt-3" href="{{ route('user_actions.order_vouchers.edit', $order->id) }}" >Edit</a>
+                <a class="btn btn-secondary mt-3 col-2" href="{{ route('user_actions.order_vouchers.edit', $order->id) }}" >Editar mi orden</a>
      
             </div>
         </div>
 
-        <a href="{{ route('user_actions.order_vouchers.index') }}" class="btn btn-secondary mt-3">Ver tu lista de ordenes</a>
+        <a href="{{ route('user_actions.order_vouchers.index') }}" class="btn btn-info mt-3">Ver tu lista de ordenes</a>
 
 
 

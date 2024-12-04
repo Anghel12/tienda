@@ -30,7 +30,7 @@
                         </button>
                       </form>
                       {{-- favoritos --}}
-  
+
                       <img style="height:200px" class="img-fluid rounded-3" src="{{Storage::url($post->images->url)}}"
                         alt="" />
                     </div>

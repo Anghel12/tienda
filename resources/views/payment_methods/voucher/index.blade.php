@@ -22,12 +22,12 @@
     
                 @if (session('success'))
                 <div class="alert alert-success" role="alert">
-                    <strong>DEPOSITO EXITOSO {{ $userBalance }}!</strong>
+                    <strong>DEPOSITO EXITOSO {{ Auth::user()->wallet->balance /* $userBalance */ }}!</strong>
                     <a href=""> <- Ver transacción -> </a>
                 </div>
                 @endif
     
-                <div class="form-container z-index-2 border-radius-xl py-3 blur shadow-blur">
+                <div class="card z-index-2 border-radius-xl py-3 blur shadow-blur">
 
                     {!! Form::open(['route' => 'payment_methods.voucher.complete', 'autocomplete' => 'off', 'files' => true]) !!}
                     
@@ -42,9 +42,10 @@
                             <h1>Deposito Exitoso</h1>
                         </div>
 
-    
+    <div class="card-body">
+
                         <!-- Cantidad de monedas y nombre de la moneda -->
-                        <div class="row">
+                        <div class="row mb-3">
 
 
                             <label for="payment-method">Cantidad de Monedas:</label>
@@ -60,7 +61,7 @@
                         
                         </div>
 
-                                <div class="row">
+                                <div class="row mb-3">
                                     <label for="voucher_images">Subir Comprobante de Pago (imágenes):</label>
                                     
                                     <div class="col-lg-12 col-12">
@@ -74,7 +75,10 @@
 
 
 
-                        <button type="submit" class="btn bg-gradient-info col-12">CONTINUAR</button>
+                        <button type="submit" class="btn bg-info col-12">CONTINUAR</button>
+                                
+    </div>        
+
                         {!! Form::close() !!}
                 </div>
             </div>

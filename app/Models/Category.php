@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Home\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +17,11 @@ class Category extends Model
     {
       return "slug";
     }
+       // Definir la relación uno a muchos con el modelo Product
+       public function products()
+       {
+           return $this->hasMany(Product::class);
+       }
      //category relacion uno a muchos
      public function sub_categories(){
       return $this->hasMany(subCategory::class);
@@ -30,4 +36,6 @@ class Category extends Model
      public function postyoutube(){
       return $this->hasMany(postyoutube::class);
    }
+
+   
 }

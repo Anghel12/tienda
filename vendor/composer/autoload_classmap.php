@@ -144,6 +144,7 @@ return array(
     'App\\Http\\Livewire\\UserActions\\TransferCoins\\EnviarIndex' => $baseDir . '/app/Http/Livewire/UserActions/TransferCoins/EnviarIndex.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CacheMiddleware' => $baseDir . '/app/Http/Middleware/CacheMiddleware.php',
+    'App\\Http\\Middleware\\ContentSecurityPolicy' => $baseDir . '/app/Http/Middleware/ContentSecurityPolicy.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\LogDeviceInfo' => $baseDir . '/app/Http/Middleware/LogDeviceInfo.php',
     'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => $baseDir . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',

@@ -8,7 +8,7 @@
 {{-- FORMULARIO DE COMPRA --}}
 
 <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 80vh; padding-top: 7rem;">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 5rem;">
 
         <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
         <div
@@ -24,7 +24,7 @@
         <!-- Formulario a la derecha (12 columnas en móviles, 5 columnas en pantallas grandes) -->
         <div class="col-lg-6 col-12">
 
-            <div class="form-container z-index-2 border-radius-xl py-3 blur shadow-blur">
+            <div class="card p-2 z-index-2 border-radius-xl py-3 blur shadow-blur">
                 <form action="{{ route('user_actions.transfer_coins.show') }}" method="POST">
                     @csrf
                     <div>
@@ -41,8 +41,11 @@
                                 <label class="" for="email">
                                     <h7>Cantidad:</h7>
                                 </label>
-                                <input type="number" name="amount" class="form-control form-control-alternative "
-                                    value="0" />
+                                <div class="input-group">
+                                    <span class="input-group-text">S/</span>
+                                    <input type="number" name="amount" class="form-control form-control-alternative" value="0" min="0" step="0.01" />
+                                  </div>
+                                  
                             </div>
                         </div>
                     </div>

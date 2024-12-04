@@ -1,12 +1,12 @@
 <section class="pt-7 pb-5">
-  <div class="container">
+  <div class=" d-flex align-items-center justify-content-center" style="height: 100%;">
     <div class="row text-center">
 
       @foreach ($services as $service)
-      <div class="col-lg-3 col-md-6">
-        <div class="info">
+      <div class="col-lg-3 col-md-6 ">
+        <div class="info card-minimalista m-2 p-4">
           <div class="icon icon-shape text-center">
-            <svg class="text-primary" width="25px" height="25px" viewBox="0 0 42 42" version="1.1"
+            <svg loading="lazy" class="text-primary" width="25px" height="25px" viewBox="0 0 42 42" version="1.1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>box-3d-50</title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

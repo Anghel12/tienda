@@ -1,10 +1,9 @@
-<header class="bg-gradient-dark">
-  <div class="page-header min-vh-75" style="background-image: url('../assets/img/office-dark.jpeg');">
+
+  <div class="page-header min-vh-75" loading="lazy" style="background-image: url('../assets/img/office-dark.jpeg'); height: 800px; position: relative;">
     <span class="mask bg-gradient-info opacity-8"></span>
-    <div class="container">
+    <div class="container d-flex align-items-center justify-content-center" style="height: 100%;">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center mx-auto my-auto">
-
           @if($content)
           <h1 class="text-white">{{$content->title}} <span class="text-white" id="typed"></span></h1>
 
@@ -15,9 +14,6 @@
           <a href="{{ route('admin.content.edit', $content) }}" class="btn bg-success btn-rounded me-2 fadeIn1 fadeInBottom">Editar</a>
          @endif
           @endauth
-      
-      
-      
       
           @else
 
@@ -56,7 +52,7 @@
       </svg>
     </div>
   </div>
-</header>
+
 
 
 

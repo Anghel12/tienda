@@ -1,12 +1,37 @@
-<div class="col-lg-3 col-xxl-2  ps-xxl-3 ">
-    <div class="product-filter-offcanvas  scrollbar phoenix-offcanvas phoenix-offcanvas-fixed" id="productFilterColumn">
+<div class="col-lg-3 col-xxl-2 ps-xxl-3">
+  <div class="product-filter-offcanvas scrollbar phoenix-offcanvas phoenix-offcanvas-fixed" id="productFilterColumn">
       <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0 text-white">Filtros</h3>
+          <h3 class="mb-0 text-white">Filtros</h3>
         <button class="btn d-lg-none p-0" data-phoenix-dismiss="offcanvas"><span class="uil uil-times fs-0"></span></button>
       </div>
       <a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapseBrands" role="button" aria-expanded="true" aria-controls="collapseBrands">
         <div class="d-flex align-items-center justify-content-between w-100">
-          <div class="fs-0 text-1000 text-white">Marcas</div><svg class="svg-inline--fa fa-angle-down toggle-icon text-500" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg><!-- <span class="fa-solid fa-angle-down toggle-icon text-500"></span> Font Awesome fontawesome.com -->
+          <div class="fs-0 text-1000 text-white">Categorias</div>
+          <svg style="height: 30px;" class="svg-inline--fa fa-angle-down toggle-icon text-500" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" 
+           d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg><!-- <span class="fa-solid fa-angle-down toggle-icon text-500"></span> Font Awesome fontawesome.com -->
+        </div>
+      </a>
+      <div class="collapse show" id="collapseBrands">
+        <div class="mb-2">
+          @foreach ($filtro_categorias as $item)
+          <div class="mb-2">
+              <a href="" 
+                 class="d-block lh-sm fs-0 text-900 fw-normal text-white text-decoration-none">
+                  {{ $item->name }}
+              </a>
+          </div>
+      @endforeach
+
+        </div>
+      </div>
+      {{-- Categorias --}}
+      <a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapseBrands" role="button" aria-expanded="true" aria-controls="collapseBrands">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <div class="fs-0 text-1000 text-white">Marcas</div>
+          <svg style="height: 30px;" class="svg-inline--fa fa-angle-down toggle-icon text-500" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" 
+           d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg><!-- <span class="fa-solid fa-angle-down toggle-icon text-500"></span> Font Awesome fontawesome.com -->
         </div>
       </a>
       <div class="collapse show" id="collapseBrands">
@@ -22,12 +47,14 @@
           <div class="form-check mb-0"><input class="form-check-input mt-0" id="flexCheckLG" type="checkbox" name="brands"><label class="form-check-label d-block lh-sm fs-0 text-900 mb-0 fw-normal text-white" for="flexCheckLG">CDI
             </label></div>
         </div>
-      </div><a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapsePriceRange" role="button" aria-expanded="true" aria-controls="collapsePriceRange">
+      </div>
+    </div>
+      {{-- <a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapsePriceRange" role="button" aria-expanded="true" aria-controls="collapsePriceRange">
         <div class="d-flex align-items-center justify-content-between w-100">
           <div class="fs-0 text-1000 text-white">Precio</div><svg class="svg-inline--fa fa-angle-down toggle-icon text-500" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg><!-- <span class="fa-solid fa-angle-down toggle-icon text-500"></span> Font Awesome fontawesome.com -->
         </div>
       </a>
-      {{-- <div class="collapse show" id="collapsePriceRange">
+      <div class="collapse show" id="collapsePriceRange">
         <div class="d-flex justify-content-between mb-3">
           <div class="input-group me-2"><input class="form-control" type="text" aria-label="First name" placeholder="Min"><input class="form-control" type="text" aria-label="Last name" placeholder="Max"></div><button class="btn btn-phoenix-primary border-300 px-3" type="button">Go</button>
         </div>
@@ -64,7 +91,7 @@
           <div class="form-check mb-0"><input class="form-check-input mt-0" id="retinaInput" type="checkbox" name="displayType"><label class="form-check-label d-block lh-sm fs-0 text-900 fw-normal mb-0" for="retinaInput">Retina</label></div>
         </div>
       </div> --}}
-      <a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapseCondition" role="button" aria-expanded="true" aria-controls="collapseCondition">
+  {{--     <a class="btn px-0 d-block collapse-indicator" data-bs-toggle="collapse" href="products-filter.html#collapseCondition" role="button" aria-expanded="true" aria-controls="collapseCondition">
         <div class="d-flex align-items-center justify-content-between w-100">
           <div class="fs-0 text-1000 text-white ">Condicion</div><svg class="svg-inline--fa fa-angle-down toggle-icon text-500" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"></path></svg><!-- <span class="fa-solid fa-angle-down toggle-icon text-500"></span> Font Awesome fontawesome.com -->
         </div>
@@ -140,7 +167,6 @@
           <div class="form-check mb-0"><input class="form-check-input mt-0" id="isoTwoInput" type="checkbox" name="certification"><label class="form-check-label d-block lh-sm fs-0 text-900 fw-normal mb-0" for="isoTwoInput">ISO 27001:2013</label></div>
           <div class="form-check mb-0"><input class="form-check-input mt-0" id="isoThreeInput" type="checkbox" name="certification"><label class="form-check-label d-block lh-sm fs-0 text-900 fw-normal mb-0" for="isoThreeInput">IEC 61000-4-2</label></div>
         </div>
-      </div>
+      </div> --}}
     </div>
     <div class="phoenix-offcanvas-backdrop d-lg-none" data-phoenix-backdrop=""></div>
-  </div>

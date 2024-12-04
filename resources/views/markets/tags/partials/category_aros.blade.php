@@ -1,9 +1,9 @@
  {{-- swiper --}}
- <div class="row gx-3 gy-7 mb-5">
+ <div class="row gx-3 gy-7">
     <div class="swiper swiper-container-category">
       <div class="swiper-wrapper">
 
-        @foreach ($motokares_filtro_market as $product)
+        @foreach ($aros_filtro_market as $product)
         <div class=" swiper-slide">
           <div class="minimalista-card {{-- border border-1 --}} col-lg-12">
 
@@ -40,7 +40,7 @@
 
                   </div>
 
-                 
+              
                   <div class="p-2">
                     <a class="stretched-link" href="{{route('markets.products.show', $product)}}">
                       <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}</h4>

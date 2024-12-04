@@ -9,11 +9,11 @@
             <div class="card card-pricing bg-gradient-primary border-0 text-center mb-4 overflow-hidden">
               <img src="../../assets/img/shapes/waves-white.svg" alt="pattern-lines" class="position-absolute opacity-8">
               <div class="card-header bg-transparent">
-                <h6 class="text-uppercase text-white ls-1 py-3 mb-0">Cartera Virtual</h6>
+                <h6 class="text-uppercase  ls-1 py-3 mb-0">Cartera Virtual</h6>
 
-                <h6 class="text-uppercase text-white ls-1 py-3 mb-0">ID: SA5D5AS5DSA4DSA5DA8WQEQ</h6>
+                <h6 class="text-uppercase  ls-1 py-3 mb-0">ID: SA5D5AS5DSA4DSA5DA8WQEQ</h6>
               </div>
-              <div class="card-body text-white position-relative">
+              <div class="card-body  position-relative">
                 <p class="display-2 font-weight-bold mb-0">$ {{ $wallet->balance ?? 0 }} </p>
                 <span>Coins</span>
                 <ul class="list-unstyled my-4">
@@ -30,9 +30,9 @@
                 </ul>
               </div>
               <div class="card-footer bg-transparent position-relative">
-                <a href="{{ route('user_actions.buy_coins.index') }}" class="btn btn-outline-white">Depositar</a>
+                <a href="{{ route('user_actions.buy_coins.index') }}" class="btn btn-primary{{-- btn-outline-white --}}">Depositar</a>
 
-                <a href="{{ route('user_actions.transfer_coins.index') }}" class="btn btn-outline-white">Transferir</a>
+                <a href="{{ route('user_actions.transfer_coins.index') }}" class="btn btn-primary">Transferir</a>
               </div>
 
 

@@ -1,79 +1,83 @@
-<!-- Navbar Light -->
-<div>{{-- my-3  mx-4 --}}
-  <nav
-    class="navbar navbar-expand-lg  blur top-0 z-index-fixed shadow position-absolute  py-2 start-0 end-0">
-    <div class="container-fluid px-0">
-      <a class="navbar-brand font-weight-bolder ms-sm-3" href="{{ route('markets.products.index')}}" rel="tooltip" title="CyberEcotienda"
-        data-placement="bottom">
-        CyberEcotienda
-      </a>
-
-      <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon mt-2">
-          <span class="navbar-toggler-bar bar1"></span>
-          <span class="navbar-toggler-bar bar2"></span>
-          <span class="navbar-toggler-bar bar3"></span>
-        </span>
-      </button>
-
-      {{-- prueba --}}
-     {{--  <button class="btn navbar-toggler navbar-toggler-humburger-icon hover-bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse" aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-       --}}
-
-
-      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
-        <ul class="navbar-nav navbar-nav-hover mx-auto">
-
-
-          @include('livewire.home.navigation.partials.user')
-
-          @auth
-        {{--   @include('livewire.home.navigation.partials.user_login') --}}
-          @endauth
-
-       {{--    @can('abouts_us')
-          @include('livewire.home.navigation.partials.about_us')
-          @endcan --}}
-
-          @include('livewire.home.navigation.partials.coin')
-
-
-      </div> 
-      @auth
-    {{--   @include('livewire.home.navigation.partials.icon_admin') --}}
-    @if(auth()->user()->hasRole('Admin'))
-     <livewire:admin-icon-ninde />
-    @endif
-   
-      <livewire:ninde-dots-icon />
-    <livewire:notifications-all-views />
-      <livewire:icon-profile />
-      
-      {{--   @include('livewire.home.navigation.partials.icon_profile') --}}
-    
-        @endauth
-
-
-        @if (Route::has('login'))
-        @auth
-  
-        <a href="{{ route('admin.buyCoins.index') }}"
-          class="btn btn-sm bg-gradient-info  btn-round mb-0 ms-auto d-lg-none d-block">Depósito Rápido</a>
-  
-        @else
-  
-  
-        <a href="{{ url('/login') }}"
-          class="btn btn-sm  bg-gradient-info  btn-round mb-0 ms-auto d-lg-none d-block">Depósito Rápido</a>
-  
-        @endauth
-  
-        @endif
-
-
+<!-- Mostrar solo en pantallas pequeñas (móviles) -->
+{{--   <div class="d-block d-md-none">
+    @include('livewire.home.navigation.celular')
+  </div> --}}
+<div>
+    <div id="navbar-large" class="navbar navbar-expand-lg navbar-dark px-3 fixed-top" style="display: none;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('markets.products.index') }}">
+                <i class="fas fa-store"></i> CyberEcotienda
+            </a>
+            
+                @include('livewire.home.navigation.partials.user')
+            
+            <div class="d-flex align-items-center list-unstyled mx-2 text-center">
+                @auth
+                    @if($Admin)
+                        <livewire:admin-icon-ninde />
+                    @endif
+                    <livewire:ninde-dots-icon />
+                    <livewire:notifications-all-views />
+                     <livewire:icon-profile />
+                @endauth
+                @include('livewire.home.navigation.partials.icon_admin')
+            </div>
+        </div>
     </div>
-  </nav>
-
-
+    
+    <!-- Navbar para pantallas pequeñas -->
+    <div id="navbar-small" class="navbar navbar-dark d-lg-none fixed-top">
+        <div class="container-fluid justify-content-between">
+        <!-- Icono de menú hamburguesa -->
+              <!-- Iconos en versión compacta -->
+              @include('livewire.home.navigation.partials.cel_rutas_mid')
+                @auth
+                @include('livewire.home.navigation.partials.cel_dropdawn')
+                @endauth          
+          
+           
+        </div>
+    </div> 
+ 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    function toggleNavbar() {
+        const navbarLarge = document.getElementById('navbar-large');
+        const navbarSmall = document.getElementById('navbar-small');
+        
+        if (window.innerWidth <= 992) {
+            navbarLarge.style.display = 'none';
+            navbarSmall.style.display = 'flex';
+        } else {
+            navbarLarge.style.display = 'flex';
+            navbarSmall.style.display = 'none';
+        }
+    }
+
+    // Ejecuta al cargar y al redimensionar la ventana
+    toggleNavbar();
+    window.addEventListener('resize', toggleNavbar);
+});
+
+
+</script>
+<style>
+  #navbar-small ul.navbar-nav {
+    display: flex;
+    gap: 15px;
+}
+
+#navbar-small .navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar {
+    transition: all 0.3s ease-in-out;
+}
+
+</style>
+</div>
+
+      

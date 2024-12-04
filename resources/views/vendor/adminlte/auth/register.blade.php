@@ -26,10 +26,11 @@
   
   
   <section class="page_header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-          <div class="card z-index-0 mt-sm-10 mt-7 mb-4">
+    <div class="page-header min-vh-100 mt-40">
+      <div class="container ">
+        <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 5rem;">
+          <div class="col-xl-5 col-lg-12 col-md-12 mx-auto">
+          <div class="card">
             <div class="card-header text-center pt-4 pb-1">
               <h4 class="font-weight-bolder mb-1">Registrarse</h4>
               <p class="mb-0">Gracias por unirte a Nuestro team TerraBank</p>
@@ -157,6 +158,7 @@
         </div>
       </div>
     </div>
+  </div>
   </section>
 
 

@@ -15,7 +15,7 @@ use App\Http\Controllers\UserActions\TransferCoinController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserActions\WalletController as UserActionsWalletController;
 
-
+Route::resource('Notifications', NotificationController::class)->names('admin.notifications');
 Route::resource('OrderVoucher', OrderVoucherController::class)->names('user_actions.order_vouchers');
 Route::resource('Histories', HistoryUserController::class)->names('user_actions.histories');
 /* Metodos de pago vistas al pagar  */

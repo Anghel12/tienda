@@ -9,20 +9,7 @@
 {{-- FORMULARIO DE COMPRA --}}
 
 <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 100vh; padding-top: 7rem;">
-
-        <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
-    {{--     <div class="col-lg-7 col-12 text-center text-lg-start mb-3 mb-lg-0">
-            <h1 class="text-white pt-3 mt-n5">{{$coin->name}}: La Moneda del Futuro <br>
-                que Está Revolucionando el Mercado</h1>
-            <p class="lead text-white mt-3">
-                Únete a los +1000 de usuarios <br>
-                que ya están aprovechando las ventajas de {{$coin->name}}. <br>
-                Transacciones rápidas, seguras y con bajas comisiones. <br>
-                No te quedes atrás <br>
-                forma parte de la próxima gran revolución financiera.
-            </p> 
-        </div> --}}
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 5rem;">
 
         <!-- Formulario a la derecha (12 columnas en móviles, 5 columnas en pantallas grandes) -->
         <div class="col-lg-5 col-12">
@@ -42,15 +29,17 @@
             </div>
             @endif
 
-            <div class="form-container z-index-2 border-radius-xl py-3 blur shadow-blur">
-                <form action="{{ route('purchase.coins') }}" method="POST" id="payment-form">
+            <div class="card z-index-2 border-radius-xl py-3 blur shadow-blur">
+                <form class="form" action="{{ route('purchase.coins') }}" method="POST" id="payment-form">
                     @csrf
-                    <div class="text-center">
+                    <div class="text-center card-header text-center">
                         <h2>Depositar a mi Cuenta:</h2>
                     </div>
-                    <label for="payment-method">Usuario:</label>
+                
                     <!-- Email -->
-                    <div class="row">
+                    <div class="card-body">
+                    <label for="payment-method">Usuario:</label>
+                    <div class="row mb-3">
                         <div class="col-12">
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control form-control-alternative"
@@ -60,7 +49,7 @@
                     </div>
 
                     <!-- Nombre -->
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-12">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control form-control-alternative" id="name"
@@ -70,7 +59,7 @@
                     </div>
 
                     <!-- Cantidad de monedas y nombre de la moneda -->
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-lg-4 col-12">
                             <label for="coin_id">Moneda:</label>
                             <select name="coin_id" id="coin_id" class="form-control">
@@ -92,7 +81,7 @@
 
 
                     <!-- Selector de método de pago -->
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="payment-method">Método de pago:</label>
                         <select name="payment_method" id="payment-method" class="form-control">
                             <option value="voucher">Comprobante de pago</option>
@@ -102,10 +91,6 @@
                             <!-- Agrega más opciones según los métodos de pago habilitados en tu cuenta de Stripe -->
                         </select>
                     </div>
-
-
-
-
 
                     {{--
                     <div class="row">
@@ -118,11 +103,7 @@
                         </div>
                     </div> --}}
 
-
-
-                    <div class="row">
-
-                        <button type="submit" class="btn bg-gradient-info  col-12">CONTINUAR</button>
+                        <button type="submit" class="btn bg-info  col-12">CONTINUAR</button>
                     </div>
                 </form>
             </div>

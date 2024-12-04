@@ -1,100 +1,75 @@
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">
-                  <i class="fas fa-home"></i> Inicio
-                </a>
-              </li>
-
-        {{--       <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('home.banco.indexbanco') }}">
-                    <i class="fas fa-bank"></i> Banco
-                </a>
-            </li> --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('markets.products.index') }}">
-                    <i class="fas fa-store"></i> Mercado
-                </a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.about.indexaboutus') }}">
-                    <i class="fas fa-users"></i> Nosotros
-                </a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.help.indexhelp') }}">
-                    <i class="fas fa-question-circle"></i> Ayuda
-                </a>
-            </li>
-            
-
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('home.blogs.indexblog') }}">
-                  <i class="fas fa-newspaper"></i> Blog
-                </a>
-              </li>
-
-{{-- admin,user, salir botones --}}
-
-<!-- Authentication -->
-{{--         @can('admin.home')
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.profile.show', Auth::user()->id ) }}">
-              <i class="fas fa-newspaper"></i> 
-             Admin
-            </a>
-          </li>
-        @endcan --}}
-<!-- Authentication -->
-
-{{-- categorias --}}
- {{--    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fas fa-tags"></i> Categorías
+<ul class="navbar-nav mx-auto d-none d-lg-flex text-center">
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}" aria-labe="Inicio">
+            <i class="fas fa-home"></i>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        @foreach ($categories as $category)
-            <li><a class="dropdown-item" href="{{ route('home.category.show', $category->slug) }}">{{$category->name}}</a></li>
-        @endforeach
-        </ul>
-    </li> --}}
+        <span class="tooltip-text">Inicio</span>
+    </li>
+
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('marketplace/products*') ? 'active' : '' }}" aria-labe="Mercado"
+           href="{{ route('markets.products.index') }}">
+            <i class="fas fa-store"></i>
+        </a>
+        <span class="tooltip-text">Mercado</span>
+    </li>
+
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}" href="{{ route('home.about.indexaboutus') }}" aria-labe="Nosotros">
+            <i class="fas fa-users"></i>
+        </a>
+        <span class="tooltip-text">Nosotros</span>
+    </li>
+
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('help*') ? 'active' : '' }}" href="{{ route('home.help.indexhelp') }}" aria-labe="Ayuda">
+            <i class="fas fa-question-circle"></i>
+        </a>
+        <span class="tooltip-text">Ayuda</span>
+    </li>
+
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}" href="{{ route('home.blogs.indexblog') }}" aria-labe="Blog">
+            <i class="fas fa-newspaper"></i>
+        </a>
+        <span class="tooltip-text">Blog</span>
+    </li>
+    @if (Route::has('login'))
+    @auth
+    {{-- User --}}
+    <li class="nav-item m-0 p-0 ni-wh position-relative">
+        <a class="nav-link {{ Request::is('user/fastbuycoins*') ? 'active' : '' }}" href="{{ route('user_actions.wallets.index') }}" aria-labe="Cartera">
+            <i class="fas fa-wallet"></i>
+        </a>
+        <span class="tooltip-text">Cartera</span>
+    </li>
+    @endauth
+    @endif
+</ul>
+
+<style>.tooltip-text {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.nav-item:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+</style>
+
     
 
-{{-- categorias --}}
 
-   {{-- if endif/ auth else endauth/ if endif --}}
-   @if (Route::has('login'))
-
-   @auth
-
-
-{{-- Admin boton impersonate --}}
-        @if (session('impersonated_by'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('impersonate.stop')}}">
-                <i class="fas fa-newspaper"></i> AdminVolver->
-                </a>
-            </li>
-        @endif
-{{-- Admin boton impersonate --}}
-
-    @else
-    {{-- no registrado se muestra esto --}}
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/login') }}">
-            <i class="fas fa-user"></i> Login
-            </a>
-        </li>
-        @if (Route::has('register'))
-        <li class="nav-item">
-            <a class="nav-link" href="{{ url('/register') }}">
-            <i class="fas fa-users"></i> Registrarse
-            </a>
-        </li>
-        @endif
-    @endauth
-
-    @endif
-
-    {{-- boton lado izquierda  --}}
+    

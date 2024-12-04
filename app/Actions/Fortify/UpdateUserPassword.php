@@ -34,11 +34,5 @@ class UpdateUserPassword implements UpdatesUserPasswords
             'password' => Hash::make($input['password']),
         ])->save();
 
-          // Registrar la actividad del usuario
-          $user = Auth::user();
-          UserActivity::create([
-              'user_id' => $user->id,
-              'activity' => 'Restablecimiento de contraseña',
-          ]);
     }
 }

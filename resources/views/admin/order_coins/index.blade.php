@@ -48,7 +48,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img  src="{{ $order->user->profile_photo_url }}" alt="{{ $order->user->name }}" class="avatar avatar-sm me-3">
+                            <img  src="{{ $order->user->profile_photo_url }}" alt="{{ $order->user->name }}" class="rounded-circle border ">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-xs">{{ $order->name ?? null }}</h6>
@@ -62,14 +62,14 @@
                         <p class="text-xs text-secondary mb-0"> </p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm badge-dark">{{ $order->payment_method }} </span>
+                        <span class="{{-- badge badge-sm badge-dark --}}">{{ $order->payment_method }} </span>
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{$order->created_at->diffForHumans() }} {{ $order->status }}</span>
                       </td>
                     
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm badge-info">  {{ $order->status }} </span>
+                        <span class="{{-- badge badge-sm badge-info --}}">  {{ $order->status }} </span>
                       </td>
                        <td class="align-middle">
                         <a href="{{ route('admin.order_coins.edit', $order->id ) }}" class="btn btn-outline-primary text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">

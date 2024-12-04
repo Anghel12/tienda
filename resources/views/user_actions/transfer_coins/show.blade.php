@@ -6,7 +6,7 @@
   src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jpg" alt="Fondo">
 
   <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 80vh; padding-top: 7rem;">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 5rem;">
 
         <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
         <div
@@ -24,7 +24,7 @@
 
             <li class="list-group-item"><p>Nombre Del Destinatario: <strong>{{ $recipient->name }}</strong> </p></li>
             <li class="list-group-item"><p>Email Del Destinatario: <strong>{{ $recipient->email }}</strong></p></li>
-            <li class="list-group-item"><p class="">Cantidad A Transferir: <strong>$/{{ $amount }} {{ $coin->name }}</strong> </p></li>
+            <li class="list-group-item"><p class="">Cantidad A Transferir: <strong>S/{{ $amount }}</strong> </p></li>
             <li class="list-group-item">
                   
           <form action="{{ route('user_actions.transfer.complete') }}" method="POST">
@@ -38,7 +38,7 @@
             </div>
 
 
-            <button class="btn bg-gradient-primary pull-end mt-2" type="submit">Transferir</button> 
+            <button class="btn bg-primary pull-end mt-2" type="submit">Transferir</button> 
         </form>
             </li>
            

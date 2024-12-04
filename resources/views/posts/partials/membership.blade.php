@@ -1,5 +1,5 @@
   
-  <section class="py-lg-7">
+  <section class="py-lg-7 mb-4">
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto text-center mb-5">   
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="card">
+        <div class="card-minimalista">
           <div class="row">
             <div class="col-lg-8">
               <div class="card-body">

@@ -7,8 +7,8 @@
   
 <section class="py-2">
   <div class="container pt-8">
-    <div class="row">
-      <div class="col-lg-12 col-md-10 d-flex justify-content-center flex-column">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 2rem;">
+      <div class="col-lg-12 col-md-10">
 
      
         

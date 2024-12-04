@@ -1,4 +1,52 @@
-<!-- Navbar Light -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3" style="height: 70px;">
+  <div class="container-fluid">
+      <!-- Icono a la izquierda -->
+      <a class="navbar-brand" href="{{ route('markets.products.index')}}" el="tooltip" title="CyberEcotienda" data-placement="bottom">
+          <i class="fas fa-store"></i> CyberEcotienda
+      </a>
+
+      <!-- Iconos en el centro (ocultos en pantallas pequeñas) -->
+      <ul class="navbar-nav mx-auto d-none d-lg-flex text-center">
+          @include('livewire.home.navigation.partials.user')
+      </ul>
+      <div class="d-flex align-items-center list-unstyled mx-2">
+          @auth
+              @if($Admin)
+                  <livewire:admin-icon-ninde />
+              @endif
+              <livewire:ninde-dots-icon />
+              <livewire:notifications-all-views />
+               <livewire:icon-profile />
+          @endauth
+          @include('livewire.home.navigation.partials.icon_admin')
+      </div>
+  </div>
+</nav>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark px-4 py-2 fixed-top z-3" style="height: 70px">
+    <div class="container-fluid px-0">
+      <a class="navbar-brand d-flex align-items-center" href="{{ route('markets.products.index')}}" rel="tooltip"
+        title="CyberEcotienda" data-placement="bottom">
+        {{-- <i class="fas fa-home me-2"></i> --}} CyberEcotienda
+      </a>
+        {{-- ocultar celular --}}
+        @include('livewire.home.navigation.partials.user')
+        <ul class="navbar-nav text-center">
+          @auth
+          @if($Admin)
+          <livewire:admin-icon-ninde />
+          @endif
+          <livewire:ninde-dots-icon />
+          <livewire:notifications-all-views />
+          {{-- <livewire:icon-profile /> --}}
+          @endauth
+          @include('livewire.home.navigation.partials.icon_admin')
+        </ul>
+      
+      </div>
+  </nav>
+
+<!-- Antiguo -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
     <a class="navbar-brand" href="" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom"

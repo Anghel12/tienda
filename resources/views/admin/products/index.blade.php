@@ -22,7 +22,7 @@
         
         <div class="card col-12 col-md-12 mx-auto mb-2 bg-mod-black">
           <div class="row py-lg-5 py-3">
-            <h4 class="text-white">(Admin) Ordenes De Los Usuarios Que Compraron Monedas Con El Metodo Voucher <a rel="stylesheet" class="btn btn-outline-primary text-secondary font-weight-bold text-xs" href="{{ route('admin.products.create') }}">CREATE</a> </h4>  
+            <h4 class="">(Admin) Ordenes De Los Usuarios Que Compraron Monedas Con El Metodo Voucher <a rel="stylesheet" class="btn btn-outline-primary text-secondary font-weight-bold text-xs" href="{{ route('admin.products.create') }}">CREATE</a> </h4>  
             <div class="card bg-mod-black">
               <div class="table-responsive ">
                 <table class="table align-items-center mb-0 ">
@@ -43,17 +43,17 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img  src="{{ $product->links->url }}" alt="{{ $product->user->name }}" class="avatar avatar-md me-3">
+                            <img style="height: 30px" src="{{ $product->links->url }}" alt="{{ $product->user->name }}" class="avatar avatar-md me-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-white">{{ $product->name ?? null }}</h6>
+                            <h6 class="mb-0 ">{{ $product->name ?? null }}</h6>
                             <p class="text-xs text-secondary mb-0">{{ $product->slug ?? null }}</p>
                           </div>
                         </div>
                       </td>
 
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 text-white">$/{{ $product->price }}</p>
+                        <p class="text-xs font-weight-bold mb-0 ">$/{{ $product->price }}</p>
                         <p class="text-xs text-secondary mb-0"> </p>
                       </td>
                       <td class="align-middle text-center text-sm">
@@ -61,7 +61,7 @@
                         <span class="badge badge-sm badge-dark"></span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold text-white">{{ $product->category->name }}</span>
+                        <span class="text-secondary text-xs font-weight-bold ">{{ $product->category->name }}</span>
                       </td>
                     
                       <td class="align-middle text-center text-sm">

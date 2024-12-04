@@ -53,9 +53,9 @@ class TransferCoinController extends Controller
     }
 
     // Obtener la wallet activa del remitente o crear una si no existe
-    $senderWallet = $sender->wallets()->where('is_active', true)->first();
+    $senderWallet = $sender->wallet()->where('is_active', true)->first();
     if (!$senderWallet) {
-        $senderWallet = $sender->wallets()->create([
+        $senderWallet = $sender->wallet()->create([
             'name' => 'Wallet de ' . $sender->name,
             'currency' => 'USD',
             'balance' => 0,
@@ -65,9 +65,9 @@ class TransferCoinController extends Controller
     }
 
     // Obtener la wallet activa del destinatario o crear una si no existe
-    $recipientWallet = $recipient->wallets()->where('is_active', true)->first();
+    $recipientWallet = $recipient->wallet()->where('is_active', true)->first();
     if (!$recipientWallet) {
-        $recipientWallet = $recipient->wallets()->create([
+        $recipientWallet = $recipient->wallet()->create([
             'name' => 'Wallet de ' . $recipient->name,
             'currency' => 'USD',
             'balance' => 0,

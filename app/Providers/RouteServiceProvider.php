@@ -22,6 +22,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = 'user/profile';
 
     /**
+     *  middleward seguridad 60 veces y corta throttle:60,1
      * Define your route model bindings, pattern filters, and other route configuration.
      *
      * @return void

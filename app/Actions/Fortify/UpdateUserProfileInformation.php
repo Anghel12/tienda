@@ -40,13 +40,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             ])->save();
         }
 
-          // Registrar la actividad del usuario
-          $user = Auth::user();
-          UserActivity::create([
-              'user_id' => $user->id,
-              'activity' => 'Actualizo su Foto de Perfil',
-          ]);
-
     }
 
     /**

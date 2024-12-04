@@ -17,7 +17,7 @@ src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jp
 
 
   <div class="container ">
-    <div class="row justify-content-center align-items-center" style="height: 100vh; padding-top: 7rem;">
+    <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 2rem;">
         
         <!-- Texto a la izquierda (12 columnas en móviles, 7 columnas en pantallas grandes) -->
         <div class="col-lg-12 col-12 text-center d-flex flex-column justify-content-center align-items-center mb-3 mb-lg-0">
