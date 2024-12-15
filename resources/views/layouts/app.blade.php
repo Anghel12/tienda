@@ -10,6 +10,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114335291355852"
     crossorigin="anonymous"></script>
   <!-- Sección para metadatos dinámicos -->
+  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
   @yield('meta')
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">

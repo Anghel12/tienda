@@ -103,15 +103,15 @@
                 </div>
                 
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-2">Registrarse</button>
+                  <button type="submit" class="btn bg-info w-100 mt-4 mb-2">Registrarse</button>
                 </div>
-                <div class="row px-xl-5 px-sm-4 px-3">
+               {{--   <div class="row px-xl-5 px-sm-4 px-3">
                   <div class="mt-3 mb-4 position-relative text-center">
                     <p class="text-sm font-weight-bold text-secondary text-border d-inline z-index-2 bg-white px-3">
                       or
                     </p>
                   </div>
-            {{--       <div class="col-3 ms-auto px-1">
+                 <div class="col-3 ms-auto px-1">
                     <a class="btn btn-outline-light w-100 px-3" href="{{route('facebook-auth')}}">
                       <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -148,8 +148,8 @@
                         </g>
                       </svg>
                     </a>
-                  </div> --}}
-                </div>
+                  </div> 
+                </div>--}}
                 <p class="text-sm text-center mt-3 mb-0">Tienes una Cuenta? <a
                     href="{{ $login_url }}" class="text-dark font-weight-bolder">Login</a></p>
               </form>

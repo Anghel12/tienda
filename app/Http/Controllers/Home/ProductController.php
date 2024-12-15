@@ -43,9 +43,7 @@ class ProductController extends Controller
         // Lazy load cuando necesites las imágenes
         $views_products->load(['mainImage']);
     
-        
-        
-        
+
         $products = Cache::remember('products_with_relations', now()->addMonths(6), function () {
             return Product::with([
                     'brand:id,title', 
