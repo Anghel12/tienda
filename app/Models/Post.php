@@ -57,13 +57,6 @@ class Post extends Model
         
         return $this->morphMany(Comment::class, 'commentable');
     }
-
- //relacion uno a uno polimorfica
-    public function price(){
-        
-        return $this->morphone(Price::class, 'priceable');
-    }
-
     public function reviews()
     {
         return $this->hasMany(Review::class);

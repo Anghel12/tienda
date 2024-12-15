@@ -24,10 +24,13 @@ use WireUi\Support\Facades\WireUi;
 Route::get('marketplace/products', [ProductController::class, 'index'])->name('markets.products.index');
 Route::get('marketplace/products/{slug}', [ProductController::class, 'show'])->name('markets.products.show');
 
+// Asegúrate de que la ruta tenga la URL correcta (y usa "categories" en lugar de "categorias")
+Route::get('markets/categories/{categories}', [ProductController::class, 'categorieshow'])->name('markets.categories.show');
+
 Route::post('/payment/notification', [CoinController::class, 'paymentNotification'])->name('paymentNotification');
 Route::post('/image/upload', [ImagesController::class, 'upload'])->name('image.upload');
 Route::get('blogs', [BlogsController::class, 'index'])->name('home.blogs.indexblog');
-Route::get('blog/{blog}', [BlogsController::class, 'show'])->name('home.blogs.showblog');
+Route::get('blog/{slug}', [BlogsController::class, 'show'])->name('home.blogs.show');
 Route::get('about', [AboutUsHomeController::class, 'index'])->name('home.about.indexaboutus');
 Route::get('help', [HelpHomeController::class, 'index'])->name('home.help.indexhelp');
 Route::get('/', [AllHomeContentController::class, 'all_bd_index'])->name('posts.index');

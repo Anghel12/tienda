@@ -30,8 +30,9 @@
 {{-- 
                     <img style="height:200px" class="img-fluid rounded-3" src="{{Storage::url($post->images->url)}}"
                       alt="" /> --}}
-                @if ($product->links)
-                  <img loading="lazy" style="height:250px; width: 100%" class="img-fluid rounded-3 card-img-top" src="{{ $product->links->url }}"
+                @if ($product->mainImage)
+                  <img loading="lazy" style="height:250px; width: 100%" class="img-fluid rounded-3 card-img-top" 
+                  src="{{ $product->mainImage->url ?? 0 }}"
                   alt="{{$product->name}}" />
 
                 @else 
@@ -44,13 +45,19 @@
 
               
                   <div class="p-2">
-                    <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
-                      <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}</h4>
-                    </a>
+
+                    <div style="height: 60px;">
+                      <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
+                        <h5 class="mb-2 lh-sm product-name text-white" style="height: 90%; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; text-overflow: ellipsis;">
+                          {{$product->name}}
+                        </h5>
+                      </a>
+                    </div>
+
                     <div class="d-flex align-items-center mb-3">
                           
-                      <h3 class="text-1100 mb-0 text-white">S/{{$product->price}}</h3>
-                      <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->price_reciente}}</p> 
+                      <h3 class="text-1100 mb-0 text-white">S/{{$product->product_price->final_price ?? null}}</h3>
+                      <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->product_price->price_reciente ?? null}}</p> 
                     </div>
   
                       <div class="mb-3">

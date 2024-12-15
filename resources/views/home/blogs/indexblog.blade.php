@@ -1,6 +1,6 @@
 <x-app-layout>
 
-</x-app-layout>
+
 @if (session('info'))
     <div class="alert alert-success">
          <strong> {{session('info')}} </strong>
@@ -11,5 +11,6 @@
 {{-- imagen hace que recargue la pagina --}}
 @livewire('home.blog.home-blog-index')
 
-
+@include('posts.partials.footer')
+</x-app-layout>
 {{-- llamo a mi app.blade --}}

@@ -17,12 +17,37 @@ class TagFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->unique()->word(20);
+        // Lista de tags predefinidos para motos, computadoras, electrodomésticos y eCommerce
+        $tags = [
+            'Moto',
+            'Moto deportiva',
+            'Accesorios moto',
+            'Repuestos moto',
+            'Motor',
+            'Tecnología',
+            'Computadoras',
+            'Laptops',
+            'Electrodomésticos',
+            'Electrónica',
+            'Gadgets',
+            'Ofertas',
+            'Promociones',
+            'Nuevos productos',
+            'Ecommerce',
+            'Compra online',
+            'Envíos gratis',
+            'Descuentos',
+            'Venta rápida',
+            'Mercado',
+        ];
+
+        // Escoge un tag de la lista
+        $tag = $tags[array_rand($tags)];
 
         return [
-            'name' => $name,
-            'slug' => Str::slug($name),
-            'color' => $this->faker->randomElement(['red', 'blue', 'amarillo'])
+            'name' => $tag,
+            'slug' => Str::slug($tag),
+            'color' => $this->faker->randomElement(['red', 'blue', 'yellow']),
         ];
     }
 }

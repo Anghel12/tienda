@@ -19,21 +19,32 @@ class subCategoryFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->unique()->sentence();
+        // Lista de subcategorías predefinidas para cada categoría
+        $subcategories = [
+            // Subcategorías de motos
+            'Motokares', 'Motos deportivas', 'Motos clásicas', 'Mantenimiento de motos', 'Repuestos de motos',
+            
+            // Subcategorías de computadoras
+            'Laptops', 'PC de escritorio', 'Accesorios para computadoras', 'Componentes de computadoras', 'Sistemas operativos',
+
+            // Subcategorías de electrodomésticos
+            'Refrigeradores', 'Lavadoras', 'Microondas', 'Cocinas', 'Aires acondicionados',
+
+            // Subcategorías de eCommerce
+            'Electrónica', 'Ropa y accesorios', 'Calzado', 'Juguetes', 'Hogar y jardín',
+        ];
+
+        $subcategory = $subcategories[array_rand($subcategories)]; // Seleccionar una subcategoría aleatoria
 
         return [
-
-            'title' =>  $title,
-            'slug' => Str::slug($title),
-
+            'title' => $subcategory,
+            'slug' => Str::slug($subcategory),
             'extract' => $this->faker->text(20),
-
             'body' => $this->faker->text(500),
-            'orden' => $this->faker->text(500),
-            'status' =>  $this->faker->randomElement([1, 2]),
-
-            'user_id' => User::all()->random()->id,
-            'category_id' => Category::all()->random()->id,
+            'orden' => $this->faker->randomNumber(2),
+            'status' => $this->faker->randomElement([1, 2]), // 1 o 2 puede ser 'activo' o 'inactivo'
+            'user_id' => 1, // Asocia la subcategoría con un usuario aleatorio
+            'category_id' => Category::all()->random()->id, // Asocia la subcategoría con una categoría aleatoria
         ];
     }
 }

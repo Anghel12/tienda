@@ -31,41 +31,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // Limpiar directorios
+        Storage::deleteDirectory('public/posts');
+        Storage::makeDirectory('public/posts');
+    
+        // Llamar a los seeders específicos
+        $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
+            ContentsTableSeeder::class,
+            PackageTableSeeder::class,
+            MembershipTableSeeder::class,
+            AboutTableSeeder::class,
+            ServicesTableSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            BrandSeeder::class,
+            SubCategorySeeder::class,
+            ProductSeeder::class,
+        ]);
 
-        /* ELIMINAR LAS IMAGENS DE LA CARPETA PUBLIC/STORAGE/POSTS */
-       Storage::deleteDirectory('public/posts');
-       Storage::makeDirectory('public/posts');
-       
-          /* CREACION DE LOS  */
-        
-        $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(ContentsTableSeeder::class);
-        $this->call(PackageTableSeeder::class);
-        $this->call(MembershipTableSeeder::class);
-        $this->call(AboutTableSeeder::class);
-        $this->call(ServicesTableSeeder::class);
-
-        Brand::factory(20)->create();
-        Provider::factory(2)->create();
-        navbarConfig::factory(1)->create(); 
-        Coin::factory(1)->create();
-        Category::factory(14)->create();
-        Tag::factory(8)->create();
-        subCategory::factory(12)->create();
-        
+       /*  Provider::factory(2)->create(); 
         Address::factory(18)->create();
         Profile::factory(20)->create();
-        UserCoin::factory()->count(20)->create();
         PaymentMethod::factory(3)->create();
-        Review::factory(10)->create();
-
-       // UserParent::factory(50)->create();
-    /** RELACION POLIMORFICA * */
-     /*    $this->call(PostSeeder::class);
-        $this->call(PostYoutubeSeeder::class); */
-    /*     $this->call(videoSeeder::class); */
-       /*  $this->call(ConfiguracionSeed::class); */
+        UserCoin::factory(20)->create();
+        Review::factory(10)->create();*/
     }
+    
 }

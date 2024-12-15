@@ -58,13 +58,6 @@ class Handler extends ExceptionHandler
             return response()->view('errors.404', [], 404);
         }
     
-        // Para el error 500 (Error Interno del Servidor)
-                   // Si quieres notificar al administrador del error 500
-     /*    if ($exception instanceof \Exception) {
-            \Log::error("Error 500: " . $exception->getMessage(), ['exception' => $exception]);
-            return response()->view('errors.500', [], 500);
-        } */
-    
         // Para el error 403 (Acceso Prohibido)
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException) {
             return response()->view('errors.403', [], 403);
@@ -75,23 +68,17 @@ class Handler extends ExceptionHandler
             return response()->view('errors.401', [], 401);
         }
     
-        // Errores comunes como valiudadciones de campos Para el error 422 (Entidad No Procesable)
-       /*  if ($exception instanceof \Illuminate\Validation\ValidationException) {
-            return response()->view('errors.422', [], 422);
-        } */
-    
-        // Manejo de otros errores como método no permitido (405)
-        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException) {
-            return response()->view('errors.405', [], 405);
+        // Para el error 500 (Error Interno del Servidor)
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\HttpException && $exception->getStatusCode() == 500) {
+            return response()->view('errors.500', [], 500);
         }
     
-        // Si el error es relacionado con base de datos (QueryException)
-    /*     if ($exception instanceof \Illuminate\Database\QueryException) {
-            return response()->view('errors.500', [], 500);
-        } */
+        // Para el error 422 (Entidad no procesable, usualmente validación de formulario)
+        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+            return response()->view('errors.422', [], 422);
+        }
     
-        // Puedes agregar más excepciones aquí si lo necesitas, como error 500, 403, etc.
-    
+        // Devolver el manejo por defecto para otras excepciones
         return parent::render($request, $exception);
     }
     

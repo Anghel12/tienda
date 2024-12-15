@@ -14,12 +14,11 @@ class HomeBlogIndex extends Component
     {
           //borrar cache en el crud falta
         $main_blog = Cache::remember('main_blog', now()->addMonths(6), function () {
-            return Blogs::latest()->limit(1)->get();
+            return Blogs::with('views')->latest()->limit(1)->get();
         });
-        
-        $sliders = Slider::all();
-        $main_blog = Blogs::latest()->limit(1)->get();
-        $blogs = Blogs::latest()->limit(3)->get();
-        return view('livewire.home.blog.home-blog-index', compact('sliders', 'blogs', 'main_blog'));
+  /*       
+        $sliders = Slider::all(); */
+        $blogs = Blogs::latest()->get();
+        return view('livewire.home.blog.home-blog-index', compact( 'blogs', 'main_blog'));
     }
 }

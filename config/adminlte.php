@@ -438,6 +438,52 @@ return [
             ],
         ],
 
+
+        
+        [
+            'text'    => 'Inventario',
+            'icon'    => 'fas fa-fw fa-share',
+            'icon_color' => 'primary',
+            'can'        => 'admin.adminTituloInventario.index',
+            'submenu' => [
+
+                [
+                    'text' => 'Categorias',
+                    'route'  => 'admin.categories.index',
+                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-folder-open',
+                    'can'        => 'admin.tags.index',
+                ],
+
+                [
+                    'text' => 'Tags',
+                    'route'  => 'admin.tags.index',
+                    'icon' => 'fas fa-fw fa-lock',
+                    'icon_color' => 'secondary',
+                    'can'        => 'admin.tags.index',
+                ],
+
+                [
+                    'text' => 'Sub Categorias',
+                    'route'  => 'admin.sub_categories.index',
+                    'icon' => 'fas fa-sitemap',
+                    'icon_color' => 'secondary',
+                    'can'        => 'admin.sub_categories.index',
+                ],
+
+
+                [
+                    'text' => 'Marcas',
+                    'route'  => 'admin.brands.index',
+                    'icon' => 'fas fa-trademark',
+                    'icon_color' => 'secondary',
+                    'can'        => 'admin.brands.index',
+                    
+                ],
+               
+            ],
+        ],
+
         [
             'text'        => 'Dashboard Graficos',
             'route'         => 'admin.dashboards.index',
@@ -580,10 +626,7 @@ return [
             ],
         ],
 
-   
-
-
-        [
+/*         [
             'text'    => 'Configuracion',
             'icon'    => 'fas fa-cogs fa-fw',
             'icon_color' => 'info',
@@ -608,50 +651,13 @@ return [
 
                 [
                     'text'        => 'ENV CONFIG muy config',
-                    /* 'route'         => 'admin.envconfig.index', */
                     'icon'        => 'fas fa-cog',
                     'can'        => 'admin.envconfig.index',
                     'label_color' => 'success',
                 ],
                 
             ],
-        ],
-
-        [
-            'text'        => 'Proyectos',
-            'icon'        => 'fas fa-chart-line',
-            'icon_color' => 'green',
-            'label_color' => 'success',
-            'can'        => 'admin.adminTituloExtras.index',
-            'submenu' => [
-                [
-                    'text'        => 'list',
-                    'url'         => '#',
-                    'route'         => 'admin.sales.index',
-                    'icon'        => 'fas fa-chart-line',
-                    'icon_color' => 'pink',
-                    'can'        => 'admin.error404.index',
-                ],
-                [
-                    'text'        => 'details',
-                    'url'         => '#',
-                    'route'         => 'admin.sales.index',
-                    'icon'        => 'fas fa-chart-line',
-                    'icon_color' => 'pink',
-                    'can'        => 'admin.error405.index',
-                ],
-                [
-                    'text'        => 'Nuevo Proyecto',
-                    'url'         => '#',
-                    'route'         => 'admin.sales.index',
-                    'icon'        => 'fas fa-chart-line',
-                    'icon_color' => 'pink',
-                    'can'        => 'admin.error405.index',
-                ],
-
-            ],
-        
-        ],
+        ], */
 
         [
             'text'        => 'Admin Ventas',
@@ -716,76 +722,6 @@ return [
         ],
 
 
-        [
-            'text'    => 'Inventario',
-            'icon'    => 'fas fa-fw fa-share',
-            'icon_color' => 'primary',
-            'can'        => 'admin.adminTituloInventario.index',
-            'submenu' => [
-
-                [
-                    'text' => 'Tags',
-                    'route'  => 'admin.tags.index',
-                    'icon' => 'fas fa-fw fa-lock',
-                    'icon_color' => 'secondary',
-                   'can'        => 'admin.tags.index',
-                ],
-
-                      
-                [
-                    'text' => 'Categorias',
-                    'route'  => 'admin.categories.index',
-                    'icon' => 'fas fa-folder-open',
-                    'icon_color' => 'secondary',
-                    'can'        => 'admin.categories.index',
-
-                    'submenu' => [
-                        [
-                            'text' => 'Sub Categorias',
-                            'route'  => 'admin.sub_categories.index',
-                            'icon' => 'fas fa-sitemap',
-                            'icon_color' => 'secondary',
-                            'can'        => 'admin.sub_categories.index',
-                           
-                        ],
-                    ],
-                ],
-
-                [
-                    'text' => 'Marcas',
-                    'route'  => 'admin.brands.index',
-                    'icon' => 'fas fa-trademark',
-                    'icon_color' => 'secondary',
-                    'can'        => 'admin.brands.index',
-                    
-                ],
-/*                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ], */
-               
-            ],
-        ],
 
         ['header' => 'Ventas',
         'can'        => 'admin.adminTituloExtras.index',
@@ -856,7 +792,7 @@ return [
             'label_color' => 'success',
         ],
 
-        ['header' => 'Comprar Monedas'],
+      /*   ['header' => 'Comprar Monedas'],
         [
             'text'        => 'Monedas',
             'route'         => 'admin.buyCoins.index',
@@ -877,62 +813,8 @@ return [
             'icon'        => 'fas fa-clipboard-list',
             'icon_color' => 'green',
             'label_color' => 'success',
-        ],
+        ], */
         
-
-        ['header' => 'User'],
-
-        [
-            'text'        => 'YO',
-            'icon'        => 'fas fa-fw fa-user',
-            'icon_color' => 'green',
-            'label'       => 4,
-            'label_color' => 'success',
-            
-            'submenu' => [
-                [
-                    'text'        => 'Historial',
-                    'route'         => 'admin.histories.index',
-                    'icon'        => 'fas fa-history fa-fw',
-                    'icon_color' => 'gray',
-                    'label_color' => 'success',
-                ],
-
-        
-                [ 
-                    'text'        => 'transactions',
-                    'route'         => 'admin.transactions.index',
-                    'icon'        => 'fas fa-exchange-alt fa-fw',
-                    'icon_color' => 'green',
-                    'label_color' => 'success',
-                ],
-
-                [
-                    'text'        => 'Favoritos',
-                    'route'         => 'admin.favorites.index',
-                    'icon'        => 'fas fa-heart fa-fw',
-                    'icon_color' => 'red',
-                    'label_color' => 'success',
-                ],
-        
-                [
-                    'text'        => 'Follows',
-                    'route'         => 'admin.follows.index',
-                    'icon'        => 'fas fa-users fa-fw',
-                    'icon_color' => 'red',
-                    'label_color' => 'success',
-                ],
-            
-
-                [
-                    'text'        => 'Notifications',
-                    'route'         => 'admin.Notifications.index',
-                    'icon'        => 'far fa-bell',
-                    'icon_color' => 'purple',
-                    'label_color' => 'success',
-                ],
-            ],
-        ],
 
         ['header' => 'Soporte'],
         [
@@ -951,20 +833,6 @@ return [
             'icon_color' => 'pink',
             'can'        => 'admin.chat.index',
         ],
-
-       
-
-
-        ['header' => 'Ayudas'],
-         
-        
-        [
-            'text'        => 'Calculators',
-            'route'         => 'admin.Calculators.index',
-            'icon'        => 'fas fa-calculator',
-            'icon_color' => 'gray',
-            'label_color' => 'success',
-        ], 
        
     ],
 

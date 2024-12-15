@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\BanController;
 use App\Http\Controllers\Admin\BlockedFollowController;
 use App\Http\Controllers\Admin\BlogMetaController;
-use App\Http\Controllers\Admin\BlogsController;
 use App\Http\Controllers\Admin\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
@@ -46,6 +45,7 @@ use App\Http\Controllers\HomeHelpController;
 use App\Http\Controllers\Admin\AboutUsHomeController;
 use App\Http\Controllers\Admin\EnvConfigController;
 use App\Http\Controllers\Admin\FuntWallet\PackageCoinController;
+use App\Http\Controllers\Admin\Home\BlogsController;
 use App\Http\Controllers\Admin\Home\MembershipController;
 use App\Http\Controllers\Admin\Market\ProductController;
 use App\Http\Controllers\Admin\NotificationController;

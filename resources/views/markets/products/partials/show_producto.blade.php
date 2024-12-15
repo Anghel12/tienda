@@ -1,36 +1,27 @@
  <!-- <section> begin ============================-->
-    <div class="py-0">
+  <div class="">
 
       <!-- Mostrar solo en pantallas pequeñas (móviles) -->
 <div class="d-block d-md-none">
   @include('markets.products.partials.adsend')
 </div>
         <div class="container-fluid">
-          <nav class="mb-3  " aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 bg-black">
+          <nav class="mb-4" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-black">
               <li class="breadcrumb-item"><a class="text-white" href="{{ route('markets.products.index') }}">Mercado</a></li>
-              <li class="breadcrumb-item"><a class="text-white" href="#">Producto</a></li>
+              <li class="breadcrumb-item"><a class="text-white" href="{{ route('markets.products.index') }}">Producto</a></li>
+              <li class="breadcrumb-item"><a class="text-white" href="#">Show</a></li>
             </ol>
           </nav>
           <div class="row g-5 mb-5 mb-lg-8" data-product-details="data-product-details">
             <div class="col-12 col-lg-7">
-              <div class="row g-3 mb-3">
-
-           {{--      <div class="col-12 col-md-12 col-lg-12 col-xl-12">
-                  <div class="d-flex align-items-center border rounded-3 text-center h-100">
-                 
-                    <iframe width="700" height="400" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                  </div>
-                </div> --}}
-
-                              {{-- swiper --}}
+            <div class="row g-3 mb-3">
             <div class="gy-1">
               <div class="swiper swiper-show-products">
                 <div class="swiper-wrapper">
 
 
-                @if ($linkYoutube->exists())
+               @if ($linkYoutube)
                 <div class="swiper-slide">
                   <div class="minimalista-card col-lg-12">
                     <div class="position-relative text-decoration-none product-card h-100">
@@ -38,7 +29,7 @@
                         <div class="">
                           <div class="rounded-3 position-relative mb-3 youtube-container">
 
-                            <iframe width="100%" height="100%" src="{{ $linkYoutube->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe width="100%" height="100%" src="{{ $linkYoutube->url ?? null }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                           </div>
 
                           <style>
@@ -66,11 +57,13 @@
 
                   </div>
                 </div>
+                @else
+                   {{--  <p>No hay Videos disponibles para este producto.</p> --}}
                 @endif
 
                   
-
-{{--                   @foreach ($relatedProducts as $product) --}}
+                @if ($product->images->count() > 0)
+                @foreach ($product->images as $item)
                   <div class="swiper-slide">
                     <div class="minimalista-card col-lg-12">
                       <div class="position-relative text-decoration-none product-card h-100">
@@ -78,12 +71,12 @@
                           <div class="">
                             <div class="rounded-3 position-relative mb-3 image-container">
 
+                         
                               <img loading="lazy" class="img-fluid rounded-3" 
-                                  src="{{ $linkImage->url }}"
-                                  alt="{{ $product->name }}" />
-                      
-              
-                              
+                              src="{{ $item->url ?? 0}}"
+                              alt="{{ $product->name }}" />
+                        
+
                             </div>
                           <style>
                           .image-container {
@@ -117,6 +110,12 @@
 
                     </div>
                   </div>
+
+                  @endforeach
+
+                  @else
+                      {{-- <p>No hay imágenes disponibles para este producto.</p> --}}
+                  @endif
             {{--       @endforeach --}}
 
                 </div>
@@ -168,12 +167,12 @@
                     <div class="me-2"><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span></div>
                     <p class="text-primary fw-semi-bold mb-2">65 Personas estan interesados en el producto</p>
                   </div>
-                  <h2 class="mb-3 lh-sm text-white">{{$product->name}}</h2>
+                  <h4 class="mb-3 lh-sm text-white">{{$product->name}}</h4>
                   <div class="d-flex flex-wrap align-items-start mb-3"><a class="fw-semi-bold" href="#">{{$product->user->name}}: </a><span class="badge bg-success fs--1 rounded-pill me-2 fw-semi-bold">#1 Mejor Vendedor</span></div>
                   <div class="d-flex flex-wrap align-items-center mb-3">
-                    <h1 class="me-3 text-white">S/{{$product->price}}</h1>
-                    <p class="text-500 text-decoration-line-through fs-2 mb-0 me-3 text-warning-50">{{$product->price_reciente}}</p>
-                    <p class="text-warning-500 fw-bolder mb-0">10% De Descuento</p>
+                    <h1 class="me-3 text-white">S/{{$product->product_price->final_price ?? null}}</h1>
+                    <p class="text-500 text-decoration-line-through fs-2 text-warning opacity-50">{{$product->product_price->price_reciente ?? null}}</p>
+                    <p class="text-warning-500 fw-bolder mb-0">{{ round($product->product_price->discount) ?? null }}% De Descuento</p>
                   </div>
 
                   @auth
@@ -186,17 +185,27 @@
                 @endauth
                  
                   <p class="mb-2 text-white"> </p>
-                  <p class="text-danger-500 fw-bold mb-lg-0" style="width: 100%">{{$product->body}}</p>
-                  <p class="text-danger-500 fw-bold mb-lg-0">OFERTA ESPECIAL HASTA EL 3 DE DICIEMBRE</p>
+                  <p class="text-danger-500 fw-bold mb-3" style="width: 100%">{{$product->body}}</p>
+                  <p class="text-danger-500 fw-bold ">OFERTA ESPECIAL HASTA EL 3 DE DICIEMBRE</p>
                 </div>
                 <div>
-                  <div class="mb-3">
+                  <div class="row">
+                    <div class="col-12">
                     <p class="fw-semi-bold mb-2 text-900 text-white ">Marca: <span class="text-1100 text-white" data-product-color="data-product-color">{{ $product->brand->title }}</span></p>
-              
-                  </div>
+                    <p class="fw-semi-bold mb-2 text-900 text-white">Categoria: {{$product->category->name}}</p>
+                    <p class="fw-semi-bold mb-2 text-900"> <span class="badge bg-dark text-white rounded-pill">En stock: {{$product->stock}}</span></p>
+                         {{-- tags --}}
+                       
+                          <h5>Etiqueta:</h5>
+                          @foreach ($product->tags as $tag)
+                            <span class="badge bg-primary fs--1 rounded-pill me-2 fw-semi-bold p-2 mb-3">{{$tag->name}}</span>
+                          @endforeach
+                    
+                        </div>
+                      </div>
                   <div class="row g-3 g-sm-5 align-items-end mb-5">
                     <div class="col-12 col-sm-auto">
-                      <p class="fw-semi-bold mb-2 text-900 text-white">Categoria: {{$product->category->name}}</p>
+                      
                      {{--  <div class="d-flex align-items-center"><select class="form-select w-auto">
                           <option value="44">44</option>
                           <option value="22">22</option>
@@ -204,7 +213,6 @@
                         </select><a class="ms-2 fs--1 fw-semi-bold" href="product-details.html#!">Size chart</a></div> --}}
                     </div>
                     <div class="col-12 col-sm">
-                      <p class="fw-semi-bold mb-2 text-900"> <span class="badge bg-dark text-white rounded-pill">En stock: {{$product->stock}}</span></p>
                     {{--   <div class="d-flex justify-content-between align-items-end">
                         <div class="d-flex flex-between-center" data-quantity="data-quantity"><button class="btn btn-phoenix-primary px-3" data-type="minus"><span class="fas fa-minus"></span></button><input class="form-control text-center input-spin-none bg-transparent border-0 outline-none" style="width:50px;" type="number" min="1" value="2" /><button class="btn btn-phoenix-primary px-3" data-type="plus"><span class="fas fa-plus"></span></button></div><button class="btn btn-phoenix-primary px-3 border-0"><span class="fas fa-share-alt fs-1"></span></button>
                       </div> --}}

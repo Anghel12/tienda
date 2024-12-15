@@ -18,7 +18,7 @@
 </div>
 @endif
 
-    <div class="card">
+    <div class="card-minimalista">
       
         <div class="card-body">
 
@@ -101,7 +101,8 @@
 @section('css')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"> --}}
 
-
+<!-- table css -->
+<link rel="stylesheet" href="{{ asset('css/table.css') }}">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="/css/admin_custom.css"> 
 @stop

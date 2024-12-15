@@ -5,23 +5,30 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
- */
 class CategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition()
     {
-        $name = $this->faker->unique()->word(28);
+        // Definir las categorías fijas
+        $categories = [
+            'Motokares',
+            'Aros',
+            'Carros',
+            'Moto lineal',
+            'Accesorios',
+            'Motos deportivas',
+            'Motos clásicas',
+            'Automóviles',
+            'Repuestos',
+            'Mantenimiento',
+        ];
+
+        // Generar todos los registros de categorías
+        $category = $categories[array_search($this->faker->unique()->word, $categories) % count($categories)];
 
         return [
-            'name' => $name,
-            'slug' => Str::slug($name)
+            'name' => $category,
+            'slug' => Str::slug($category),
         ];
     }
 }

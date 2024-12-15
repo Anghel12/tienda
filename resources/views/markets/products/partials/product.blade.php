@@ -1,6 +1,9 @@
  {{-- swiper --}}
  <div class="row">
+  <h2 class="text-white mb-2">MarketPlace</h2>
+  <h3 class="text-white mb-2">Productos mas Recientes:</h3>
     <div class="swiper swiper-container-products">
+      
       <div class="swiper-wrapper ">
 
         @foreach ($products as $product)
@@ -10,35 +13,45 @@
               <div class="d-flex flex-column justify-content-between h-100">
                 <div class="">
                   <div class=" rounded-3 position-relative mb-3">
-                @if ($product->links)
+                @if ($product->mainImage)
                 <picture>
                   {{-- <source srcset="{{ asset('storage/images/product-image.webp') }}" type="image/webp">
                   <source srcset="{{ asset('storage/images/product-image.avif') }}" type="image/avif"> --}}
                   <img loading="lazy" 
                        style="height:250px; width:100%" 
                        class="img-fluid card-img-top rounded-3" 
-                       src="{{ $product->links->url }}" 
+                       src="{{ $product->mainImage->url ?? 0 }}" 
                        alt="{{ $product->name }}">
                   </picture>
                 @else 
+                <img loading="lazy" 
+                style="height:250px; width:100%" 
+                class="img-fluid card-img-top rounded-3" 
+                src="https://img.freepik.com/vector-gratis/fondo-colores-diferentes-formas-abstractas_23-2149133887.jpg?t=st=1733455303~exp=1733458903~hmac=afadd8d3b9a9c128e942566bc45664ccfd3d8015490b902c3049070a50ee2029&w=900" 
+                alt="{{ $product->name }}">
 
                 @endif
-
                   </div>
 
                   <div class="p-2">
-                  <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
-                    <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}</h4>
-                  </a>
+                    
+                      <div style="height: 60px;">
+                        <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
+                          <h5 class="mb-2 lh-sm product-name text-white" style="height: 90%; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; text-overflow: ellipsis;">
+                            {{$product->name}}
+                          </h5>
+                        </a>
+                      </div>
+                    
                   <div class="d-flex align-items-center mb-3">
                         
-                    <h3 class="text-1100 mb-0 text-white">S/{{$product->price}}</h3>
-                    <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->price_reciente}}</p> 
+                    <h3 class="text-1100 mb-0 text-white">S/{{$product->product_price->final_price ?? null}}</h3>
+                    <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">{{$product->product_price->price_reciente ?? null}}</p> 
                   </div>
 
                     <div class="mb-3">
                  
-                      <p class="fs--1 text-1000 fs--1 mb-0 fw-bold text-truncate text-white" style="max-width: 300px;">{!! $product->extract !!}</p>
+                      <p class="fs--1 text-1000 fs--1 mb-2 fw-bold text-truncate text-white" style="max-width: 300px;">{!! $product->extract !!}</p>
                       <p class="fs--1 text-700 fs--1 mb-2">Categoria: {{$product->Category->name}}</p>
   
                       <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">Marca:{{$product->brand->title ?? 1}} </p>

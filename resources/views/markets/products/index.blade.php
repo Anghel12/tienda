@@ -33,31 +33,48 @@
 </x-app-layout>
 
   <div class="bg-mod-black" style="width: 100%">
-    <div class="container-fluid" style="height: 100%; padding-top: 4rem;">
+    <div class="container-fluid" style="height: 100%; padding-top: 7rem;">
       <div class="row pt-7 pb-5 ">
         @include('markets.products.partials.filters')
     
         <div class="col-lg-9 col-xxl-10">
-          @include('markets.products.partials.cel_filtro')
+        <div class="text-center">
           <h2 class="text-white mb-2">MarketPlace</h2>
-           {{-- @include('markets.products.partials.adsend') --}}
-          <h3 class="text-white ">Productos mas Recientes</h3>
-            @include('markets.products.partials.product')
-            @include('markets.products.partials.adsend')
-
-            {{-- @include('markets.products.partials.motokar_category') --}}
-            @include('markets.products.partials.category_aros')
-            @include('markets.products.partials.adsend')
-
-              
+        </div>
+           {{--    @include('markets.products.partials.product')  --}}
+          @include('markets.products.partials.cel_filtro')
+          {{-- products mas destacados  --}}
+          @include('markets.products.partials.populares')
+          @include('markets.products.partials.adsend')
+          @include('markets.products.partials_c.products')
+          @include('markets.products.partials.adsend')
+          @include('markets.products.partials.category_aros')
+          @include('markets.products.partials.adsend')
+          @include('posts.partials.footer')
+                {{-- @include('markets.products.partials.motokar_category') --}}
                  {{--     <h3 class="text-white">Categoria: <strong>Motores</strong></h3>
             @include('markets.products.partials.motores_category') --}}
+            
 
-            @include('posts.partials.footer')
+          
         </div>
     </div>
     </div>
   </div>
+
+  <style>
+    /* products card */
+.minimalista-card {
+
+    transition: transform 0.3s ease-in-out;
+  
+  }
+  
+.minimalista-card:hover {
+  transform: scale(1.02);
+}
+
+  </style>
 
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

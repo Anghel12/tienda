@@ -20,13 +20,15 @@
                     <livewire:notifications-all-views />
                      <livewire:icon-profile />
                 @endauth
+                
                 @include('livewire.home.navigation.partials.icon_admin')
             </div>
         </div>
     </div>
     
     <!-- Navbar para pantallas pequeñas -->
-    <div id="navbar-small" class="navbar navbar-dark d-lg-none fixed-top">
+    <div id="navbar-small" class="navbar navbar-dark d-lg-none fixed-top" style="display: flex;">
+
         <div class="container-fluid justify-content-between">
         <!-- Icono de menú hamburguesa -->
               <!-- Iconos en versión compacta -->

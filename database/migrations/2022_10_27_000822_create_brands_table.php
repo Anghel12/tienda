@@ -19,13 +19,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
             $table->text('extract')->nullable();
-
-          /**status*/
-
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-                       
-
             $table->timestamps();
         });
     }

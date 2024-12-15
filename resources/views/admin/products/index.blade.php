@@ -28,9 +28,10 @@
                 <table class="table align-items-center mb-0 ">
                   <thead>
                     <tr>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Precio</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">id</th>
+                   
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Categoria</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Estado</th>
                       <th class="text-secondary opacity-7">Acciones</th>
@@ -40,10 +41,14 @@
                     @foreach ($products as $product)
 
                     <tr>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-xs font-weight-bold mb-0 text-truncate" style="max-width: 100px;">{{ $product->id ?? null }} </p>
+                        <span class="badge badge-sm badge-dark"></span>
+                      </td>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img style="height: 30px" src="{{ $product->links->url }}" alt="{{ $product->user->name }}" class="avatar avatar-md me-3">
+                            <img style="height: 30px" src="{{ $product->mainImage->url ?? null }}" alt="{{ $product->user->name ?? null }}" class="avatar avatar-md me-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 ">{{ $product->name ?? null }}</h6>
@@ -53,19 +58,25 @@
                       </td>
 
                       <td>
-                        <p class="text-xs font-weight-bold mb-0 ">$/{{ $product->price }}</p>
+                        <p class="text-xs font-weight-bold mb-0 ">$/{{ $product->product_price->price ?? null }}</p>
                         <p class="text-xs text-secondary mb-0"> </p>
                       </td>
-                      <td class="align-middle text-center text-sm">
-                        <p class="text-xs font-weight-bold mb-0 text-truncate" style="max-width: 100px;">{{ $product->id }} </p>
-                        <span class="badge badge-sm badge-dark"></span>
-                      </td>
+                   
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold ">{{ $product->category->name }}</span>
+                        <span class="text-secondary text-xs font-weight-bold ">{{ $product->category->name  ?? null}}</span>
                       </td>
                     
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm badge-info"> {{ $product->status }}</span>
+                        @if ($product->status == 'active')
+                        <span class="badge badge-sm btn-success text-dark"> {{ $product->status  ?? null }}</span>
+
+                        @else
+
+                        <span class="badge badge-sm btn-success text-dark"> {{ $product->status ?? null }}</span>
+                        @endif
+
+                      
+
                       </td>
                        <td class="align-middle">
                         <a href="{{ route('admin.products.edit', $product->id ) }}" class="btn btn-outline-primary text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit">

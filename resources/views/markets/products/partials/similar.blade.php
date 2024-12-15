@@ -26,9 +26,9 @@
             <div class="d-flex flex-column justify-content-between h-100">
               <div class="">
                 <div class=" rounded-3 position-relative mb-3">
-                  @if ($product->links()->where('type', 'image')->exists())
+                  @if ($product->mainImage->exists())
                   <img style="height:250px; width: 100%" class="img-fluid rounded-3 card-img-top"
-                    src="{{ $product->links()->where('type', 'image')->first()->url }}" alt="{{ $product->name }}" />
+                    src="{{ $product->mainImage->url }}" alt="{{ $product->name }}" />
                   @else
                   <img style="height:250px; width: 100%" class="img-fluid rounded-3"
                     src="https://scontent-lim1-1.xx.fbcdn.net/v/t45.5328-4/467551928_884078530466472_2987155854001498890_n.jpg?stp=dst-jpg_s960x960&_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=ZJE2jXtW8NYQ7kNvgG55OQd&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=Ax-zIfezJvkS_orPp1L8fiC&oh=00_AYBEr39BhQaNe8pauM1JUZVUPdpx8QGncLH8pySClVBFmA&oe=674C44CC"
@@ -36,15 +36,18 @@
                   @endif
                 </div>
                 <div class="p-2">
-                  <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
-                    <h4 class="mb-2 lh-sm line-clamp-3 product-name text-white" style="height: 60px">{{$product->name}}
-                    </h4>
-                  </a>
+                  <div style="height: 60px;">
+                    <a class="stretched-link" href="{{route('markets.products.show', $product->slug)}}">
+                      <h5 class="mb-2 lh-sm product-name text-white" style="height: 90%; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; text-overflow: ellipsis;">
+                        {{$product->name}}
+                      </h5>
+                    </a>
+                  </div>
                   <div class="d-flex align-items-center mb-3">
 
-                    <h3 class="text-1100 mb-0 text-white">S/{{$product->price}}</h3>
+                    <h3 class="text-1100 mb-0 text-white">S/{{$product->product_price->price ?? null}}</h3>
                     <p class="me-2 p-2 text-900 text-decoration-line-through mb-0  text-warning opacity-50">
-                      {{$product->price_reciente}}</p>
+                      {{$product->product_price->price ?? null}}</p>
                   </div>
 
                   <div class="mb-3">
@@ -93,7 +96,6 @@
 
     </div>
     {{-- paginacion --}}
-
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>

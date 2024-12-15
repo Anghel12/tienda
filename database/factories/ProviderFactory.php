@@ -25,7 +25,7 @@ class ProviderFactory extends Factory
                  'slug' => Str::slug($title),
                  'extract' => $this->faker->text(20),
                  'phone' => $this->faker->randomDigitNot(400),
-                 'user_id' => User::all()->random()->id,
+                 'user_id' => 1,
         ];
     }
 }

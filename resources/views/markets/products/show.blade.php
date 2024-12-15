@@ -8,14 +8,14 @@
     {{-- Meta Tags para Redes Sociales --}}
     <meta property="og:title" content="{{ $product->name }}">
     <meta property="og:description" content="{{ $product->extract }}">
-    <meta property="og:image" content="{{ $linkImage->url }}"> <!-- Suponiendo que tienes una imagen asociada al producto -->
+    <meta property="og:image" content="{{ $product->mainImage->url ?? null }}"> <!-- Suponiendo que tienes una imagen asociada al producto -->
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="product"> <!-- 'product' es para productos, 'article' para artículos -->
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $product->name }}">
     <meta name="twitter:description" content="{{ $product->extract }}">
-    <meta name="twitter:image" content="{{ $linkImage->url }}">
+    <meta name="twitter:image" content="{{  $product->mainImage->url ?? null }}">
     <meta name="twitter:url" content="{{ url()->current() }}">
 
     {{-- Meta Author --}}
@@ -30,16 +30,16 @@
     <script type="application/ld+json">
       {
           "@context": "https://schema.org",
-          "@type": "Product",
+          "@type": "{{ $product->category->name }}",
           "name": "{{ $product->name }}",
-          "image": "{{ $linkImage->url }}",
+          "image": "{{ $product->mainImage->url ?? null }}",
           "description": "{{ $product->extract }}",
           "sku": "{{ $product->id }}",
           "offers": {
               "@type": "Offer",
               "url": "{{ url()->current() }}",
-              "priceCurrency": "S/.",
-              "price": "{{ $product->price }}",
+              "priceCurrency": "S/. {{ $product->product_price->price_reciente ?? null }} ",
+              "price": "{{ $product->product_price->final_price ?? null  }}",
               "itemCondition": "https://schema.org/NewCondition",
               "availability": "{{ $product->stock }}"
           }
@@ -50,13 +50,13 @@
     @endsection
 
 <div class="mt-40">
-  <div class="container-fluid " style="width: 100%">
-    <div class="row pt-7 pb-5">
+  <div class="container {{-- -fluid  --}}" style="width: 100%; padding-top: 3rem">
+    <div class="row pb-5">
             @include('markets.products.partials.show_producto')
-    <!-- Mostrar solo en pantallas pequeñas (móviles) -->
-<div class="d-block d-md-none">
-  @include('markets.products.partials.adsend')
-</div>
+           <!-- Mostrar solo en pantallas pequeñas (móviles) -->
+            <div class="d-block d-md-none">
+              @include('markets.products.partials.adsend')
+            </div>
             @include('markets.products.partials.similar')
             <!-- Mostrar solo en pantallas grandes (tabletas y de escritorio) -->
             <div class="d-none d-md-block">

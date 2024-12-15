@@ -1,13 +1,13 @@
 <ul class="navbar-nav mx-auto d-none d-lg-flex text-center">
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}" aria-labe="Inicio">
+        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}" aria-label="Inicio">
             <i class="fas fa-home"></i>
         </a>
         <span class="tooltip-text">Inicio</span>
     </li>
 
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('marketplace/products*') ? 'active' : '' }}" aria-labe="Mercado"
+        <a class="nav-link {{ Request::is('marketplace/products*') ? 'active' : '' }}" aria-label="Mercado"
            href="{{ route('markets.products.index') }}">
             <i class="fas fa-store"></i>
         </a>
@@ -15,21 +15,21 @@
     </li>
 
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}" href="{{ route('home.about.indexaboutus') }}" aria-labe="Nosotros">
+        <a class="nav-link {{ Request::is('about*') ? 'active' : '' }}" href="{{ route('home.about.indexaboutus') }}" aria-label="Nosotros">
             <i class="fas fa-users"></i>
         </a>
         <span class="tooltip-text">Nosotros</span>
     </li>
 
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('help*') ? 'active' : '' }}" href="{{ route('home.help.indexhelp') }}" aria-labe="Ayuda">
+        <a class="nav-link {{ Request::is('help*') ? 'active' : '' }}" href="{{ route('home.help.indexhelp') }}" aria-label="Ayuda">
             <i class="fas fa-question-circle"></i>
         </a>
         <span class="tooltip-text">Ayuda</span>
     </li>
 
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}" href="{{ route('home.blogs.indexblog') }}" aria-labe="Blog">
+        <a class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}" href="{{ route('home.blogs.indexblog') }}" aria-label="Blog">
             <i class="fas fa-newspaper"></i>
         </a>
         <span class="tooltip-text">Blog</span>
@@ -38,7 +38,7 @@
     @auth
     {{-- User --}}
     <li class="nav-item m-0 p-0 ni-wh position-relative">
-        <a class="nav-link {{ Request::is('user/fastbuycoins*') ? 'active' : '' }}" href="{{ route('user_actions.wallets.index') }}" aria-labe="Cartera">
+        <a class="nav-link {{ Request::is('user/fastbuycoins*') ? 'active' : '' }}" href="{{ route('user_actions.wallets.index') }}" aria-label="Cartera">
             <i class="fas fa-wallet"></i>
         </a>
         <span class="tooltip-text">Cartera</span>

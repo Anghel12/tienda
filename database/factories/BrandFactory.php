@@ -18,16 +18,38 @@ class BrandFactory extends Factory
      */
     public function definition()
     {
+        // Lista de marcas predefinidas
+        $brands = [
+            'Honda',
+            'Wanxin',
+            'Zhonghen',
+            'Linked',
+            'Yamaha',
+            'Suzuki',
+            'Kawasaki',
+            'BMW',
+            'Harley Davidson',
+            'KTM',
+        ];
 
-        $title = $this->faker->unique()->sentence();
+        // Escoge una marca de la lista
+        $brand = $brands[array_rand($brands)];
 
         return [
-        
-
-        'title' => $title,
-        'slug' => Str::slug($title),
-        'extract' => $this->faker->text(20),
-        'user_id' => User::all()->random()->id,
+            'title' => $brand,
+            'slug' => Str::slug($brand),
+            'extract' => 'Extracto de ' . $brand,
+            'user_id' => 1, // Asumiendo que el usuario existe
         ];
     }
 }
+
+/* if (!$user) {
+    $user = User::create([
+        'name' => 'Anghel',
+        'email' => 'angheluisg2@gmail.com',
+        'password' => bcrypt('Anghel2023'),
+        'referral_code' => Str::random(10),
+       
+    ])->syncRoles('Admin');
+} */

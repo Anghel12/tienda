@@ -15,6 +15,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');                           // Nombre del producto
+            $table->string('slug')->unique();                  // URL amigable
+            $table->text('extract')->nullable();               // Resumen o extracto
+            $table->longText('body')->nullable();              // Descripción completa
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('brand_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('seller_id')->constrained('users')->cascadeOnDelete();
+            $table->integer('stock');                          // Stock disponible
+            $table->enum('status', ['active', 'inactive'])->default('active'); // Estado
+            
+            $table->timestamps();
+        });
+        
+      /*   Schema::create('products', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
             
@@ -34,7 +49,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');  
             $table->timestamps();
-        });
+        }); */
     }
 
     /**

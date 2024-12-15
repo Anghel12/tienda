@@ -12,7 +12,7 @@
                 <strong> {{session('info')}} </strong>
            </div>
        @endif
-<div class="card">
+<div class="card-minimalista">
     <div class="card-body">
         {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'PUT' ]) !!}
 
@@ -27,6 +27,8 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <!-- table css -->
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
 @stop
 
 @section('js')

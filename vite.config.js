@@ -1,19 +1,17 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import laravel, { refreshPaths } from 'laravel-vite-plugin';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
-    vue(), // agrega el plugin de Vue
     laravel({
-      input: [
-        'resources/css/app.css',
-        'resources/js/app.js',
-      ],
-      refresh: [
-        ...refreshPaths,
-        'app/Http/Livewire/**',
-      ],
+      input: ['resources/js/App.jsx'],
+      refresh: true,
     }),
+    react(),
   ],
+  server: {
+    host: '127.0.0.1', // Forzar IPv4
+    port: 5173,        // Puerto de Vite
+  },
 });

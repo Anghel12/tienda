@@ -3,11 +3,6 @@
 </x-app-layout>
 
 
-<img class="background-image"
-src="https://img.freepik.com/fotos-premium/fondo-azul-fondo-azul_608068-13038.jpg" alt="Fondo">
-
-{{-- FORMULARIO DE COMPRA --}}
-
 <div class="container ">
     <div class="row justify-content-center align-items-center" style="height: 100%; padding-top: 2rem;">
 

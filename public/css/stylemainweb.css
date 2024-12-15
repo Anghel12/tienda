@@ -30,6 +30,25 @@ body,
   z-index: -1;
   opacity: 40%;
 }
+/* products card */
+.minimalista-card {
+  /*   border: 1px solid #444; */
+    /* Antiguo  2px solid #161a2b; */
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    /* Bordes redondeados para un toque moderno */
+    padding: 5px;
+    /* Espaciado interno */
+    transition: box-shadow 0.3s ease;
+  
+  }
+  
+.minimalista-card:hover {
+  box-shadow: 0px 4px 4px 4px rgba(42, 18, 255, 0.158);
+  /* Sombra blanca más intensa en hover */
+}
+
+
 .card-minimalista {
   border: 2px solid #161a2b;
   /* Borde de 1px con el color de fondo anterior */
@@ -40,19 +59,6 @@ body,
   /* Espaciado interno */
   transition: box-shadow 0.3s ease;
   /* Transición suave */
-}
-
-.minimalista-card {
-  border: 1px solid #444;
-  /* Antiguo  2px solid #161a2b; */
-  color: rgb(255, 255, 255);
-  border-radius: 10px;
-  /* Bordes redondeados para un toque moderno */
-  padding: 5px;
-  /* Espaciado interno */
-  transition: box-shadow 0.3s ease;
-  /* Transición suave */
-
 }
 
 .card-bg-dark-minimalista {
@@ -68,11 +74,6 @@ body,
   background: #000000;
 }
 
-.minimalista-card:hover {
-  background: #03000f;
-  box-shadow: 0px 4px 4px 4px rgba(42, 18, 255, 0.158);
-  /* Sombra blanca más intensa en hover */
-}
 
 /* nabvar */
 

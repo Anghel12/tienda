@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Anghel Luis',
             'email' => 'angheluisg@gmail.com',
-            'password' => bcrypt('Anghel2022'),
+            'password' => bcrypt('Anghel2023'),
             'referral_code' => Str::random(10),
            
         ])->syncRoles('Admin');

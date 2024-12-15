@@ -9,7 +9,7 @@
 @section('content')
 
     
-    <div class="card">
+    <div class="card-minimalista">
         <div class="card-body">
             {!! Form::open( ['route' => 'admin.categories.store']) !!}
 
@@ -30,6 +30,9 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <!-- table css -->
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
 @stop
 
 @section('js')
