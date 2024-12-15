@@ -88,7 +88,8 @@
                     or continue with
                   </p>
                 </div>
-                <div class="col-3 ms-auto px-1">
+                
+               {{--  <div class="col-3 ms-auto px-1">
                   <a class="btn btn-outline-light w-100 p-3" {{route('facebook-auth')}}>
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1"
                       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -104,7 +105,7 @@
                   </a>
                 </div>
 
-                <div class="col-3 me-auto px-1"> 
+                  <div class="col-3 me-auto px-1"> 
                   <a class="btn btn-outline-light w-100 p-3" href="{{route('google-auth')}}">
                     <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1"
                       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -126,7 +127,8 @@
                       </g>
                     </svg>
                   </a>
-                </div>
+                </div> --}}
+
               </div>
               <p class="mb-0 mt-3 text-sm mx-auto">
                 No tengo una Cuenta?

@@ -31,20 +31,18 @@ class ProductController extends Controller
         $tags = Cache::remember('tags_id_name', now()->addMonths(6), function () {
             return Tag::select('id', 'name')->get();
         });
-
-        $views_products = Cache::remember('views_products', now()->addMonths(6), function () { 
-            return Product::with([
-                    'product_price:id,product_id,final_price,price_reciente' // Cargar precios solo si se necesitan
-                ])
-                ->select('id', 'name', 'slug') // Campos mínimos del producto
-                ->withCount('views') // Contar las vistas
-                ->orderByDesc('views_count') // Ordenar por popularidad
-                ->take(6)
-                ->get();
-        });
-        
+        $views_products = Product::with([
+            'product_price:id,product_id,final_price,price_reciente' // Cargar precios solo si se necesitan
+        ])
+        ->select('id', 'name', 'slug') // Campos mínimos del producto
+        ->withCount('views') // Contar las vistas
+        ->orderByDesc('views_count') // Ordenar por popularidad
+        ->take(6)
+        ->get();
+    
         // Lazy load cuando necesites las imágenes
         $views_products->load(['mainImage']);
+    
         
         
         

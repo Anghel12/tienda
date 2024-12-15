@@ -54,14 +54,14 @@
             @endforeach
 
             <!-- Campo para agregar nueva imagen -->
-            <div class="form-group mb-3">
+        {{--     <div class="form-group mb-3">
             <label class="text-white">Nueva URL de Imagen:</label>
             <textarea name="urls[]" class="form-control" rows="1"></textarea>
             <div class="form-check">
                 <input type="radio" id="new_main_image" name="main_image_id" value="new" class="form-check-input">
                 <label for="new_main_image" class="form-check-label text-white">Imagen principal</label>
             </div>
-            </div>
+            </div> --}}
 
 
         </div>

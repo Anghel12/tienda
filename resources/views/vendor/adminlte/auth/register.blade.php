@@ -111,7 +111,7 @@
                       or
                     </p>
                   </div>
-                  <div class="col-3 ms-auto px-1">
+            {{--       <div class="col-3 ms-auto px-1">
                     <a class="btn btn-outline-light w-100 px-3" href="{{route('facebook-auth')}}">
                       <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -148,7 +148,7 @@
                         </g>
                       </svg>
                     </a>
-                  </div>
+                  </div> --}}
                 </div>
                 <p class="text-sm text-center mt-3 mb-0">Tienes una Cuenta? <a
                     href="{{ $login_url }}" class="text-dark font-weight-bolder">Login</a></p>

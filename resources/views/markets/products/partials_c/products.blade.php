@@ -41,7 +41,7 @@
               {{-- <p>Vistas: {{ $product->views->count() }}</p> --}}
               {{-- <p class="fs--1 text-1000 fs--1 mb-2 fw-bold text-truncate text-white" style="max-width: 300px;">{!!
                 $product->extract !!}</p>
-              --}} <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">Marca:{{$product->brand->title ?? 1}} </p>
+              --}} {{-- <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">Marca:{{$product->brand->title ?? 1}} </p> --}}
 
               {{-- <p class="fs--1 text-700 fs--1 mb-2">Categoria: {{$product->Category->name}}</p> --}}
 
