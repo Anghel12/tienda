@@ -25,7 +25,7 @@ class PaymentController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'amount' => 'required|numeric|min:1',
-            'coin_id' => 'required|exists:coins,id',
+            /* 'coin_id' => 'required|exists:coins,id', */
             'payment_method' => 'required',
         ]);
 
@@ -105,7 +105,7 @@ class PaymentController extends Controller
         $transaction = Transaction::create([
             'user_id' => $user->id,
             'amount' => $request->input('amount'),
-            'coin_id' => $request->input('coin_id'),
+            'coin_id' => 1/* $request->input('coin_id') */,
             'type' => 'El vaucher se envio exitosamente',
             'status' => 'pending',
             'price' => $request->input('amount'),

@@ -9,6 +9,8 @@
   <title>{{ config('app.name', 'Cyber-Ecotienda') }}</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8114335291355852"
     crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-8114335291355852">
+
   <!-- Sección para metadatos dinámicos -->
   <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 

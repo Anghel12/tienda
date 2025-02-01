@@ -74,7 +74,7 @@ class Handler extends ExceptionHandler
         }
     
         // Para el error 422 (Entidad no procesable, usualmente validación de formulario)
-        if ($exception instanceof \Illuminate\Validation\ValidationException) {
+         if ($exception instanceof \Illuminate\Validation\ValidationException) {
             return response()->view('errors.422', [], 422);
         }
     

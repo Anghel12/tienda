@@ -28,7 +28,7 @@
             <div class="card z-index-2 border-radius-xl py-3 blur shadow-blur">
                 <form class="form" action="{{ route('purchase.coins') }}" method="POST" id="payment-form">
                     @csrf
-                    <div class="text-center card-header text-center">
+                    <div class="text-center card-header">
                         <h2>Depositar a mi Cuenta:</h2>
                     </div>
                 

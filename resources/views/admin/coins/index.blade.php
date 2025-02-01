@@ -60,7 +60,7 @@
                     </div><button class="btn btn-sm btn-phoenix-secondary px-7 flex-shrink-0">More filters</button>
                   </div>
                 </div>
-                <div class="ms-xxl-auto"><button class="btn btn-link text-900 me-4 px-0"><span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><a href="{{ route('admin.coins.create', $coin->id ) }}" class="btn btn-primary" id="addBtn"><span class="fas fa-plus me-2"></span>Add Coins</a></div>
+                <div class="ms-xxl-auto"><button class="btn btn-link text-900 me-4 px-0"><span class="fa-solid fa-file-export fs--1 me-2"></span>Export</button><a href="{{ route('admin.coins.create' ) }}" class="btn btn-primary" id="addBtn"><span class="fas fa-plus me-2"></span>Add Coins</a></div>
               </div>
             </div>
             <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white border-top border-bottom border-200 position-relative top-1">

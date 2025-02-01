@@ -7,7 +7,7 @@
 
 <section class="py-2">
   <div class="container pt-8">
-    <div class="row justify-content-center align-items-center"style="height: 100%; padding-top: 2rem;">
+    <div class="row justify-content-center align-items-center"style="height: 100%; padding-top: 5rem;">
       <div class="col-lg-12 col-md-10 ">
 
  
@@ -23,13 +23,17 @@
 
                 <div class="form-group ">
                     <label>Imágenes actuales:</label>
-                    <div class="card col-1">
+                    <div class="card col-12">
                         @if($order->images)
                         {{--     @foreach($order->images as $image) --}}
-                                <img style="height: 80px" class="image-fluid" src="{{ asset('storage/' . $order->images->url)}}" alt="{{ asset('storage/' . $order->name) }}">
-
-                                <img style="height: 40px" class="w-10 h-10 rounded-full mr-4" src="{{ Storage::url($order->images->url) }}" alt="Imagen actual">
-                          {{--   @endforeach --}}
+                        <img style="height: 80px" class="image-fluid" 
+                        src="{{ secure_asset('storage/OrderVoucher/' . $order->images->url) }}" 
+                        alt="{{ secure_asset('storage/OrderVoucher/' . $order->images->url) }}">
+                   
+                        <img style="height: 40px" class="w-10 h-10 rounded-full mr-4" 
+     src="{{ Storage::url('OrderVoucher/' . $order->images->url) }}" 
+     alt="{{ $order->images->url }}">
+  {{--   @endforeach --}}
                         @else
                             Subir Imagen
                          
